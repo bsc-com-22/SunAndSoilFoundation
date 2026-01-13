@@ -14,63 +14,65 @@
     <!-- Styles -->
     <link rel="stylesheet" href="css/styles.css">
     
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+    
     <!-- Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
 </head>
-<body class="bg-background text-foreground font-sans antialiased">
+<body>
 
     <!-- Navbar -->
-    <header class="fixed top-0 left-0 right-0 z-50 bg-card/95 backdrop-blur-md border-b border-border">
-        <div class="container mx-auto px-4">
-            <nav class="flex items-center justify-between h-16 lg:h-20">
+    <header class="site-header">
+        <div class="container">
+            <nav class="nav-container">
                 <!-- Logo -->
-                <a href="index.html" class="flex items-center gap-2 group">
-                    <div class="flex flex-col">
-                        <span class="font-heading text-lg font-bold text-primary leading-tight">
-                            Sun & Soil
-                        </span>
-                        <span class="text-xs text-muted-foreground -mt-1">Foundation</span>
-                    </div>
+                <a href="index.html" class="nav-logo">
+                    <img src="assets/SUN AND SOIL LOGO.png" alt="Sun & Soil Foundation" class="nav-logo-img">
                 </a>
 
                 <!-- Desktop Navigation -->
-                <div class="hidden lg:flex items-center gap-1">
-                    <a href="index.html" class="px-3 py-2 text-sm font-medium rounded-lg transition-colors text-primary bg-muted">Home</a>
-                    <a href="about.html" class="px-3 py-2 text-sm font-medium rounded-lg transition-colors text-muted-foreground hover:text-primary hover:bg-muted/50">About Us</a>
-                    <a href="programs.html" class="px-3 py-2 text-sm font-medium rounded-lg transition-colors text-muted-foreground hover:text-primary hover:bg-muted/50">Our Programs</a>
-                    <a href="projects.html" class="px-3 py-2 text-sm font-medium rounded-lg transition-colors text-muted-foreground hover:text-primary hover:bg-muted/50">Projects & Impact</a>
-
-                    <a href="partners.html" class="px-3 py-2 text-sm font-medium rounded-lg transition-colors text-muted-foreground hover:text-primary hover:bg-muted/50">Partners</a>
-                    <a href="contact.html" class="px-3 py-2 text-sm font-medium rounded-lg transition-colors text-muted-foreground hover:text-primary hover:bg-muted/50">Contact</a>
+                <div class="nav-links-desktop">
+                    <a href="index.html" class="nav-link active">Home</a>
+                    <a href="about.html" class="nav-link">About Us</a>
+                    <a href="programs.html" class="nav-link">Our Programs</a>
+                    <a href="projects.html" class="nav-link">Projects & Impact</a>
+                    <a href="partners.html" class="nav-link">Partners</a>
+                    <a href="contact.html" class="nav-link">Contact</a>
                 </div>
 
                 <!-- CTA Button -->
-                <div class="hidden lg:block">
-                    <a href="contact.html" class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-lg text-sm font-semibold ring-offset-background transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 h-10 px-5 py-2 bg-accent text-accent-foreground hover:bg-gold-dark shadow-gold hover:shadow-lg font-bold">
+                <div class="nav-actions">
+                    <a href="contact.html" class="btn btn-accent">
                         Partner With Us
+                    </a>
+                    <a href="donate.html" class="btn btn-primary">
+                        Donate
                     </a>
                 </div>
 
                 <!-- Mobile Menu Button -->
-                <button class="lg:hidden p-2 rounded-lg hover:bg-muted transition-colors" aria-label="Toggle menu">
-                    <i data-lucide="menu" class="w-6 h-6 text-foreground menu-icon"></i>
-                    <i data-lucide="x" class="w-6 h-6 text-foreground close-icon hidden"></i>
+                <button class="mobile-menu-btn" aria-label="Toggle menu">
+                    <i data-lucide="menu" class="w-6 h-6 menu-icon"></i>
+                    <i data-lucide="x" class="w-6 h-6 close-icon hidden"></i>
                 </button>
             </nav>
 
             <!-- Mobile Navigation -->
-            <div class="mobile-menu hidden lg:hidden py-4 border-t border-border animate-fade-in">
+            <div class="mobile-menu hidden">
                 <div class="flex flex-col gap-1">
-                    <a href="index.html" class="px-4 py-3 text-sm font-medium rounded-lg transition-colors text-primary bg-muted">Home</a>
-                    <a href="about.html" class="px-4 py-3 text-sm font-medium rounded-lg transition-colors text-muted-foreground hover:text-primary hover:bg-muted/50">About Us</a>
-                    <a href="programs.html" class="px-4 py-3 text-sm font-medium rounded-lg transition-colors text-muted-foreground hover:text-primary hover:bg-muted/50">Our Programs</a>
-                    <a href="projects.html" class="px-4 py-3 text-sm font-medium rounded-lg transition-colors text-muted-foreground hover:text-primary hover:bg-muted/50">Projects & Impact</a>
-
-                    <a href="partners.html" class="px-4 py-3 text-sm font-medium rounded-lg transition-colors text-muted-foreground hover:text-primary hover:bg-muted/50">Partners</a>
-                    <a href="contact.html" class="px-4 py-3 text-sm font-medium rounded-lg transition-colors text-muted-foreground hover:text-primary hover:bg-muted/50">Contact</a>
-                    <div class="pt-4 px-4">
-                        <a href="contact.html" class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-lg text-sm font-semibold ring-offset-background transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 w-full h-12 rounded-xl px-8 text-base bg-accent text-accent-foreground hover:bg-gold-dark shadow-gold hover:shadow-lg font-bold">
+                    <a href="index.html" class="mobile-nav-link active">Home</a>
+                    <a href="about.html" class="mobile-nav-link">About Us</a>
+                    <a href="programs.html" class="mobile-nav-link">Our Programs</a>
+                    <a href="projects.html" class="mobile-nav-link">Projects & Impact</a>
+                    <a href="partners.html" class="mobile-nav-link">Partners</a>
+                    <a href="contact.html" class="mobile-nav-link">Contact</a>
+                    <div class="pt-4 px-4 space-y-3">
+                        <a href="contact.html" class="btn btn-accent w-full">
                             Partner With Us
+                        </a>
+                        <a href="donate.html" class="btn btn-primary w-full">
+                            Donate
                         </a>
                     </div>
                 </div>
@@ -79,232 +81,182 @@
     </header>
 
     <!-- Hero Section -->
-    <section class="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
-        <div class="absolute inset-0 bg-cover bg-center bg-no-repeat" style="background-image: url('assets/hero-farming.jpg')"></div>
-        <div class="absolute inset-0 gradient-overlay"></div>
+    <section class="hero-section">
+        <div class="hero-bg" style="background-image: url('assets/hero-farming.jpg')"></div>
+        <div class="hero-overlay"></div>
         
-        <div class="container relative z-10 pt-32 px-4">
-            <div class="max-w-3xl mx-auto text-center text-primary-foreground">
-                <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent/20 backdrop-blur-sm text-accent font-medium text-sm mb-6 animate-fade-up">
-                    <i data-lucide="sun" class="w-4 h-4"></i>
-                    Empowering Malawi's Farmers
-                </span>
-                
-                <h1 class="font-heading text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight animate-fade-up" style="animation-delay: 0.1s">
-                    Powering Malawi’s Food Future Through <span class="text-accent">Solar Agriculture</span> and Climate-Resilient Livelihoods
-                </h1>
-                
-                <p class="text-lg md:text-xl text-primary-foreground/90 mb-10 leading-relaxed animate-fade-up max-w-2xl mx-auto" style="animation-delay: 0.2s">
-                    Through solar-powered irrigation and climate-smart agriculture, 
-                    we're transforming rural livelihoods and building resilient communities 
-                    across Malawi.
-                </p>
-                
-                <div class="flex flex-col sm:flex-row gap-4 justify-center animate-fade-up" style="animation-delay: 0.3s">
-                    <a href="programs.html" class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-lg ring-offset-background transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-accent text-accent-foreground hover:bg-gold-dark shadow-gold hover:shadow-lg font-bold text-base h-14 rounded-xl px-10 text-lg">
-                        Our Programs
-                        <i data-lucide="arrow-right" class="w-5 h-5"></i>
-                    </a>
-                    <a href="projects.html" class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-lg ring-offset-background transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border-2 border-primary-foreground/80 bg-transparent text-primary-foreground hover:bg-primary-foreground/10 font-semibold h-14 rounded-xl px-10 text-lg">
-                        Projects & Impact
-                    </a>
-                </div>
+        <div class="container hero-content">
+            <span class="hero-badge">
+                <i data-lucide="sun" class="w-4 h-4"></i>
+                Empowering Malawi's Farmers
+            </span>
+            
+            <h1 class="hero-title">
+                Powering Malawi’s Food Future Through <span class="text-accent">Solar Agriculture</span> and Climate-Resilient Livelihoods
+            </h1>
+            
+            <p class="hero-description">
+                Through solar-powered irrigation and climate-smart agriculture, 
+                we're transforming rural livelihoods and building resilient communities 
+                across Malawi.
+            </p>
+            
+            <div class="hero-actions">
+                <a href="programs.html" class="btn btn-accent btn-lg">
+                    Our Programs
+                    <i data-lucide="arrow-right" class="w-5 h-5"></i>
+                </a>
+                <a href="projects.html" class="btn btn-outline btn-lg">
+                    Projects & Impact
+                </a>
             </div>
         </div>
 
         <!-- Scroll indicator -->
-        <div class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
-            <div class="w-8 h-12 rounded-full border-2 border-primary-foreground/30 flex items-start justify-center p-2">
-                <div class="w-1.5 h-3 rounded-full bg-accent"></div>
+        <div class="scroll-indicator">
+            <div class="scroll-mouse">
+                <div class="scroll-dot"></div>
             </div>
         </div>
     </section>
 
-    <!-- Stats Section -->
-    <section class="py-12 bg-primary">
-        <div class="container px-4">
-            <div class="grid grid-cols-2 lg:grid-cols-4 gap-8">
-                <div class="text-center">
-                    <div class="font-heading text-3xl md:text-4xl font-bold text-accent mb-1">5,000+</div>
-                    <div class="text-sm text-primary-foreground/80">Farmers Reached</div>
+    <!-- Impact Snapshot -->
+    <section class="stats-section">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-value">10</div>
+                    <div class="stat-label">Farmers Directly Supported</div>
                 </div>
-                <div class="text-center">
-                    <div class="font-heading text-3xl md:text-4xl font-bold text-accent mb-1">12</div>
-                    <div class="text-sm text-primary-foreground/80">Districts Covered</div>
+                <div class="stat-item">
+                    <div class="stat-value">85</div>
+                    <div class="stat-label">People Trained</div>
                 </div>
-                <div class="text-center">
-                    <div class="font-heading text-3xl md:text-4xl font-bold text-accent mb-1">150+</div>
-                    <div class="text-sm text-primary-foreground/80">Solar Systems Installed</div>
+                <div class="stat-item">
+                    <div class="stat-value">100%</div>
+                    <div class="stat-label">Solar-Powered Systems</div>
                 </div>
-                <div class="text-center">
-                    <div class="font-heading text-3xl md:text-4xl font-bold text-accent mb-1">2,500</div>
-                    <div class="text-sm text-primary-foreground/80">Hectares Irrigated</div>
+                <div class="stat-item">
+                    <div class="stat-value">50K</div>
+                    <div class="stat-label">Target by 2030</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- The Challenge We Address -->
-    <section class="py-20 lg:py-28 bg-muted/30">
-        <div class="container px-4">
-            <div class="text-center mb-16">
-                <span class="text-accent font-semibold text-sm uppercase tracking-wider">The Context</span>
-                <h2 class="font-heading text-3xl md:text-4xl font-bold text-foreground mt-2 mb-4">
-                    The Challenge We Address
+    <!-- What We Do -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">What We Do</span>
+                <h2 class="section-title">
+                    Transforming Agriculture Through Innovation
                 </h2>
-                <p class="text-muted-foreground max-w-2xl mx-auto">
-                    A Food System Under Pressure
-                </p>
-            </div>
-
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
-                <!-- Stat 1 -->
-                <div class="bg-card rounded-2xl p-8 shadow-card hover:shadow-card-hover transition-shadow text-center">
-                    <div class="font-heading text-4xl font-bold text-primary mb-2">80%</div>
-                    <p class="text-muted-foreground">Of Malawians depend on agriculture for survival.</p>
-                </div>
-                <!-- Stat 2 -->
-                <div class="bg-card rounded-2xl p-8 shadow-card hover:shadow-card-hover transition-shadow text-center">
-                    <div class="font-heading text-4xl font-bold text-primary mb-2">18.2%</div>
-                    <p class="text-muted-foreground">More than 4 million people face annual food insecurity (2025/26).</p>
-                </div>
-                <!-- Stat 3 -->
-                <div class="bg-card rounded-2xl p-8 shadow-card hover:shadow-card-hover transition-shadow text-center">
-                    <div class="font-heading text-4xl font-bold text-primary mb-2">51%</div>
-                    <p class="text-muted-foreground">of households remain below the poverty line.</p>
-                </div>
-            </div>
-
-            <div class="grid md:grid-cols-2 gap-12 items-center">
-                <div>
-                    <h3 class="font-heading text-2xl font-bold text-foreground mb-6">Microeconomic Pressures</h3>
-                    <ul class="space-y-4">
-                        <li class="flex items-start gap-3">
-                            <div class="w-6 h-6 rounded-full bg-destructive/10 flex items-center justify-center flex-shrink-0 mt-0.5">
-                                <i data-lucide="alert-circle" class="w-4 h-4 text-destructive"></i>
-                            </div>
-                            <span class="text-muted-foreground">Rising input prices (fertilizer, pesticides, seeds).</span>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <div class="w-6 h-6 rounded-full bg-destructive/10 flex items-center justify-center flex-shrink-0 mt-0.5">
-                                <i data-lucide="alert-circle" class="w-4 h-4 text-destructive"></i>
-                            </div>
-                            <span class="text-muted-foreground">High fuel and transport costs are limiting mechanization.</span>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <div class="w-6 h-6 rounded-full bg-destructive/10 flex items-center justify-center flex-shrink-0 mt-0.5">
-                                <i data-lucide="alert-circle" class="w-4 h-4 text-destructive"></i>
-                            </div>
-                            <span class="text-muted-foreground">Limited access to credit and affordable financing.</span>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <div class="w-6 h-6 rounded-full bg-destructive/10 flex items-center justify-center flex-shrink-0 mt-0.5">
-                                <i data-lucide="alert-circle" class="w-4 h-4 text-destructive"></i>
-                            </div>
-                            <span class="text-muted-foreground">Market informality and weak negotiation power.</span>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <div class="w-6 h-6 rounded-full bg-destructive/10 flex items-center justify-center flex-shrink-0 mt-0.5">
-                                <i data-lucide="alert-circle" class="w-4 h-4 text-destructive"></i>
-                            </div>
-                            <span class="text-muted-foreground">Climate shocks: droughts, dry spells, erratic rainfall.</span>
-                        </li>
-                    </ul>
-                </div>
-                
-                <div class="bg-card rounded-2xl p-8 border border-border">
-                    <h3 class="font-heading text-xl font-bold text-foreground mb-6 text-center">Irrigation Potential</h3>
-                    <div class="flex justify-center items-end gap-8 h-48 mb-4">
-                        <div class="w-24 bg-muted rounded-t-lg relative group h-full">
-                            <div class="absolute bottom-0 left-0 right-0 bg-primary/20 h-[30%] rounded-t-lg transition-all duration-500"></div>
-                            <div class="absolute -top-8 left-1/2 -translate-x-1/2 text-sm font-bold">30%</div>
-                            <div class="absolute bottom-2 left-1/2 -translate-x-1/2 text-xs text-muted-foreground whitespace-nowrap">Irrigated</div>
-                        </div>
-                        <div class="w-24 bg-muted rounded-t-lg relative group h-full">
-                            <div class="absolute bottom-0 left-0 right-0 bg-destructive/20 h-[70%] rounded-t-lg transition-all duration-500"></div>
-                            <div class="absolute -top-8 left-1/2 -translate-x-1/2 text-sm font-bold">70%</div>
-                            <div class="absolute bottom-2 left-1/2 -translate-x-1/2 text-xs text-muted-foreground whitespace-nowrap">Idle Land</div>
-                        </div>
-                    </div>
-                    <p class="text-center text-sm text-muted-foreground">
-                        Potential irrigation land: 400,000+ ha
-                    </p>
-                </div>
-            </div>
-        </div>
-
-    <!-- Programs Section -->
-    <section class="py-20 lg:py-28">
-        <div class="container px-4">
-            <div class="text-center mb-16">
-                <span class="text-accent font-semibold text-sm uppercase tracking-wider">What We Do</span>
-                <h2 class="font-heading text-3xl md:text-4xl font-bold text-foreground mt-2 mb-4">
-                    Our Programs
-                </h2>
-                <p class="text-muted-foreground max-w-2xl mx-auto">
-                    We work at the intersection of clean energy, sustainable agriculture, 
-                    and community development to create lasting change.
+                <p class="section-description">
+                    We combine solar technology, climate-smart practices, and community empowerment to create sustainable change.
                 </p>
             </div>
 
             <div class="grid md:grid-cols-3 gap-8">
                 <!-- Program 1 -->
-                <div class="group bg-card rounded-2xl overflow-hidden shadow-card hover:shadow-card-hover transition-all duration-300">
-                    <div class="aspect-[4/3] overflow-hidden">
-                        <img src="assets/program-solar.jpg" alt="Solar-Powered Irrigation" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                <div class="program-card">
+                    <div class="program-image-wrapper">
+                        <img src="assets/program-solar.jpg" alt="Solar-Powered Irrigation" class="program-image">
                     </div>
-                    <div class="p-6">
-                        <div class="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center mb-4">
+                    <div class="program-content">
+                        <div class="card-icon-wrapper">
                             <i data-lucide="sun" class="w-6 h-6 text-accent"></i>
                         </div>
-                        <h3 class="font-heading text-xl font-semibold text-foreground mb-2">
+                        <h3 class="card-title">
                             Solar-Powered Irrigation
                         </h3>
-                        <p class="text-muted-foreground text-sm leading-relaxed">
-                            Harnessing clean solar energy to power water pumps, enabling year-round farming and climate resilience.
+                        <p class="card-text mb-4">
+                            Harnessing clean energy to enable year-round farming, reduce fuel dependency, and increase household food security.
                         </p>
+                        <ul class="space-y-2">
+                            <li class="flex items-start gap-2 text-sm text-muted-foreground">
+                                <i data-lucide="check" class="w-4 h-4 text-accent flex-shrink-0 mt-0.5"></i>
+                                <span>Solar pump installation</span>
+                            </li>
+                            <li class="flex items-start gap-2 text-sm text-muted-foreground">
+                                <i data-lucide="check" class="w-4 h-4 text-accent flex-shrink-0 mt-0.5"></i>
+                                <span>Drip irrigation systems</span>
+                            </li>
+                            <li class="flex items-start gap-2 text-sm text-muted-foreground">
+                                <i data-lucide="check" class="w-4 h-4 text-accent flex-shrink-0 mt-0.5"></i>
+                                <span>Technical training & support</span>
+                            </li>
+                        </ul>
                     </div>
                 </div>
 
                 <!-- Program 2 -->
-                <div class="group bg-card rounded-2xl overflow-hidden shadow-card hover:shadow-card-hover transition-all duration-300">
-                    <div class="aspect-[4/3] overflow-hidden">
-                        <img src="assets/program-training.jpg" alt="Climate-Smart Agriculture" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                <div class="program-card">
+                    <div class="program-image-wrapper">
+                        <img src="assets/program-training.jpg" alt="Climate-Smart Agriculture" class="program-image">
                     </div>
-                    <div class="p-6">
-                        <div class="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center mb-4">
+                    <div class="program-content">
+                        <div class="card-icon-wrapper">
                             <i data-lucide="leaf" class="w-6 h-6 text-accent"></i>
                         </div>
-                        <h3 class="font-heading text-xl font-semibold text-foreground mb-2">
+                        <h3 class="card-title">
                             Climate-Smart Agriculture
                         </h3>
-                        <p class="text-muted-foreground text-sm leading-relaxed">
-                            Training farmers in sustainable techniques that boost yields while protecting the environment.
+                        <p class="card-text mb-4">
+                            Sustainable farming techniques that boost productivity while protecting the environment and building climate resilience.
                         </p>
+                        <ul class="space-y-2">
+                            <li class="flex items-start gap-2 text-sm text-muted-foreground">
+                                <i data-lucide="check" class="w-4 h-4 text-accent flex-shrink-0 mt-0.5"></i>
+                                <span>Soil health management</span>
+                            </li>
+                            <li class="flex items-start gap-2 text-sm text-muted-foreground">
+                                <i data-lucide="check" class="w-4 h-4 text-accent flex-shrink-0 mt-0.5"></i>
+                                <span>Water-efficient practices</span>
+                            </li>
+                            <li class="flex items-start gap-2 text-sm text-muted-foreground">
+                                <i data-lucide="check" class="w-4 h-4 text-accent flex-shrink-0 mt-0.5"></i>
+                                <span>Crop diversification</span>
+                            </li>
+                        </ul>
                     </div>
                 </div>
 
                 <!-- Program 3 -->
-                <div class="group bg-card rounded-2xl overflow-hidden shadow-card hover:shadow-card-hover transition-all duration-300">
-                    <div class="aspect-[4/3] overflow-hidden">
-                        <img src="assets/program-women.jpg" alt="Women & Youth Empowerment" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                <div class="program-card">
+                    <div class="program-image-wrapper">
+                        <img src="assets/program-women.jpg" alt="Inclusive Livelihoods" class="program-image">
                     </div>
-                    <div class="p-6">
-                        <div class="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center mb-4">
+                    <div class="program-content">
+                        <div class="card-icon-wrapper">
                             <i data-lucide="users" class="w-6 h-6 text-accent"></i>
                         </div>
-                        <h3 class="font-heading text-xl font-semibold text-foreground mb-2">
-                            Women & Youth Empowerment
+                        <h3 class="card-title">
+                            Inclusive Livelihoods
                         </h3>
-                        <p class="text-muted-foreground text-sm leading-relaxed">
-                            Building capacity and creating opportunities for women and young people in rural communities.
+                        <p class="card-text mb-4">
+                            Empowering women, youth, and vulnerable groups with skills, enterprise development, and sustainable financing.
                         </p>
+                        <ul class="space-y-2">
+                            <li class="flex items-start gap-2 text-sm text-muted-foreground">
+                                <i data-lucide="check" class="w-4 h-4 text-accent flex-shrink-0 mt-0.5"></i>
+                                <span>Capacity building & mindset change</span>
+                            </li>
+                            <li class="flex items-start gap-2 text-sm text-muted-foreground">
+                                <i data-lucide="check" class="w-4 h-4 text-accent flex-shrink-0 mt-0.5"></i>
+                                <span>Women & youth enterprise</span>
+                            </li>
+                            <li class="flex items-start gap-2 text-sm text-muted-foreground">
+                                <i data-lucide="check" class="w-4 h-4 text-accent flex-shrink-0 mt-0.5"></i>
+                                <span>Sustainable financing models</span>
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </div>
 
             <div class="text-center mt-12">
-                <a href="programs.html" class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-lg ring-offset-background transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 shadow-md hover:shadow-lg h-12 rounded-xl px-8 text-base">
+                <a href="programs.html" class="btn btn-primary btn-lg">
                     Explore All Programs
                     <i data-lucide="arrow-right" class="w-4 h-4"></i>
                 </a>
@@ -312,127 +264,241 @@
         </div>
     </section>
 
-    <!-- Values Section -->
-    <section class="py-20 bg-muted/50">
-        <div class="container px-4">
-            <div class="grid lg:grid-cols-2 gap-16 items-center">
-                <div>
-                    <span class="text-accent font-semibold text-sm uppercase tracking-wider">Why Partner With Us</span>
-                    <h2 class="font-heading text-3xl md:text-4xl font-bold text-foreground mt-2 mb-6">
-                        Driven by Impact, Rooted in Community
-                    </h2>
-                    <p class="text-muted-foreground leading-relaxed mb-8">
-                        Sun & Soil Foundation combines grassroots expertise with proven 
-                        methodologies to deliver measurable, sustainable outcomes. We believe 
-                        in working alongside communities to build local capacity and ensure 
-                        long-term success.
+    <!-- The Challenge -->
+    <section class="section bg-muted-light">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">The Context</span>
+                <h2 class="section-title">
+                    Why This Work Matters
+                </h2>
+                <p class="section-description">
+                    Malawi's agricultural sector faces unprecedented challenges that threaten food security and livelihoods.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6 mb-12">
+                <div class="card text-center">
+                    <div class="text-5xl font-bold text-primary mb-3">80%</div>
+                    <p class="text-muted-foreground">of Malawians depend on agriculture for survival</p>
+                </div>
+                <div class="card text-center">
+                    <div class="text-5xl font-bold text-primary mb-3">18.2%</div>
+                    <p class="text-muted-foreground">face food insecurity annually (4 million+ people, 2025/26)</p>
+                </div>
+                <div class="card text-center">
+                    <div class="text-5xl font-bold text-primary mb-3">51%</div>
+                    <p class="text-muted-foreground">of households remain below the poverty line</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div>
+                        <h3 class="text-xl font-bold mb-4 flex items-center gap-2">
+                            <i data-lucide="alert-triangle" class="w-5 h-5 text-destructive"></i>
+                            Key Challenges
+                        </h3>
+                        <ul class="space-y-3">
+                            <li class="flex items-start gap-3">
+                                <i data-lucide="droplet" class="w-5 h-5 text-primary flex-shrink-0 mt-0.5"></i>
+                                <span class="text-sm text-muted-foreground">Erratic rainfall and prolonged droughts</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i data-lucide="trending-up" class="w-5 h-5 text-primary flex-shrink-0 mt-0.5"></i>
+                                <span class="text-sm text-muted-foreground">Rising costs of inputs and fuel</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i data-lucide="coins" class="w-5 h-5 text-primary flex-shrink-0 mt-0.5"></i>
+                                <span class="text-sm text-muted-foreground">Limited access to credit and markets</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i data-lucide="thermometer-sun" class="w-5 h-5 text-primary flex-shrink-0 mt-0.5"></i>
+                                <span class="text-sm text-muted-foreground">Climate change impacts intensifying</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold mb-4 flex items-center gap-2">
+                            <i data-lucide="lightbulb" class="w-5 h-5 text-accent"></i>
+                            Our Solution
+                        </h3>
+                        <ul class="space-y-3">
+                            <li class="flex items-start gap-3">
+                                <i data-lucide="check-circle" class="w-5 h-5 text-accent flex-shrink-0 mt-0.5"></i>
+                                <span class="text-sm text-muted-foreground">Solar irrigation for year-round farming</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i data-lucide="check-circle" class="w-5 h-5 text-accent flex-shrink-0 mt-0.5"></i>
+                                <span class="text-sm text-muted-foreground">Climate-smart techniques to boost yields</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i data-lucide="check-circle" class="w-5 h-5 text-accent flex-shrink-0 mt-0.5"></i>
+                                <span class="text-sm text-muted-foreground">Training and capacity building programs</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i data-lucide="check-circle" class="w-5 h-5 text-accent flex-shrink-0 mt-0.5"></i>
+                                <span class="text-sm text-muted-foreground">Community-led sustainable development</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How We Work -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Our Approach</span>
+                <h2 class="section-title">
+                    How We Create Lasting Change
+                </h2>
+                <p class="section-description">
+                    A proven methodology that combines technology, training, and community engagement.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-4 gap-6">
+                <div class="card text-center">
+                    <div class="w-12 h-12 rounded-full bg-accent/10 flex items-center justify-center mx-auto mb-4">
+                        <span class="text-2xl font-bold text-accent">1</span>
+                    </div>
+                    <h3 class="font-bold mb-2">Assess</h3>
+                    <p class="text-sm text-muted-foreground">Community needs analysis and site evaluation</p>
+                </div>
+                <div class="card text-center">
+                    <div class="w-12 h-12 rounded-full bg-accent/10 flex items-center justify-center mx-auto mb-4">
+                        <span class="text-2xl font-bold text-accent">2</span>
+                    </div>
+                    <h3 class="font-bold mb-2">Install</h3>
+                    <p class="text-sm text-muted-foreground">Solar systems and irrigation infrastructure</p>
+                </div>
+                <div class="card text-center">
+                    <div class="w-12 h-12 rounded-full bg-accent/10 flex items-center justify-center mx-auto mb-4">
+                        <span class="text-2xl font-bold text-accent">3</span>
+                    </div>
+                    <h3 class="font-bold mb-2">Train</h3>
+                    <p class="text-sm text-muted-foreground">Hands-on capacity building and skill development</p>
+                </div>
+                <div class="card text-center">
+                    <div class="w-12 h-12 rounded-full bg-accent/10 flex items-center justify-center mx-auto mb-4">
+                        <span class="text-2xl font-bold text-accent">4</span>
+                    </div>
+                    <h3 class="font-bold mb-2">Support</h3>
+                    <p class="text-sm text-muted-foreground">Ongoing monitoring and technical assistance</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Partner With Us -->
+    <section class="section bg-primary text-primary-foreground">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Why Partner With Us</span>
+                <h2 class="section-title text-primary-foreground">
+                    Proven Impact, Sustainable Results
+                </h2>
+                <p class="section-description text-primary-foreground/80">
+                    We combine grassroots expertise with proven methodologies to deliver measurable outcomes.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="card bg-primary-foreground/5 border-none backdrop-blur-sm">
+                    <div class="card-icon-wrapper bg-accent/20">
+                        <i data-lucide="target" class="w-6 h-6 text-accent"></i>
+                    </div>
+                    <h3 class="card-title text-primary-foreground">Impact-Driven</h3>
+                    <p class="card-text text-primary-foreground/80">
+                        Every project is designed and measured by real-world outcomes and community transformation.
                     </p>
-
-                    <div class="space-y-6">
-                        <div class="flex gap-4">
-                            <div class="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center flex-shrink-0">
-                                <i data-lucide="target" class="w-6 h-6 text-accent"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-semibold text-foreground mb-1">Impact-Driven</h4>
-                                <p class="text-sm text-muted-foreground">Every action is measured by its real-world outcomes</p>
-                            </div>
-                        </div>
-                        <div class="flex gap-4">
-                            <div class="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center flex-shrink-0">
-                                <i data-lucide="globe" class="w-6 h-6 text-accent"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-semibold text-foreground mb-1">Climate-Focused</h4>
-                                <p class="text-sm text-muted-foreground">Sustainability at the heart of all our programs</p>
-                            </div>
-                        </div>
-                        <div class="flex gap-4">
-                            <div class="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center flex-shrink-0">
-                                <i data-lucide="heart" class="w-6 h-6 text-accent"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-semibold text-foreground mb-1">Community-Rooted</h4>
-                                <p class="text-sm text-muted-foreground">Working alongside communities, not above them</p>
-                            </div>
-                        </div>
-                    </div>
                 </div>
-
-                <div class="relative">
-                    <div class="aspect-square rounded-2xl overflow-hidden">
-                        <img src="assets/program-women.jpg" alt="Community empowerment" class="w-full h-full object-cover">
+                <div class="card bg-primary-foreground/5 border-none backdrop-blur-sm">
+                    <div class="card-icon-wrapper bg-accent/20">
+                        <i data-lucide="users" class="w-6 h-6 text-accent"></i>
                     </div>
-                    <div class="absolute -bottom-6 -left-6 bg-card rounded-2xl p-6 shadow-xl max-w-xs">
-                        <div class="flex items-center gap-3 mb-3">
-                            <div class="w-10 h-10 rounded-full bg-accent flex items-center justify-center">
-                                <i data-lucide="droplets" class="w-5 h-5 text-primary"></i>
-                            </div>
-                            <span class="font-semibold text-foreground">Our Commitment</span>
-                        </div>
-                        <p class="text-sm text-muted-foreground">
-                            Every solar pump installed creates ripples of change that 
-                            transform entire communities.
-                        </p>
-                    </div>
+                    <h3 class="card-title text-primary-foreground">Community-Rooted</h3>
+                    <p class="card-text text-primary-foreground/80">
+                        We work alongside communities, building local capacity and ensuring long-term sustainability.
+                    </p>
                 </div>
+                <div class="card bg-primary-foreground/5 border-none backdrop-blur-sm">
+                    <div class="card-icon-wrapper bg-accent/20">
+                        <i data-lucide="globe" class="w-6 h-6 text-accent"></i>
+                    </div>
+                    <h3 class="card-title text-primary-foreground">Climate-Focused</h3>
+                    <p class="card-text text-primary-foreground/80">
+                        Sustainability and environmental stewardship are at the heart of everything we do.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonial/Quote -->
+    <section class="section bg-muted-light">
+        <div class="container">
+            <div class="max-w-2xl mx-auto text-center">
+                <div class="w-16 h-16 rounded-full bg-accent/10 flex items-center justify-center mx-auto mb-6">
+                    <i data-lucide="quote" class="w-8 h-8 text-accent"></i>
+                </div>
+                <blockquote class="text-2xl md:text-3xl font-bold text-foreground mb-6">
+                    "When you give a farmer water, you give their family a future."
+                </blockquote>
+                <p class="text-muted-foreground">— Sun & Soil Foundation</p>
             </div>
         </div>
     </section>
 
     <!-- CTA Section -->
-    <section class="py-20 gradient-hero">
-        <div class="container px-4">
-            <div class="max-w-3xl mx-auto text-center text-primary-foreground">
-                <h2 class="font-heading text-3xl md:text-4xl font-bold mb-4">
-                    Partner With Us to Create Lasting Impact
-                </h2>
-                <p class="text-primary-foreground/80 mb-8 max-w-xl mx-auto">
-                    Join us in our mission to power Malawi's food future. Together, 
-                    we can transform rural livelihoods and build climate-resilient communities.
-                </p>
-                <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                    <a href="contact.html" class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-lg ring-offset-background transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-accent text-accent-foreground hover:bg-gold-dark shadow-gold hover:shadow-lg font-bold text-base h-12 rounded-xl px-8 text-lg">
-                        Get in Touch
-                        <i data-lucide="arrow-right" class="w-4 h-4"></i>
-                    </a>
-                    <a href="about.html" class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-lg ring-offset-background transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border-2 border-primary-foreground/80 bg-transparent text-primary-foreground hover:bg-primary-foreground/10 font-semibold h-12 rounded-xl px-8 text-lg">
-                        Learn About Us
-                    </a>
-                </div>
+    <section class="cta-section">
+        <div class="container">
+            <h2 class="cta-title">
+                Join Us in Transforming Rural Malawi
+            </h2>
+            <p class="cta-text">
+                Partner with us to empower farmers, build climate resilience, and create sustainable livelihoods across Malawi.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="donate.html" class="btn btn-accent btn-lg">
+                    Make a Donation
+                    <i data-lucide="heart" class="w-4 h-4"></i>
+                </a>
+                <a href="contact.html" class="btn btn-outline btn-lg">
+                    Partner With Us
+                    <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                </a>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="bg-primary text-primary-foreground">
-        <div class="container mx-auto py-16 px-4">
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
                 <!-- Brand -->
-                <div class="space-y-4">
-                    <a href="index.html" class="flex items-center gap-2">
-                        <div class="flex flex-col">
-                            <span class="font-heading text-lg font-bold leading-tight">
-                                Sun & Soil
-                            </span>
-                            <span class="text-xs text-primary-foreground/70 -mt-1">Foundation</span>
-                        </div>
+                <div class="footer-brand">
+                    <a href="index.html" class="nav-logo">
+                        <img src="assets/SUN AND SOIL LOGO.png" alt="Sun & Soil Foundation" class="footer-logo-img">
                     </a>
-                    <p class="text-primary-foreground/80 text-sm leading-relaxed">
+                    <p>
                         Powering Malawi's food future through solar-powered irrigation, 
                         climate-smart agriculture, and sustainable rural livelihoods.
                     </p>
-                    <div class="flex gap-3">
-                        <a href="#" class="w-9 h-9 rounded-full bg-primary-foreground/10 hover:bg-accent hover:text-primary flex items-center justify-center transition-colors">
+                    <div class="social-links">
+                        <a href="#" class="social-link">
                             <i data-lucide="facebook" class="w-4 h-4"></i>
                         </a>
-                        <a href="#" class="w-9 h-9 rounded-full bg-primary-foreground/10 hover:bg-accent hover:text-primary flex items-center justify-center transition-colors">
+                        <a href="#" class="social-link">
                             <i data-lucide="twitter" class="w-4 h-4"></i>
                         </a>
-                        <a href="#" class="w-9 h-9 rounded-full bg-primary-foreground/10 hover:bg-accent hover:text-primary flex items-center justify-center transition-colors">
+                        <a href="#" class="social-link">
                             <i data-lucide="linkedin" class="w-4 h-4"></i>
                         </a>
-                        <a href="#" class="w-9 h-9 rounded-full bg-primary-foreground/10 hover:bg-accent hover:text-primary flex items-center justify-center transition-colors">
+                        <a href="#" class="social-link">
                             <i data-lucide="instagram" class="w-4 h-4"></i>
                         </a>
                     </div>
@@ -440,58 +506,55 @@
 
                 <!-- Quick Links -->
                 <div>
-                    <h4 class="font-heading text-lg font-semibold mb-4">Quick Links</h4>
-                    <ul class="space-y-2">
-                        <li><a href="about.html" class="text-sm text-primary-foreground/80 hover:text-accent transition-colors">About Us</a></li>
-                        <li><a href="programs.html" class="text-sm text-primary-foreground/80 hover:text-accent transition-colors">Our Programs</a></li>
-                        <li><a href="projects.html" class="text-sm text-primary-foreground/80 hover:text-accent transition-colors">Projects & Impact</a></li>
-                        <li><a href="team.html" class="text-sm text-primary-foreground/80 hover:text-accent transition-colors">Our Team</a></li>
-                        <li><a href="partners.html" class="text-sm text-primary-foreground/80 hover:text-accent transition-colors">Partners</a></li>
+                    <h4 class="footer-heading">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="about.html" class="footer-link">About Us</a></li>
+                        <li><a href="programs.html" class="footer-link">Our Programs</a></li>
+                        <li><a href="projects.html" class="footer-link">Projects & Impact</a></li>
+                        <li><a href="partners.html" class="footer-link">Partners</a></li>
                     </ul>
                 </div>
 
                 <!-- Programs -->
                 <div>
-                    <h4 class="font-heading text-lg font-semibold mb-4">Our Programs</h4>
-                    <ul class="space-y-2">
-                        <li><a href="programs.html" class="text-sm text-primary-foreground/80 hover:text-accent transition-colors">Solar-Powered Irrigation</a></li>
-                        <li><a href="programs.html" class="text-sm text-primary-foreground/80 hover:text-accent transition-colors">Climate-Smart Agriculture</a></li>
-                        <li><a href="programs.html" class="text-sm text-primary-foreground/80 hover:text-accent transition-colors">Capacity Building</a></li>
-                        <li><a href="programs.html" class="text-sm text-primary-foreground/80 hover:text-accent transition-colors">Women & Youth Empowerment</a></li>
+                    <h4 class="footer-heading">Our Programs</h4>
+                    <ul class="footer-links">
+                        <li><a href="programs.html" class="footer-link">Solar-Powered Irrigation</a></li>
+                        <li><a href="programs.html" class="footer-link">Climate-Smart Agriculture</a></li>
+                        <li><a href="programs.html" class="footer-link">Capacity Building</a></li>
+                        <li><a href="programs.html" class="footer-link">Women & Youth Empowerment</a></li>
                     </ul>
                 </div>
 
                 <!-- Contact -->
                 <div>
-                    <h4 class="font-heading text-lg font-semibold mb-4">Contact Us</h4>
-                    <ul class="space-y-3">
+                    <h4 class="footer-heading">Contact Us</h4>
+                    <ul class="footer-links">
                         <li class="flex items-start gap-3">
                             <i data-lucide="map-pin" class="w-4 h-4 mt-0.5 text-accent flex-shrink-0"></i>
-                            <span class="text-sm text-primary-foreground/80">Area 49, Sector 5, Plot 131, Lilongwe</span>
+                            <span class="footer-link">Kaphiri, Area 36, Lilongwe, Malawi</span>
                         </li>
                         <li class="flex items-center gap-3">
                             <i data-lucide="phone" class="w-4 h-4 text-accent flex-shrink-0"></i>
-                            <span class="text-sm text-primary-foreground/80">+265 993 831 292</span>
+                            <span class="footer-link">+265 995 856 237 / 888 655 069</span>
                         </li>
                         <li class="flex items-center gap-3">
                             <i data-lucide="mail" class="w-4 h-4 text-accent flex-shrink-0"></i>
-                            <span class="text-sm text-primary-foreground/80">info@sunandsoil.org</span>
+                            <span class="footer-link">sunandsoilfoundation@gmail.com</span>
                         </li>
                     </ul>
                 </div>
             </div>
-        </div>
 
-        <!-- Bottom Bar -->
-        <div class="border-t border-primary-foreground/10">
-            <div class="container mx-auto py-6 px-4">
-                <div class="flex flex-col md:flex-row items-center justify-between gap-4">
-                    <p class="text-sm text-primary-foreground/60">
+            <!-- Bottom Bar -->
+            <div class="footer-bottom">
+                <div class="footer-bottom-content">
+                    <p class="copyright">
                         © 2026 Sun & Soil Foundation. All rights reserved.
                     </p>
-                    <div class="flex gap-6">
-                        <a href="#" class="text-sm text-primary-foreground/60 hover:text-accent transition-colors">Privacy Policy</a>
-                        <a href="#" class="text-sm text-primary-foreground/60 hover:text-accent transition-colors">Terms of Use</a>
+                    <div class="footer-legal">
+                        <a href="#" class="footer-link">Privacy Policy</a>
+                        <a href="#" class="footer-link">Terms of Use</a>
                     </div>
                 </div>
             </div>

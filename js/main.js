@@ -82,15 +82,15 @@ function showToast(title, description) {
     const toastContainer = document.getElementById('toast-container') || createToastContainer();
 
     const toast = document.createElement('div');
-    toast.className = 'fixed bottom-4 right-4 z-[100] flex w-full max-w-md animate-fade-up flex-col gap-1 rounded-xl border border-border bg-card p-4 shadow-lg md:bottom-8 md:right-8 pointer-events-auto';
+    toast.className = 'toast';
 
     toast.innerHTML = `
-        <div class="flex items-start justify-between gap-4">
+        <div class="toast-header">
             <div class="flex flex-col gap-1">
-                <h3 class="font-heading text-sm font-semibold text-foreground">${title}</h3>
-                <p class="text-xs text-muted-foreground">${description}</p>
+                <h3 class="toast-title">${title}</h3>
+                <p class="toast-desc">${description}</p>
             </div>
-            <button class="text-muted-foreground hover:text-foreground transition-colors">
+            <button class="toast-close">
                 <i data-lucide="x" class="w-4 h-4"></i>
             </button>
         </div>
@@ -101,14 +101,14 @@ function showToast(title, description) {
 
     const closeBtn = toast.querySelector('button');
     closeBtn.addEventListener('click', () => {
-        toast.classList.add('animate-fade-out');
+        toast.style.opacity = '0';
         setTimeout(() => toast.remove(), 300);
     });
 
     // Auto-remove after 5 seconds
     setTimeout(() => {
         if (toast.parentElement) {
-            toast.classList.add('animate-fade-out');
+            toast.style.opacity = '0';
             setTimeout(() => toast.remove(), 300);
         }
     }, 5000);
@@ -117,7 +117,7 @@ function showToast(title, description) {
 function createToastContainer() {
     const container = document.createElement('div');
     container.id = 'toast-container';
-    container.className = 'fixed bottom-0 right-0 z-[100] p-4 md:p-8 pointer-events-none';
+    container.className = 'toast-container';
     document.body.appendChild(container);
     return container;
 }
