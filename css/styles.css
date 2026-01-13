@@ -871,6 +871,7 @@ ul {
 }
 
 .hero-bg {
+    margin-top: -150px;
     position: absolute;
     inset: 0;
     background-size: cover;
