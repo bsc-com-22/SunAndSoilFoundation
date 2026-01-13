@@ -860,6 +860,7 @@ ul {
 
 /* Hero Section */
 .hero-section {
+    margin-top: -27px;
     position: relative;
     min-height: 80vh;
     display: flex;
@@ -871,7 +872,6 @@ ul {
 }
 
 .hero-bg {
-    margin-top: -150px;
     position: absolute;
     inset: 0;
     background-size: cover;
