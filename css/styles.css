@@ -871,6 +871,14 @@ ul {
     padding-bottom: 5rem;
 }
 
+@media (min-width: 1024px) {
+    .hero-section {
+        min-height: 85vh;
+        padding-top: 10rem;
+        padding-bottom: 8rem;
+    }
+}
+
 .hero-bg {
     position: absolute;
     inset: 0;
@@ -1234,10 +1242,43 @@ ul {
 
 /* CTA Section */
 .cta-section {
-    padding: 5rem 0;
+    position: relative;
+    padding: 6rem 0;
     background: var(--gradient-hero);
     color: hsl(var(--primary-foreground));
     text-align: center;
+    overflow: hidden;
+}
+
+.cta-bg {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    z-index: 0;
+}
+
+.cta-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, hsla(var(--primary) / 0.9), hsla(var(--primary) / 0.85));
+    z-index: 1;
+}
+
+.cta-content {
+    position: relative;
+    z-index: 10;
+}
+
+.parallax-bg {
+    background-attachment: fixed;
+}
+
+@media (max-width: 1024px) {
+    .parallax-bg {
+        background-attachment: scroll;
+        /* Disable parallax on mobile for better performance */
+    }
 }
 
 .cta-title {

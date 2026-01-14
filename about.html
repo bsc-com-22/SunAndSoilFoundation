@@ -81,17 +81,17 @@
     </header>
 
     <!-- Hero Section -->
-    <section class="section bg-muted-light" style="padding-top: 8rem;">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-tag">About Us</span>
-                <h1 class="section-title text-5xl">
-                    Transforming Lives Through Sustainable Agriculture
-                </h1>
-                <p class="section-description text-lg">
-                    Sun & Soil Foundation is a Malawian non-profit organisation strengthening rural livelihoods by integrating solar powered irrigation, climate-smart agriculture, and structured capacity building. We support smallholder farmers, women, youths, and all vulnerable groups at risk to move from climate-vulnerable subsistence farming toward productive, market-oriented, and resilient agricultural systems.
-                </p>
-            </div>
+    <section class="hero-section">
+        <div class="hero-bg" style="background-image: url('assets/hero-about.png')"></div>
+        <div class="hero-overlay"></div>
+        <div class="container hero-content">
+            <span class="hero-badge">About Us</span>
+            <h1 class="hero-title">
+                Transforming Lives Through Sustainable Agriculture
+            </h1>
+            <p class="hero-description">
+                Sun & Soil Foundation is a Malawian non-profit organisation strengthening rural livelihoods by integrating solar powered irrigation, climate-smart agriculture, and structured capacity building. We support smallholder farmers, women, youths, and all vulnerable groups at risk to move from climate-vulnerable subsistence farming toward productive, market-oriented, and resilient agricultural systems.
+            </p>
         </div>
     </section>
 
@@ -125,8 +125,9 @@
     </section>
 
     <!-- Vision & Mission -->
-    <section class="section bg-primary text-primary-foreground">
-        <div class="container">
+    <section class="section bg-primary text-primary-foreground relative overflow-hidden">
+        <div class="cta-bg parallax-bg" style="background-image: url('assets/hero-projects.png'); opacity: 0.15;"></div>
+        <div class="container relative z-10">
             <div class="vision-grid">
                 <div class="card bg-primary-foreground/5 border-none backdrop-blur-sm">
                     <div class="card-icon-wrapper bg-accent/20">
@@ -229,8 +230,9 @@
     </section>
 
     <!-- Alignment With Malawi Vision 2063 -->
-    <section class="section bg-muted-light">
-        <div class="container">
+    <section class="section bg-muted-light relative overflow-hidden">
+        <div class="cta-bg" style="background-image: url('assets/hero-partners.png'); opacity: 0.05;"></div>
+        <div class="container relative z-10">
             <div class="section-header">
                 <span class="section-tag">Strategic Alignment</span>
                 <h2 class="section-title">
@@ -540,19 +542,26 @@
         </div>
     </section>
 
-    <!-- Impact Image -->
-    <section class="section bg-muted-light">
-        <div class="container">
-            <div class="relative rounded-3xl overflow-hidden">
-                <div class="hero-bg" style="background-image: url('assets/hero-farming.jpg'); position: relative; aspect-ratio: 21/9;"></div>
-                <div class="hero-overlay flex items-center justify-center">
-                    <div class="text-center text-primary-foreground max-w-2xl px-4">
-                        <h3 class="text-2xl md:text-3xl font-bold mb-4">
-                            "When you give a farmer water, you give their family a future."
-                        </h3>
-                        <p class="text-primary-foreground/80">— Sun & Soil Foundation</p>
-                    </div>
-                </div>
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="cta-bg parallax-bg" style="background-image: url('assets/hero-farming.jpg')"></div>
+        <div class="cta-overlay"></div>
+        <div class="container cta-content">
+            <h2 class="cta-title">
+                "When you give a farmer water, you give their family a future."
+            </h2>
+            <p class="cta-text">
+                Join us in our mission to build a more food-secure and resilient Malawi.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="donate.html" class="btn btn-accent btn-lg">
+                    Make a Donation
+                    <i data-lucide="heart" class="w-4 h-4"></i>
+                </a>
+                <a href="contact.html" class="btn btn-outline btn-lg">
+                    Partner With Us
+                    <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                </a>
             </div>
         </div>
     </section>
