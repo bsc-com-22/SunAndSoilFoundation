@@ -818,15 +818,9 @@ ul {
 }
 
 .nav-logo-img {
-    height: 95px;
+    height: 6rem;
     width: auto;
     display: block;
-}
-
-@media (min-width: 1024px) {
-    .nav-logo-img {
-        height: 95px;
-    }
 }
 
 .nav-links-desktop {
@@ -1053,7 +1047,7 @@ ul {
 }
 
 .hero-description {
-    font-size: 1ssrem;
+    font-size: 1.125rem;
     line-height: 1.625;
     color: hsla(var(--primary-foreground) / 0.9);
     margin-bottom: 2.5rem;
@@ -1952,8 +1946,9 @@ ul {
 
 .team-role {
     font-size: 0.875rem;
-    font-weight: 500;
-    color: hsl(var(--accent));
+    font-weight: 600;
+    color: hsl(35 90% 35%);
+    /* Darker gold for better contrast on white */
     margin-bottom: 0.75rem;
 }
 
