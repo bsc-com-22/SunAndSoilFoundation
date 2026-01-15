@@ -141,6 +141,9 @@
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                 <!-- Project 1 -->
                 <div class="card flex flex-col h-full">
+                    <div class="project-image-wrapper">
+                        <img src="assets/hero-farming.jpg" alt="Rice Farming" class="project-image">
+                    </div>
                     <div class="mb-4">
                         <span class="location-badge">
                             <i data-lucide="map-pin" class="w-3 h-3"></i>
@@ -175,6 +178,9 @@
 
                 <!-- Project 2 -->
                 <div class="card flex flex-col h-full">
+                    <div class="project-image-wrapper">
+                        <img src="assets/program-solar.jpg" alt="Mixed Crop Irrigation" class="project-image">
+                    </div>
                     <div class="mb-4">
                         <span class="location-badge">
                             <i data-lucide="map-pin" class="w-3 h-3"></i>
@@ -209,6 +215,9 @@
 
                 <!-- Project 3 -->
                 <div class="card flex flex-col h-full">
+                    <div class="project-image-wrapper">
+                        <img src="assets/about-farmer.jpg" alt="Large-Scale Maize" class="project-image">
+                    </div>
                     <div class="mb-4">
                         <span class="location-badge">
                             <i data-lucide="map-pin" class="w-3 h-3"></i>
@@ -243,6 +252,9 @@
 
                 <!-- Project 4 -->
                 <div class="card flex flex-col h-full">
+                    <div class="project-image-wrapper">
+                        <img src="assets/program-women.jpg" alt="Horticulture Project" class="project-image">
+                    </div>
                     <div class="mb-4">
                         <span class="location-badge">
                             <i data-lucide="map-pin" class="w-3 h-3"></i>
@@ -277,6 +289,9 @@
 
                 <!-- Project 5 -->
                 <div class="card flex flex-col h-full">
+                    <div class="project-image-wrapper">
+                        <img src="assets/hero-projects.png" alt="Mixed Systems" class="project-image">
+                    </div>
                     <div class="mb-4">
                         <span class="location-badge">
                             <i data-lucide="map-pin" class="w-3 h-3"></i>
@@ -327,7 +342,10 @@
 
             <div class="grid md:grid-cols-3 gap-6">
                 <!-- Training 1 -->
-                <div class="card border-l-4 border-l-accent">
+                <div class="card flex flex-col h-full">
+                    <div class="project-image-wrapper">
+                        <img src="assets/program-women.jpg" alt="Women's Livelihood" class="project-image">
+                    </div>
                     <div class="mb-4 flex justify-between items-start">
                         <div class="w-10 h-10 rounded-full bg-accent/10 flex items-center justify-center">
                             <i data-lucide="users" class="w-5 h-5 text-accent"></i>
@@ -335,7 +353,7 @@
                         <span class="text-xs font-medium text-muted-foreground bg-white px-2 py-1 rounded border border-border">Nkhotakota</span>
                     </div>
                     <h3 class="font-bold text-lg mb-2">Women's Livelihood</h3>
-                    <p class="text-sm text-muted-foreground mb-4">
+                    <p class="text-sm text-muted-foreground mb-4 flex-grow">
                         Commercial mindset and financial confidence building for women.
                     </p>
                     <div class="mt-auto pt-4 border-t border-border/50 flex items-center justify-between text-sm">
@@ -345,7 +363,10 @@
                 </div>
 
                 <!-- Training 2 -->
-                <div class="card border-l-4 border-l-accent">
+                <div class="card flex flex-col h-full">
+                    <div class="project-image-wrapper">
+                        <img src="assets/hero-team.png" alt="Youth Agribusiness" class="project-image">
+                    </div>
                     <div class="mb-4 flex justify-between items-start">
                         <div class="w-10 h-10 rounded-full bg-accent/10 flex items-center justify-center">
                             <i data-lucide="graduation-cap" class="w-5 h-5 text-accent"></i>
@@ -353,7 +374,7 @@
                         <span class="text-xs font-medium text-muted-foreground bg-white px-2 py-1 rounded border border-border">Nkhotakota</span>
                     </div>
                     <h3 class="font-bold text-lg mb-2">Youth Agribusiness</h3>
-                    <p class="text-sm text-muted-foreground mb-4">
+                    <p class="text-sm text-muted-foreground mb-4 flex-grow">
                         Skills development and income generation for education.
                     </p>
                     <div class="mt-auto pt-4 border-t border-border/50 flex items-center justify-between text-sm">
@@ -363,7 +384,10 @@
                 </div>
 
                 <!-- Training 3 -->
-                <div class="card border-l-4 border-l-accent">
+                <div class="card flex flex-col h-full">
+                    <div class="project-image-wrapper">
+                        <img src="assets/program-training.jpg" alt="Technical Training" class="project-image">
+                    </div>
                     <div class="mb-4 flex justify-between items-start">
                         <div class="w-10 h-10 rounded-full bg-accent/10 flex items-center justify-center">
                             <i data-lucide="sprout" class="w-5 h-5 text-accent"></i>
@@ -371,7 +395,7 @@
                         <span class="text-xs font-medium text-muted-foreground bg-white px-2 py-1 rounded border border-border">Mzuzu & Nkhata Bay</span>
                     </div>
                     <h3 class="font-bold text-lg mb-2">Technical Training</h3>
-                    <p class="text-sm text-muted-foreground mb-4">
+                    <p class="text-sm text-muted-foreground mb-4 flex-grow">
                         Sustainable system use and yield improvement techniques.
                     </p>
                     <div class="mt-auto pt-4 border-t border-border/50 flex items-center justify-between text-sm">
@@ -384,15 +408,19 @@
     </section>
 
     <!-- Site Visit CTA -->
-    <section class="section relative overflow-hidden text-white">
-        <div class="absolute inset-0 bg-primary"></div>
-        <div class="absolute inset-0 bg-[url('assets/hero-about.png')] bg-cover bg-center opacity-20"></div>
-        <div class="container relative z-10">
-            <div class="max-w-2xl mx-auto text-center">
-                <h2 class="text-3xl font-bold mb-4">Want to See Our Work in Action?</h2>
-                <p class="text-primary-foreground/90 text-lg mb-8">
-                    We welcome site visits from partners, donors, and stakeholders interested in seeing the impact of our programs firsthand.
-                </p>
+    <!-- Site Visit CTA -->
+    <section class="cta-section">
+        <div class="cta-bg parallax-bg" style="background-image: url('assets/hero-about.png')"></div>
+        <div class="cta-overlay cta-gradient-overlay"></div>
+        <div class="container cta-content">
+            <h2 class="cta-title">
+                Want to See Our Work in Action?
+            </h2>
+            <p class="cta-text">
+                We welcome site visits from partners, donors, and stakeholders interested 
+                in seeing the impact of our programs firsthand.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
                 <a href="contact.html" class="btn bg-white text-primary hover:bg-accent hover:text-white border-none btn-lg">
                     Schedule a Visit
                     <i data-lucide="calendar" class="w-5 h-5"></i>
@@ -404,7 +432,7 @@
     <!-- Support Our Work -->
     <section class="section">
         <div class="container">
-            <div class="bg-card border border-border rounded-2xl p-8 md:p-12 shadow-sm">
+            <div class="support-card border border-border rounded-2xl p-8 md:p-12 shadow-sm">
                 <div class="grid md:grid-cols-2 gap-8 items-center">
                     <div>
                         <h2 class="text-2xl font-bold mb-4">Support Our Mission</h2>

@@ -1932,6 +1932,12 @@ ul {
     color: hsl(var(--primary));
 }
 
+.team-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
 .team-content {
     padding: 1.5rem;
 }
@@ -2113,4 +2119,36 @@ ul {
 
 .bg-accent\/10 {
     background-color: hsla(var(--accent) / 0.1);
+}
+
+.project-image-wrapper {
+    margin: -2.5rem -2.5rem 1.5rem -2.5rem;
+    border-radius: 1rem 1rem 0 0;
+    overflow: hidden;
+    aspect-ratio: 16/9;
+}
+
+@media (max-width: 767px) {
+    .project-image-wrapper {
+        margin: -1.5rem -1.5rem 1.5rem -1.5rem;
+    }
+}
+
+.project-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s;
+}
+
+.card:hover .project-image {
+    transform: scale(1.05);
+}
+
+.cta-gradient-overlay {
+    background: linear-gradient(135deg, hsla(var(--primary) / 0.95), hsla(var(--primary) / 0.9));
+}
+
+.support-card {
+    background: linear-gradient(to right bottom, hsl(var(--card)), hsla(var(--accent) / 0.05));
 }
