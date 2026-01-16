@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Team Members - Sun & Soil Foundation CMS</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/admin.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+    <div class="admin-layout">
+        <!-- Sidebar (same as dashboard) -->
+        <aside class="admin-sidebar">
+            <div class="sidebar-header">
+                <img src="../assets/SUN AND SOIL LOGO.png" alt="Sun & Soil Foundation" class="sidebar-logo">
+                <div class="sidebar-title">Content Management</div>
+            </div>
+
+            <nav>
+                <ul class="sidebar-nav">
+                    <li><a href="dashboard.html"><i data-lucide="layout-dashboard" class="icon"></i> Dashboard</a></li>
+                    <li><a href="pages.html"><i data-lucide="file-text" class="icon"></i> Pages</a></li>
+                    <li><a href="media.html"><i data-lucide="image" class="icon"></i> Media Library</a></li>
+                </ul>
+
+                <div class="sidebar-section">
+                    <div class="sidebar-section-title">Content Types</div>
+                    <ul class="sidebar-nav">
+                        <li><a href="team.html" class="active"><i data-lucide="users" class="icon"></i> Team Members</a></li>
+                        <li><a href="projects.html"><i data-lucide="briefcase" class="icon"></i> Projects</a></li>
+                        <li><a href="programs.html"><i data-lucide="layers" class="icon"></i> Programs</a></li>
+                        <li><a href="impact.html"><i data-lucide="trending-up" class="icon"></i> Impact Metrics</a></li>
+                        <li><a href="contact-info.html"><i data-lucide="phone" class="icon"></i> Contact Info</a></li>
+                    </ul>
+                </div>
+
+                <div class="sidebar-section">
+                    <div class="sidebar-section-title">Settings</div>
+                    <ul class="sidebar-nav">
+                        <li><a href="users.html"><i data-lucide="user-cog" class="icon"></i> Users & Roles</a></li>
+                        <li><a href="settings.html"><i data-lucide="settings" class="icon"></i> Site Settings</a></li>
+                        <li><a href="history.html"><i data-lucide="clock" class="icon"></i> Version History</a></li>
+                    </ul>
+                </div>
+            </nav>
+
+            <div class="sidebar-footer">
+                <div class="user-info">
+                    <div class="user-avatar" id="userAvatar">A</div>
+                    <div class="user-details">
+                        <div class="user-name" id="userName">Admin User</div>
+                        <div class="user-role" id="userRole">Administrator</div>
+                    </div>
+                </div>
+                <button onclick="handleLogout()" class="btn btn-secondary btn-block btn-sm">
+                    <i data-lucide="log-out" class="icon"></i> Logout
+                </button>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="admin-main">
+            <header class="admin-header">
+                <div class="header-content">
+                    <h1 class="header-title">Team Members</h1>
+                    <div class="header-actions">
+                        <button onclick="openAddModal()" class="btn btn-primary btn-sm">
+                            <i data-lucide="user-plus" class="icon"></i>
+                            Add Team Member
+                        </button>
+                    </div>
+                </div>
+            </header>
+
+            <div class="admin-content">
+                <!-- Team Members Grid -->
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="card-title">All Team Members</h2>
+                        <div class="card-actions">
+                            <input type="search" id="searchTeam" placeholder="Search team members..." 
+                                   style="padding: 0.5rem 1rem; border: 1px solid var(--admin-border); border-radius: var(--radius);">
+                        </div>
+                    </div>
+                    <div id="teamGrid" class="media-grid" style="padding: 1rem;">
+                        <!-- Team members will be loaded here -->
+                    </div>
+                    <div id="emptyState" style="text-align: center; padding: 3rem; color: var(--admin-text-muted); display: none;">
+                        <i data-lucide="users" style="width: 64px; height: 64px; margin-bottom: 1rem;"></i>
+                        <h3>No Team Members Yet</h3>
+                        <p>Start building your team by adding your first member.</p>
+                        <button onclick="openAddModal()" class="btn btn-primary" style="margin-top: 1rem;">
+                            <i data-lucide="user-plus" class="icon"></i>
+                            Add Team Member
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Add/Edit Modal -->
+    <div id="teamModal" class="modal-overlay" style="display: none;">
+        <div class="modal">
+            <div class="modal-header">
+                <h2 class="modal-title" id="modalTitle">Add Team Member</h2>
+                <button onclick="closeModal()" class="modal-close">
+                    <i data-lucide="x" class="icon"></i>
+                </button>
+            </div>
+            <form id="teamForm">
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="memberName">Full Name *</label>
+                        <input type="text" id="memberName" name="name" required placeholder="John Doe">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="memberPosition">Position/Role *</label>
+                        <input type="text" id="memberPosition" name="position" required placeholder="Executive Director">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="memberBio">Biography</label>
+                        <textarea id="memberBio" name="bio" rows="4" placeholder="Brief bio about the team member..."></textarea>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="memberEmail">Email</label>
+                            <input type="email" id="memberEmail" name="email" placeholder="john@sunandsoil.org">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="memberPhone">Phone</label>
+                            <input type="tel" id="memberPhone" name="phone" placeholder="+265 999 123 456">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="memberPhoto">Profile Photo</label>
+                        <div class="file-upload" onclick="document.getElementById('memberPhoto').click()">
+                            <i data-lucide="upload" class="file-upload-icon"></i>
+                            <p><strong>Click to upload</strong> or drag and drop</p>
+                            <p style="font-size: 0.85rem; color: var(--admin-text-muted); margin-top: 0.5rem;">
+                                PNG, JPG up to 5MB
+                            </p>
+                        </div>
+                        <input type="file" id="memberPhoto" accept="image/*" style="display: none;">
+                        <div id="photoPreview" style="margin-top: 1rem; display: none;">
+                            <img id="previewImage" style="max-width: 200px; border-radius: var(--radius);">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Social Media Links</label>
+                        <div class="form-row">
+                            <input type="url" id="memberLinkedIn" name="linkedin" placeholder="LinkedIn URL">
+                            <input type="url" id="memberTwitter" name="twitter" placeholder="Twitter URL">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>
+                            <input type="checkbox" id="memberFeatured" name="featured">
+                            <span>Feature on homepage</span>
+                        </label>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" onclick="closeModal()" class="btn btn-secondary">Cancel</button>
+                    <button type="submit" class="btn btn-primary">
+                        <i data-lucide="save" class="icon"></i>
+                        Save Team Member
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/auth.js"></script>
+    <script src="js/cms-core.js"></script>
+    <script>
+        auth.requireAuth();
+        const cms = new CMSCore();
+        let currentEditId = null;
+        let currentPhotoData = null;
+
+        // Update user info
+        const user = auth.getCurrentUser();
+        if (user) {
+            document.getElementById('userName').textContent = user.name;
+            document.getElementById('userRole').textContent = user.role.charAt(0).toUpperCase() + user.role.slice(1);
+            document.getElementById('userAvatar').textContent = user.name.charAt(0).toUpperCase();
+        }
+
+        // Load team members
+        function loadTeamMembers() {
+            const members = cms.getAllTeamMembers();
+            const grid = document.getElementById('teamGrid');
+            const emptyState = document.getElementById('emptyState');
+
+            if (members.length === 0) {
+                grid.style.display = 'none';
+                emptyState.style.display = 'block';
+            } else {
+                grid.style.display = 'grid';
+                emptyState.style.display = 'none';
+
+                grid.innerHTML = members.map(member => `
+                    <div class="card" style="padding: 1.5rem; text-align: center;">
+                        <div style="width: 100px; height: 100px; border-radius: 50%; background: var(--accent); margin: 0 auto 1rem; overflow: hidden;">
+                            ${member.photo ? 
+                                `<img src="${member.photo}" alt="${member.name}" style="width: 100%; height: 100%; object-fit: cover;">` :
+                                `<div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; font-size: 2rem; font-weight: 600; color: white;">
+                                    ${member.name.charAt(0).toUpperCase()}
+                                </div>`
+                            }
+                        </div>
+                        <h3 style="margin-bottom: 0.25rem;">${member.name}</h3>
+                        <p style="color: var(--admin-text-muted); font-size: 0.9rem; margin-bottom: 1rem;">${member.position}</p>
+                        ${member.featured ? '<span class="badge badge-primary" style="margin-bottom: 1rem;">Featured</span>' : ''}
+                        <div class="table-actions" style="justify-content: center; margin-top: 1rem;">
+                            <button onclick="editMember('${member.id}')" class="icon-btn" title="Edit">
+                                <i data-lucide="edit-2" class="icon"></i>
+                            </button>
+                            <button onclick="deleteMember('${member.id}')" class="icon-btn" title="Delete">
+                                <i data-lucide="trash-2" class="icon"></i>
+                            </button>
+                        </div>
+                    </div>
+                `).join('');
+            }
+
+            lucide.createIcons();
+        }
+
+        // Open add modal
+        function openAddModal() {
+            currentEditId = null;
+            currentPhotoData = null;
+            document.getElementById('modalTitle').textContent = 'Add Team Member';
+            document.getElementById('teamForm').reset();
+            document.getElementById('photoPreview').style.display = 'none';
+            document.getElementById('teamModal').style.display = 'flex';
+            lucide.createIcons();
+        }
+
+        // Edit member
+        function editMember(id) {
+            const member = cms.read('team', id);
+            if (!member) return;
+
+            currentEditId = id;
+            currentPhotoData = member.photo;
+
+            document.getElementById('modalTitle').textContent = 'Edit Team Member';
+            document.getElementById('memberName').value = member.name || '';
+            document.getElementById('memberPosition').value = member.position || '';
+            document.getElementById('memberBio').value = member.bio || '';
+            document.getElementById('memberEmail').value = member.email || '';
+            document.getElementById('memberPhone').value = member.phone || '';
+            document.getElementById('memberLinkedIn').value = member.linkedin || '';
+            document.getElementById('memberTwitter').value = member.twitter || '';
+            document.getElementById('memberFeatured').checked = member.featured || false;
+
+            if (member.photo) {
+                document.getElementById('photoPreview').style.display = 'block';
+                document.getElementById('previewImage').src = member.photo;
+            }
+
+            document.getElementById('teamModal').style.display = 'flex';
+            lucide.createIcons();
+        }
+
+        // Delete member
+        function deleteMember(id) {
+            const member = cms.read('team', id);
+            if (!member) return;
+
+            if (confirm(`Are you sure you want to delete ${member.name}?`)) {
+                cms.deleteTeamMember(id);
+                loadTeamMembers();
+            }
+        }
+
+        // Close modal
+        function closeModal() {
+            document.getElementById('teamModal').style.display = 'none';
+        }
+
+        // Photo upload preview
+        document.getElementById('memberPhoto').addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    currentPhotoData = e.target.result;
+                    document.getElementById('photoPreview').style.display = 'block';
+                    document.getElementById('previewImage').src = e.target.result;
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+
+        // Form submission
+        document.getElementById('teamForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const formData = {
+                name: document.getElementById('memberName').value,
+                position: document.getElementById('memberPosition').value,
+                bio: document.getElementById('memberBio').value,
+                email: document.getElementById('memberEmail').value,
+                phone: document.getElementById('memberPhone').value,
+                linkedin: document.getElementById('memberLinkedIn').value,
+                twitter: document.getElementById('memberTwitter').value,
+                featured: document.getElementById('memberFeatured').checked,
+                photo: currentPhotoData
+            };
+
+            if (currentEditId) {
+                cms.updateTeamMember(currentEditId, formData);
+            } else {
+                cms.createTeamMember(formData);
+            }
+
+            closeModal();
+            loadTeamMembers();
+        });
+
+        // Search functionality
+        document.getElementById('searchTeam').addEventListener('input', function(e) {
+            const searchTerm = e.target.value.toLowerCase();
+            const members = cms.getAllTeamMembers();
+            const filtered = members.filter(m => 
+                m.name.toLowerCase().includes(searchTerm) ||
+                m.position.toLowerCase().includes(searchTerm)
+            );
+
+            // Re-render with filtered results
+            const grid = document.getElementById('teamGrid');
+            if (filtered.length === 0) {
+                grid.innerHTML = '<p style="text-align: center; padding: 2rem; color: var(--admin-text-muted);">No team members found</p>';
+            } else {
+                // Use same rendering logic as loadTeamMembers but with filtered array
+                grid.innerHTML = filtered.map(member => `
+                    <div class="card" style="padding: 1.5rem; text-align: center;">
+                        <div style="width: 100px; height: 100px; border-radius: 50%; background: var(--accent); margin: 0 auto 1rem; overflow: hidden;">
+                            ${member.photo ? 
+                                `<img src="${member.photo}" alt="${member.name}" style="width: 100%; height: 100%; object-fit: cover;">` :
+                                `<div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; font-size: 2rem; font-weight: 600; color: white;">
+                                    ${member.name.charAt(0).toUpperCase()}
+                                </div>`
+                            }
+                        </div>
+                        <h3 style="margin-bottom: 0.25rem;">${member.name}</h3>
+                        <p style="color: var(--admin-text-muted); font-size: 0.9rem; margin-bottom: 1rem;">${member.position}</p>
+                        ${member.featured ? '<span class="badge badge-primary" style="margin-bottom: 1rem;">Featured</span>' : ''}
+                        <div class="table-actions" style="justify-content: center; margin-top: 1rem;">
+                            <button onclick="editMember('${member.id}')" class="icon-btn" title="Edit">
+                                <i data-lucide="edit-2" class="icon"></i>
+                            </button>
+                            <button onclick="deleteMember('${member.id}')" class="icon-btn" title="Delete">
+                                <i data-lucide="trash-2" class="icon"></i>
+                            </button>
+                        </div>
+                    </div>
+                `).join('');
+            }
+            lucide.createIcons();
+        });
+
+        // Initial load
+        loadTeamMembers();
+        lucide.createIcons();
+    </script>
+</body>
+</html>

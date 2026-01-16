@@ -5,8 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Our Programs - Sun & Soil Foundation</title>
     <meta name="description" content="Explore our integrated programs: Solar Irrigation, Climate-Smart Agriculture, Capacity Building, and Women & Youth Empowerment.">
-    <meta name="keywords" content="Solar Irrigation, Climate-Smart Agriculture, Capacity Building, Women Empowerment, Youth Empowerment, Malawi">
-    <meta name="author" content="Sun & Soil Foundation">
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
@@ -25,10 +23,11 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     
     <!-- Styles -->
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/styles-new.css">
+    <link rel="stylesheet" href="css/responsive-cards.css">
     
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
@@ -38,8 +37,8 @@
 </head>
 <body>
 
-    <!-- Navbar -->
-    <header class="site-header">
+    <!-- Sticky Navigation -->
+    <header class="site-header sticky-header">
         <div class="container">
             <nav class="nav-container">
                 <!-- Logo -->
@@ -53,441 +52,322 @@
                     <a href="about.html" class="nav-link">About Us</a>
                     <a href="programs.html" class="nav-link active">Our Programs</a>
                     <a href="projects.html" class="nav-link">Projects & Impact</a>
+                    <a href="team.html" class="nav-link">Our Team</a>
                     <a href="partners.html" class="nav-link">Partners</a>
                     <a href="contact.html" class="nav-link">Contact</a>
                 </div>
 
-                <!-- CTA Button -->
+                <!-- Donate Button -->
                 <div class="nav-actions">
-                    <a href="contact.html" class="btn btn-accent">
-                        Partner With Us
-                    </a>
-                    <a href="donate.html" class="btn btn-primary">
-                        Donate
+                    <a href="donate.html" class="btn btn-donate">
+                        <i data-lucide="heart" class="icon"></i>
+                        Donate Now
                     </a>
                 </div>
 
                 <!-- Mobile Menu Button -->
                 <button class="mobile-menu-btn" aria-label="Toggle menu">
-                    <i data-lucide="menu" class="w-6 h-6 menu-icon"></i>
-                    <i data-lucide="x" class="w-6 h-6 close-icon hidden"></i>
+                    <i data-lucide="menu" class="menu-icon"></i>
+                    <i data-lucide="x" class="close-icon hidden"></i>
                 </button>
             </nav>
 
             <!-- Mobile Navigation -->
             <div class="mobile-menu hidden">
-                <div class="flex flex-col gap-1">
+                <div class="mobile-menu-inner">
                     <a href="index.html" class="mobile-nav-link">Home</a>
                     <a href="about.html" class="mobile-nav-link">About Us</a>
                     <a href="programs.html" class="mobile-nav-link active">Our Programs</a>
                     <a href="projects.html" class="mobile-nav-link">Projects & Impact</a>
+                    <a href="team.html" class="mobile-nav-link">Our Team</a>
                     <a href="partners.html" class="mobile-nav-link">Partners</a>
                     <a href="contact.html" class="mobile-nav-link">Contact</a>
-                    <div class="pt-4 px-4 space-y-3">
-                        <a href="contact.html" class="btn btn-accent w-full">
-                            Partner With Us
-                        </a>
-                        <a href="donate.html" class="btn btn-primary w-full">
-                            Donate
-                        </a>
-                    </div>
+                    <a href="donate.html" class="btn btn-donate btn-block">
+                        <i data-lucide="heart" class="icon"></i>
+                        Donate Now
+                    </a>
                 </div>
             </div>
         </div>
     </header>
 
     <!-- Hero Section -->
-    <section class="hero-section">
-        <div class="hero-bg" style="background-image: url('assets/hero-programs.png')"></div>
-        <div class="hero-overlay"></div>
-        <div class="container hero-content">
-            <span class="hero-badge">Our Programs</span>
-            <h1 class="hero-title">
-                Integrated Solutions for Sustainable Change
-            </h1>
-            <p class="hero-description">
-                Our programs work together to address the interconnected challenges facing 
-                rural communities — from water access to skills development to market integration.
-            </p>
+    <section class="hero-fullwidth" style="min-height: 50vh;">
+        <div class="hero-image-wrapper">
+            <img src="assets/hero-programs.png" alt="Our Programs" class="hero-image">
+            <div class="hero-overlay"></div>
+        </div>
+        <div class="hero-content-wrapper">
+            <div class="container">
+                <div class="hero-content">
+                    <span class="section-tag" style="color: var(--color-accent); margin-bottom: 1rem; display: block;">Our Programs</span>
+                    <h1 class="hero-headline">
+                        Integrated Solutions for Sustainable Change
+                    </h1>
+                    <p class="hero-subheading">
+                        Our programs work together to address the interconnected challenges facing rural communities — from water access to skills development.
+                    </p>
+                </div>
+            </div>
         </div>
     </section>
 
-    <!-- Programs List -->
-    <section class="section">
+    <!-- Programs Grid -->
+    <section class="our-work-section">
         <div class="container">
-            
-            <!-- Program 1: Solar-Powered Irrigation -->
-            <div id="solar-irrigation" class="program-row">
-                <div class="program-image-col">
-                    <div class="program-image-wrapper rounded-2xl">
-                        <img src="assets/program-solar.jpg" alt="Solar-Powered Irrigation" class="program-image">
-                    </div>
-                </div>
-                
-                <div class="program-content-col">
-                    <div class="card-icon-wrapper bg-accent/10">
-                        <i data-lucide="sun" class="w-7 h-7 text-accent"></i>
-                    </div>
-                    <h2 class="section-title">
-                        Solar-Powered Irrigation
-                    </h2>
-                    <p class="text-accent font-medium mb-4">Harnessing the sun to water the land</p>
-                    <p class="text-muted-foreground leading-relaxed mb-6">
-                        Reliable, clean energy enabling year-round agricultural production and reduced dependence on rainfall.
-                    </p>
-                    
-                    <ul class="space-y-3 mb-6">
-                        <li class="flex items-start gap-3">
-                            <div class="w-5 h-5 rounded-full bg-accent/10 flex items-center justify-center flex-shrink-0 mt-0.5">
-                                <i data-lucide="check" class="w-3 h-3 text-accent"></i>
-                            </div>
-                            <span class="text-sm text-muted-foreground">Installation of solar pumps and drip irrigation systems</span>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <div class="w-5 h-5 rounded-full bg-accent/10 flex items-center justify-center flex-shrink-0 mt-0.5">
-                                <i data-lucide="check" class="w-3 h-3 text-accent"></i>
-                            </div>
-                            <span class="text-sm text-muted-foreground">Training on system operation and maintenance</span>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <div class="w-5 h-5 rounded-full bg-accent/10 flex items-center justify-center flex-shrink-0 mt-0.5">
-                                <i data-lucide="check" class="w-3 h-3 text-accent"></i>
-                            </div>
-                            <span class="text-sm text-muted-foreground">Formation of water user associations</span>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <div class="w-5 h-5 rounded-full bg-accent/10 flex items-center justify-center flex-shrink-0 mt-0.5">
-                                <i data-lucide="check" class="w-3 h-3 text-accent"></i>
-                            </div>
-                            <span class="text-sm text-muted-foreground">Technical support and monitoring</span>
-                        </li>
-                    </ul>
-                    
-                    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-primary/5 text-primary font-medium text-sm">
-                        <span class="w-2 h-2 rounded-full bg-accent"></span>
-                        10 smallholder farmers supported with solar installations
-                    </div>
-                </div>
+            <div class="section-header-center">
+                <span class="section-tag">What We Do</span>
+                <h2 class="section-title-large">
+                    Holistic Interventions
+                </h2>
+                <p class="section-description-large">
+                    We take a multi-faceted approach to rural development, ensuring long-term sustainability and impact.
+                </p>
             </div>
 
-            <!-- Program 2: Climate-Smart Agriculture (Reversed) -->
-            <div id="climate-smart" class="program-row program-row-reverse">
-                <div class="program-image-col">
-                    <div class="program-image-wrapper rounded-2xl">
-                        <img src="assets/program-training.jpg" alt="Climate-Smart Agriculture" class="program-image">
+            <div class="programs-grid">
+                <!-- Program 1 -->
+                <article class="program-card">
+                    <div class="program-card-image">
+                        <img src="assets/program-solar.jpg" alt="Solar-Powered Irrigation">
+                        <div class="program-card-overlay">
+                            <div class="program-card-icon">
+                                <i data-lucide="sun"></i>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                
-                <div class="program-content-col">
-                    <div class="card-icon-wrapper bg-accent/10">
-                        <i data-lucide="leaf" class="w-7 h-7 text-accent"></i>
+                    <div class="program-card-content">
+                        <h3 class="program-card-title">Solar-Powered Irrigation</h3>
+                        <p class="program-card-description">
+                            Harnessing clean energy to enable year-round agricultural production and reduce dependence on erratic rainfall.
+                        </p>
+                        <ul class="program-features-list">
+                            <li class="program-feature-item">
+                                <i data-lucide="check"></i>
+                                <span>Installation of solar pumps & drip systems</span>
+                            </li>
+                            <li class="program-feature-item">
+                                <i data-lucide="check"></i>
+                                <span>Training on operation & maintenance</span>
+                            </li>
+                            <li class="program-feature-item">
+                                <i data-lucide="check"></i>
+                                <span>Formation of water user associations</span>
+                            </li>
+                        </ul>
+                        <a href="contact.html" class="program-card-link">
+                            Support This Program
+                            <i data-lucide="arrow-right" class="icon"></i>
+                        </a>
                     </div>
-                    <h2 class="section-title">
-                        Climate-Smart Agriculture
-                    </h2>
-                    <p class="text-accent font-medium mb-4">Sustainable techniques for a changing climate</p>
-                    <p class="text-muted-foreground leading-relaxed mb-6">
-                        Practices that improve soil health, increase yields, and strengthen resilience to climate variability.
-                    </p>
-                    
-                    <ul class="space-y-3 mb-6">
-                        <li class="flex items-start gap-3">
-                            <div class="w-5 h-5 rounded-full bg-accent/10 flex items-center justify-center flex-shrink-0 mt-0.5">
-                                <i data-lucide="check" class="w-3 h-3 text-accent"></i>
-                            </div>
-                            <span class="text-sm text-muted-foreground">Soil health management and conservation</span>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <div class="w-5 h-5 rounded-full bg-accent/10 flex items-center justify-center flex-shrink-0 mt-0.5">
-                                <i data-lucide="check" class="w-3 h-3 text-accent"></i>
-                            </div>
-                            <span class="text-sm text-muted-foreground">Integrated pest management</span>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <div class="w-5 h-5 rounded-full bg-accent/10 flex items-center justify-center flex-shrink-0 mt-0.5">
-                                <i data-lucide="check" class="w-3 h-3 text-accent"></i>
-                            </div>
-                            <span class="text-sm text-muted-foreground">Crop diversification strategies</span>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <div class="w-5 h-5 rounded-full bg-accent/10 flex items-center justify-center flex-shrink-0 mt-0.5">
-                                <i data-lucide="check" class="w-3 h-3 text-accent"></i>
-                            </div>
-                            <span class="text-sm text-muted-foreground">Water-efficient farming techniques</span>
-                        </li>
-                    </ul>
-                    
-                    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-primary/5 text-primary font-medium text-sm">
-                        <span class="w-2 h-2 rounded-full bg-accent"></span>
-                        85 women, youth, and farmers trained
-                    </div>
-                </div>
-            </div>
+                </article>
 
-            <!-- Program 3: Capacity Building and Mindset Change -->
-            <div id="capacity-building" class="program-row">
-                <div class="program-image-col">
-                    <div class="program-image-wrapper rounded-2xl">
-                        <img src="assets/program-training.jpg" alt="Capacity Building" class="program-image">
+                <!-- Program 2 -->
+                <article class="program-card">
+                    <div class="program-card-image">
+                        <img src="assets/program-training.jpg" alt="Climate-Smart Agriculture">
+                        <div class="program-card-overlay">
+                            <div class="program-card-icon">
+                                <i data-lucide="leaf"></i>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                
-                <div class="program-content-col">
-                    <div class="card-icon-wrapper bg-accent/10">
-                        <i data-lucide="graduation-cap" class="w-7 h-7 text-accent"></i>
+                    <div class="program-card-content">
+                        <h3 class="program-card-title">Climate-Smart Agriculture</h3>
+                        <p class="program-card-description">
+                            Promoting sustainable farming techniques that improve soil health, increase yields, and strengthen climate resilience.
+                        </p>
+                        <ul class="program-features-list">
+                            <li class="program-feature-item">
+                                <i data-lucide="check"></i>
+                                <span>Soil health management & conservation</span>
+                            </li>
+                            <li class="program-feature-item">
+                                <i data-lucide="check"></i>
+                                <span>Integrated pest management</span>
+                            </li>
+                            <li class="program-feature-item">
+                                <i data-lucide="check"></i>
+                                <span>Crop diversification strategies</span>
+                            </li>
+                        </ul>
+                        <a href="contact.html" class="program-card-link">
+                            Support This Program
+                            <i data-lucide="arrow-right" class="icon"></i>
+                        </a>
                     </div>
-                    <h2 class="section-title">
-                        Capacity Building and Mindset Change
-                    </h2>
-                    <p class="text-accent font-medium mb-4">Knowledge that transforms communities</p>
-                    <p class="text-muted-foreground leading-relaxed mb-6">
-                        Practical training that transforms beneficiaries from subsistence farmers into market-oriented producers.
-                    </p>
-                    
-                    <ul class="space-y-3 mb-6">
-                        <li class="flex items-start gap-3">
-                            <div class="w-5 h-5 rounded-full bg-accent/10 flex items-center justify-center flex-shrink-0 mt-0.5">
-                                <i data-lucide="check" class="w-3 h-3 text-accent"></i>
-                            </div>
-                            <span class="text-sm text-muted-foreground">Financial literacy and savings groups</span>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <div class="w-5 h-5 rounded-full bg-accent/10 flex items-center justify-center flex-shrink-0 mt-0.5">
-                                <i data-lucide="check" class="w-3 h-3 text-accent"></i>
-                            </div>
-                            <span class="text-sm text-muted-foreground">Leadership and governance training</span>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <div class="w-5 h-5 rounded-full bg-accent/10 flex items-center justify-center flex-shrink-0 mt-0.5">
-                                <i data-lucide="check" class="w-3 h-3 text-accent"></i>
-                            </div>
-                            <span class="text-sm text-muted-foreground">Market linkages and value addition</span>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <div class="w-5 h-5 rounded-full bg-accent/10 flex items-center justify-center flex-shrink-0 mt-0.5">
-                                <i data-lucide="check" class="w-3 h-3 text-accent"></i>
-                            </div>
-                            <span class="text-sm text-muted-foreground">Organizational development</span>
-                        </li>
-                    </ul>
-                    
-                    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-primary/5 text-primary font-medium text-sm">
-                        <span class="w-2 h-2 rounded-full bg-accent"></span>
-                        Commercial mindset and financial confidence building
-                    </div>
-                </div>
-            </div>
+                </article>
 
-            <!-- Program 4: Women and Youth Enterprise Development (Reversed) -->
-            <div id="women-youth" class="program-row program-row-reverse">
-                <div class="program-image-col">
-                    <div class="program-image-wrapper rounded-2xl">
-                        <img src="assets/program-women.jpg" alt="Women & Youth Empowerment" class="program-image">
+                <!-- Program 3 -->
+                <article class="program-card">
+                    <div class="program-card-image">
+                        <img src="assets/program-training.jpg" alt="Capacity Building">
+                        <div class="program-card-overlay">
+                            <div class="program-card-icon">
+                                <i data-lucide="graduation-cap"></i>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                
-                <div class="program-content-col">
-                    <div class="card-icon-wrapper bg-accent/10">
-                        <i data-lucide="users" class="w-7 h-7 text-accent"></i>
+                    <div class="program-card-content">
+                        <h3 class="program-card-title">Capacity Building</h3>
+                        <p class="program-card-description">
+                            Transforming beneficiaries from subsistence farmers into market-oriented producers through practical training.
+                        </p>
+                        <ul class="program-features-list">
+                            <li class="program-feature-item">
+                                <i data-lucide="check"></i>
+                                <span>Financial literacy & savings groups</span>
+                            </li>
+                            <li class="program-feature-item">
+                                <i data-lucide="check"></i>
+                                <span>Leadership & governance training</span>
+                            </li>
+                            <li class="program-feature-item">
+                                <i data-lucide="check"></i>
+                                <span>Market linkages & value addition</span>
+                            </li>
+                        </ul>
+                        <a href="contact.html" class="program-card-link">
+                            Support This Program
+                            <i data-lucide="arrow-right" class="icon"></i>
+                        </a>
                     </div>
-                    <h2 class="section-title">
-                        Women and Youth Enterprise Development
-                    </h2>
-                    <p class="text-accent font-medium mb-4">Investing in tomorrow's leaders</p>
-                    <p class="text-muted-foreground leading-relaxed mb-6">
-                        Empowering women and youth as drivers of inclusive growth and community-level economic resilience.
-                    </p>
-                    
-                    <ul class="space-y-3 mb-6">
-                        <li class="flex items-start gap-3">
-                            <div class="w-5 h-5 rounded-full bg-accent/10 flex items-center justify-center flex-shrink-0 mt-0.5">
-                                <i data-lucide="check" class="w-3 h-3 text-accent"></i>
-                            </div>
-                            <span class="text-sm text-muted-foreground">Women-focused agricultural training</span>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <div class="w-5 h-5 rounded-full bg-accent/10 flex items-center justify-center flex-shrink-0 mt-0.5">
-                                <i data-lucide="check" class="w-3 h-3 text-accent"></i>
-                            </div>
-                            <span class="text-sm text-muted-foreground">Youth entrepreneurship programs</span>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <div class="w-5 h-5 rounded-full bg-accent/10 flex items-center justify-center flex-shrink-0 mt-0.5">
-                                <i data-lucide="check" class="w-3 h-3 text-accent"></i>
-                            </div>
-                            <span class="text-sm text-muted-foreground">Leadership development for women</span>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <div class="w-5 h-5 rounded-full bg-accent/10 flex items-center justify-center flex-shrink-0 mt-0.5">
-                                <i data-lucide="check" class="w-3 h-3 text-accent"></i>
-                            </div>
-                            <span class="text-sm text-muted-foreground">Access to finance and inputs</span>
-                        </li>
-                    </ul>
-                    
-                    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-primary/5 text-primary font-medium text-sm">
-                        <span class="w-2 h-2 rounded-full bg-accent"></span>
-                        Inclusive growth and community-level economic resilience
-                    </div>
-                </div>
-            </div>
+                </article>
 
-            <!-- Program 5: Sustainable Financing and Reinvestment -->
-            <div id="sustainable-financing" class="program-row">
-                <div class="program-image-col">
-                    <div class="program-image-wrapper rounded-2xl">
-                        <img src="assets/program-solar.jpg" alt="Sustainable Financing" class="program-image">
+                <!-- Program 4 -->
+                <article class="program-card">
+                    <div class="program-card-image">
+                        <img src="assets/program-women.jpg" alt="Women & Youth Empowerment">
+                        <div class="program-card-overlay">
+                            <div class="program-card-icon">
+                                <i data-lucide="users"></i>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                
-                <div class="program-content-col">
-                    <div class="card-icon-wrapper bg-accent/10">
-                        <i data-lucide="trending-up" class="w-7 h-7 text-accent"></i>
+                    <div class="program-card-content">
+                        <h3 class="program-card-title">Women & Youth Empowerment</h3>
+                        <p class="program-card-description">
+                            Empowering vulnerable groups with skills, enterprise development, and sustainable financing to create lasting change.
+                        </p>
+                        <ul class="program-features-list">
+                            <li class="program-feature-item">
+                                <i data-lucide="check"></i>
+                                <span>Women's entrepreneurship training</span>
+                            </li>
+                            <li class="program-feature-item">
+                                <i data-lucide="check"></i>
+                                <span>Youth agribusiness skills development</span>
+                            </li>
+                            <li class="program-feature-item">
+                                <i data-lucide="check"></i>
+                                <span>Access to micro-finance & resources</span>
+                            </li>
+                        </ul>
+                        <a href="contact.html" class="program-card-link">
+                            Support This Program
+                            <i data-lucide="arrow-right" class="icon"></i>
+                        </a>
                     </div>
-                    <h2 class="section-title">
-                        Sustainable Financing and Reinvestment
-                    </h2>
-                    <p class="text-accent font-medium mb-4">Building long-term economic stability</p>
-                    <p class="text-muted-foreground leading-relaxed mb-6">
-                        Developing financial models that ensure the long-term sustainability and scalability of our agricultural interventions.
-                    </p>
-                    
-                    <ul class="space-y-3 mb-6">
-                        <li class="flex items-start gap-3">
-                            <div class="w-5 h-5 rounded-full bg-accent/10 flex items-center justify-center flex-shrink-0 mt-0.5">
-                                <i data-lucide="check" class="w-3 h-3 text-accent"></i>
-                            </div>
-                            <span class="text-sm text-muted-foreground">Community-led reinvestment models</span>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <div class="w-5 h-5 rounded-full bg-accent/10 flex items-center justify-center flex-shrink-0 mt-0.5">
-                                <i data-lucide="check" class="w-3 h-3 text-accent"></i>
-                            </div>
-                            <span class="text-sm text-muted-foreground">Access to affordable agricultural credit</span>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <div class="w-5 h-5 rounded-full bg-accent/10 flex items-center justify-center flex-shrink-0 mt-0.5">
-                                <i data-lucide="check" class="w-3 h-3 text-accent"></i>
-                            </div>
-                            <span class="text-sm text-muted-foreground">Value chain financing strategies</span>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <div class="w-5 h-5 rounded-full bg-accent/10 flex items-center justify-center flex-shrink-0 mt-0.5">
-                                <i data-lucide="check" class="w-3 h-3 text-accent"></i>
-                            </div>
-                            <span class="text-sm text-muted-foreground">Sustainability and ESG integration</span>
-                        </li>
-                    </ul>
-                    
-                    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-primary/5 text-primary font-medium text-sm">
-                        <span class="w-2 h-2 rounded-full bg-accent"></span>
-                        Ensuring technology, skills, and sustainability advance together
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </section>
-
-    <!-- CTA Section -->
-    <section class="cta-section">
-        <div class="cta-bg parallax-bg" style="background-image: url('assets/hero-projects.png')"></div>
-        <div class="cta-overlay"></div>
-        <div class="container cta-content">
-            <h2 class="cta-title">
-                Support Our Programs
-            </h2>
-            <p class="cta-text">
-                Partner with us to scale our impact and reach more communities across Malawi.
-            </p>
-            <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <a href="contact.html" class="btn btn-accent btn-lg">
-                    Become a Partner
-                    <i data-lucide="arrow-right" class="w-4 h-4"></i>
-                </a>
+                </article>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="site-footer">
+    <!-- CTA Banner -->
+    <section class="cta-banner">
         <div class="container">
-            <div class="footer-grid">
-                <!-- Brand -->
-                <div class="footer-brand">
-                    <a href="index.html" class="nav-logo">
-                        <img src="assets/SUN AND SOIL LOGO.png" alt="Sun & Soil Foundation" class="footer-logo-img">
-                    </a>
-                    <p>
-                        Powering Malawi's food future through solar-powered irrigation, 
-                        climate-smart agriculture, and sustainable rural livelihoods.
-                    </p>
-                    <div class="social-links">
-                        <a href="#" class="social-link">
-                            <i data-lucide="facebook" class="w-4 h-4"></i>
-                        </a>
-                        <a href="#" class="social-link">
-                            <i data-lucide="twitter" class="w-4 h-4"></i>
-                        </a>
-                        <a href="#" class="social-link">
-                            <i data-lucide="linkedin" class="w-4 h-4"></i>
-                        </a>
-                        <a href="#" class="social-link">
-                            <i data-lucide="instagram" class="w-4 h-4"></i>
-                        </a>
+            <div class="cta-banner-content">
+                <h2 class="cta-banner-title">Help Expand Our Reach</h2>
+                <p class="cta-banner-text">
+                    Partner with us to bring these vital programs to more communities across Malawi.
+                </p>
+                <div class="cta-banner-buttons">
+                    <a href="contact.html" class="btn btn-cta-amount">Partner With Us</a>
+                    <a href="donate.html" class="btn btn-cta-other">Donate Now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Enhanced Footer -->
+    <footer class="site-footer-enhanced">
+        <div class="container">
+            <div class="footer-main">
+                <div class="footer-grid">
+                    <!-- About Column -->
+                    <div class="footer-column">
+                        <img src="assets/SUN AND SOIL LOGO.png" alt="Sun & Soil Foundation" class="footer-logo">
+                        <p class="footer-about">
+                            Powering Malawi's food future through solar-powered irrigation, 
+                            climate-smart agriculture, and sustainable rural livelihoods.
+                        </p>
+                        <div class="footer-social">
+                            <a href="#" class="social-icon" aria-label="Facebook">
+                                <i data-lucide="facebook"></i>
+                            </a>
+                            <a href="#" class="social-icon" aria-label="Twitter">
+                                <i data-lucide="twitter"></i>
+                            </a>
+                            <a href="#" class="social-icon" aria-label="LinkedIn">
+                                <i data-lucide="linkedin"></i>
+                            </a>
+                            <a href="#" class="social-icon" aria-label="Instagram">
+                                <i data-lucide="instagram"></i>
+                            </a>
+                        </div>
                     </div>
-                </div>
 
-                <!-- Quick Links -->
-                <div>
-                    <h4 class="footer-heading">Quick Links</h4>
-                    <ul class="footer-links">
-                        <li><a href="about.html" class="footer-link">About Us</a></li>
-                        <li><a href="programs.html" class="footer-link">Our Programs</a></li>
-                        <li><a href="projects.html" class="footer-link">Projects & Impact</a></li>
-                        <li><a href="partners.html" class="footer-link">Partners</a></li>
-                    </ul>
-                </div>
+                    <!-- Quick Links -->
+                    <div class="footer-column">
+                        <h4 class="footer-heading">Quick Links</h4>
+                        <ul class="footer-links">
+                            <li><a href="about.html">About Us</a></li>
+                            <li><a href="programs.html">Our Programs</a></li>
+                            <li><a href="projects.html">Projects & Impact</a></li>
+                            <li><a href="team.html">Our Team</a></li>
+                            <li><a href="partners.html">Partners</a></li>
+                        </ul>
+                    </div>
 
-                <!-- Programs -->
-                <div>
-                    <h4 class="footer-heading">Our Programs</h4>
-                    <ul class="footer-links">
-                        <li><a href="programs.html" class="footer-link">Solar-Powered Irrigation</a></li>
-                        <li><a href="programs.html" class="footer-link">Climate-Smart Agriculture</a></li>
-                        <li><a href="programs.html" class="footer-link">Capacity Building</a></li>
-                        <li><a href="programs.html" class="footer-link">Women & Youth Empowerment</a></li>
-                    </ul>
-                </div>
+                    <!-- Get Involved -->
+                    <div class="footer-column">
+                        <h4 class="footer-heading">Get Involved</h4>
+                        <ul class="footer-links">
+                            <li><a href="donate.html">Donate</a></li>
+                            <li><a href="contact.html">Partner With Us</a></li>
+                            <li><a href="volunteer.html">Volunteer</a></li>
+                            <li><a href="contact.html#newsletter">Newsletter</a></li>
+                        </ul>
+                    </div>
 
-                <!-- Contact -->
-                <div>
-                    <h4 class="footer-heading">Contact Us</h4>
-                    <ul class="footer-links">
-                        <li class="flex items-start gap-3">
-                            <i data-lucide="map-pin" class="w-4 h-4 mt-0.5 text-accent flex-shrink-0"></i>
-                            <span class="footer-link">Kaphiri, Area 36, Lilongwe, Malawi</span>
-                        </li>
-                        <li class="flex items-center gap-3">
-                            <i data-lucide="phone" class="w-4 h-4 text-accent flex-shrink-0"></i>
-                            <span class="footer-link">+265 995 856 237 / 888 655 069</span>
-                        </li>
-                        <li class="flex items-center gap-3">
-                            <i data-lucide="mail" class="w-4 h-4 text-accent flex-shrink-0"></i>
-                            <span class="footer-link">sunandsoilfoundation@gmail.com</span>
-                        </li>
-                    </ul>
+                    <!-- Contact Info -->
+                    <div class="footer-column">
+                        <h4 class="footer-heading">Contact Us</h4>
+                        <ul class="footer-contact">
+                            <li>
+                                <i data-lucide="map-pin" class="icon"></i>
+                                <span>Kaphiri, Area 36<br>Lilongwe, Malawi</span>
+                            </li>
+                            <li>
+                                <i data-lucide="phone" class="icon"></i>
+                                <span>+265 995 856 237<br>+265 888 655 069</span>
+                            </li>
+                            <li>
+                                <i data-lucide="mail" class="icon"></i>
+                                <span>sunandsoilfoundation@gmail.com</span>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
 
-            <!-- Bottom Bar -->
+            <!-- Footer Bottom -->
             <div class="footer-bottom">
                 <div class="footer-bottom-content">
-                    <p class="copyright">
-                        © 2026 Sun & Soil Foundation. All rights reserved.
-                    </p>
                     <div class="footer-legal">
-                        <span class="text-sm text-muted-foreground">Developed by <a href="https://nyasacreatives.netlify.app/" target="_blank" rel="noopener noreferrer" class="text-accent hover:text-accent/80 transition-colors font-medium">Nyasa Creatives</a></span>
+                        <a href="#privacy">Privacy Policy</a>
+                        <span class="separator">•</span>
+                        <a href="#terms">Terms of Use</a>
                     </div>
                 </div>
             </div>
