@@ -1,7 +1,6 @@
 /* ============================================
    Sun & Soil Foundation - Redesigned Styles
-   Inspired by Lilongwe Wildlife Trust
-   Mobile-First, Mission-Driven, Visual Impact
+   Orange-First Actions, Green Brand Identity
    ============================================ */
 
 /* ============================================
@@ -9,37 +8,42 @@
    ============================================ */
 
 :root {
-    /* Brand Colors - Sun & Soil Foundation */
-    --color-primary: #4EA804;
-    /* Dark Green */
-    --color-primary-dark: #3E8603;
-    /* Darker Green */
-    --color-primary-light: #62C410;
-    /* Lighter Green */
-    --color-accent: #FFDE58;
-    /* Orange/Gold */
-    --color-accent-dark: #F5D036;
-    --color-accent-light: #FFEA8C;
+    /* Core Brand Colors */
+    --color-brand-green: #4CAA00;
+    --color-brand-green-light: #5DBF00;
+    --color-brand-green-dark: #3E8A00;
+
+    /* Action Colors (Orange) */
+    --color-action-orange: #F7941D;
+    --color-action-orange-hover: #E68000;
+    --color-action-orange-active: #CC6F00;
+    --color-action-focus: rgba(247, 148, 29, 0.4);
+
+    /* Background Tints */
+    --color-bg-green-tint: rgba(76, 170, 0, 0.06);
+    --color-bg-orange-tint: rgba(247, 148, 29, 0.1);
 
     /* Neutral Colors */
-    --color-white: #ffffff;
-    --color-black: #0a0a0a;
-    --color-gray-50: #f9fafb;
+    --color-white: #FFFFFF;
+    --color-background: #FAFAFA;
+    --color-surface: #FFFFFF;
+    --color-text-primary: #212121;
+    --color-text-muted: #757575;
+    --color-border: #E0E0E0;
+
+    /* Legacy/Utility Mappings */
+    --color-primary: var(--color-brand-green);
+    --color-primary-dark: var(--color-brand-green-dark);
+    --color-accent: var(--color-action-orange);
+    --color-gray-50: #FAFAFA;
     --color-gray-100: #f3f4f6;
     --color-gray-200: #e5e7eb;
     --color-gray-300: #d1d5db;
     --color-gray-400: #9ca3af;
-    --color-gray-500: #6b7280;
+    --color-gray-500: #757575;
     --color-gray-600: #4b5563;
-    --color-gray-700: #374151;
-    --color-gray-800: #1f2937;
-    --color-gray-900: #111827;
-
-    /* Semantic Colors */
-    --color-success: #10b981;
-    --color-warning: #f59e0b;
-    --color-error: #ef4444;
-    --color-info: #3b82f6;
+    --color-gray-700: #212121;
+    --color-gray-900: #212121;
 
     /* Typography */
     --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
@@ -52,31 +56,18 @@
 
     /* Spacing Scale */
     --space-1: 0.25rem;
-    /* 4px */
     --space-2: 0.5rem;
-    /* 8px */
     --space-3: 0.75rem;
-    /* 12px */
     --space-4: 1rem;
-    /* 16px */
     --space-5: 1.25rem;
-    /* 20px */
     --space-6: 1.5rem;
-    /* 24px */
     --space-8: 2rem;
-    /* 32px */
     --space-10: 2.5rem;
-    /* 40px */
     --space-12: 3rem;
-    /* 48px */
     --space-16: 4rem;
-    /* 64px */
     --space-20: 5rem;
-    /* 80px */
     --space-24: 6rem;
-    /* 96px */
     --space-32: 8rem;
-    /* 128px */
 
     /* Border Radius */
     --radius-sm: 0.25rem;
@@ -132,8 +123,8 @@ body {
     font-family: var(--font-sans);
     font-weight: var(--font-weight-normal);
     line-height: 1.6;
-    color: var(--color-gray-900);
-    background-color: var(--color-white);
+    color: var(--color-text-primary);
+    background-color: var(--color-background);
     overflow-x: hidden;
 }
 
@@ -145,7 +136,8 @@ h5,
 h6 {
     font-weight: var(--font-weight-bold);
     line-height: 1.2;
-    color: var(--color-gray-900);
+    color: var(--color-brand-green);
+    /* Headings are Green */
     margin: 0;
 }
 
@@ -185,7 +177,7 @@ a {
 }
 
 a:hover {
-    color: var(--color-primary);
+    color: var(--color-action-orange);
 }
 
 img {
@@ -253,7 +245,7 @@ ol {
     z-index: var(--z-sticky);
     background-color: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(12px);
-    border-bottom: 1px solid var(--color-gray-200);
+    border-bottom: 1px solid var(--color-border);
     transition: all var(--transition-base);
 }
 
@@ -294,7 +286,8 @@ ol {
 .nav-link {
     font-size: 0.9375rem;
     font-weight: var(--font-weight-medium);
-    color: var(--color-gray-700);
+    color: var(--color-brand-green);
+    /* Links are Green */
     padding: var(--space-2) 0;
     position: relative;
     transition: color var(--transition-base);
@@ -302,7 +295,8 @@ ol {
 
 .nav-link:hover,
 .nav-link.active {
-    color: var(--color-primary);
+    color: var(--color-action-orange);
+    /* Active/Hover is Orange */
 }
 
 .nav-link.active::after {
@@ -312,7 +306,7 @@ ol {
     left: 0;
     right: 0;
     height: 2px;
-    background-color: var(--color-accent);
+    background-color: var(--color-action-orange);
 }
 
 .nav-actions {
@@ -326,7 +320,7 @@ ol {
     align-items: center;
     justify-content: center;
     padding: var(--space-2);
-    color: var(--color-gray-700);
+    color: var(--color-brand-green);
 }
 
 @media (min-width: 1024px) {
@@ -341,7 +335,7 @@ ol {
     left: 0;
     right: 0;
     background-color: var(--color-white);
-    border-bottom: 1px solid var(--color-gray-200);
+    border-bottom: 1px solid var(--color-border);
     box-shadow: var(--shadow-lg);
     max-height: 0;
     overflow: hidden;
@@ -362,19 +356,19 @@ ol {
 .mobile-nav-link {
     padding: var(--space-3) var(--space-4);
     font-weight: var(--font-weight-medium);
-    color: var(--color-gray-700);
+    color: var(--color-brand-green);
     border-radius: var(--radius-md);
     transition: all var(--transition-base);
 }
 
 .mobile-nav-link:hover,
 .mobile-nav-link.active {
-    background-color: var(--color-gray-50);
-    color: var(--color-primary);
+    background-color: var(--color-bg-green-tint);
+    color: var(--color-action-orange);
 }
 
 /* ============================================
-   Buttons
+   Buttons (Orange-First System)
    ============================================ */
 
 .btn {
@@ -392,68 +386,89 @@ ol {
     white-space: nowrap;
 }
 
-.btn-primary {
-    background-color: var(--color-primary);
+/* Primary Button (Default Everywhere) */
+.btn-primary,
+.btn-donate,
+.btn-hero-primary,
+.btn-cta-other,
+.btn-newsletter {
+    background-color: var(--color-action-orange);
     color: var(--color-white);
+    border: 2px solid var(--color-action-orange);
 }
 
-.btn-primary:hover {
-    background-color: var(--color-primary-dark);
+.btn-primary:hover,
+.btn-donate:hover,
+.btn-hero-primary:hover,
+.btn-cta-other:hover,
+.btn-newsletter:hover {
+    background-color: var(--color-action-orange-hover);
+    border-color: var(--color-action-orange-hover);
     transform: translateY(-1px);
     box-shadow: var(--shadow-md);
 }
 
-.btn-secondary {
+.btn-primary:active,
+.btn-donate:active,
+.btn-hero-primary:active,
+.btn-cta-other:active,
+.btn-newsletter:active {
+    background-color: var(--color-action-orange-active);
+    border-color: var(--color-action-orange-active);
+}
+
+.btn-primary:focus-visible,
+.btn-donate:focus-visible,
+.btn-hero-primary:focus-visible,
+.btn-cta-other:focus-visible,
+.btn-newsletter:focus-visible {
+    box-shadow: 0 0 0 4px var(--color-action-focus);
+}
+
+/* Secondary Button (Transparent, Orange Border) */
+.btn-secondary,
+.btn-cta-amount {
     background-color: transparent;
-    color: var(--color-primary);
-    border: 2px solid var(--color-primary);
+    color: var(--color-action-orange);
+    border: 2px solid var(--color-action-orange);
 }
 
-.btn-secondary:hover {
-    background-color: var(--color-primary);
-    color: var(--color-white);
+.btn-secondary:hover,
+.btn-cta-amount:hover {
+    background-color: var(--color-bg-orange-tint);
+    color: var(--color-action-orange-hover);
+    border-color: var(--color-action-orange-hover);
 }
 
-.btn-donate {
-    background-color: var(--color-accent);
-    color: var(--color-black);
-    font-weight: var(--font-weight-bold);
-}
-
-.btn-donate:hover {
-    background-color: var(--color-accent-dark);
-    transform: translateY(-1px);
-    box-shadow: 0 4px 14px 0 rgba(78, 168, 4, 0.4);
-}
-
-.btn-hero-primary {
-    background-color: var(--color-accent);
-    color: var(--color-black);
-    padding: var(--space-4) var(--space-8);
-    font-size: 1.125rem;
-    font-weight: var(--font-weight-bold);
-}
-
-.btn-hero-primary:hover {
-    background-color: var(--color-accent-dark);
-    transform: translateY(-2px);
-    box-shadow: 0 8px 20px 0 rgba(78, 168, 4, 0.4);
-}
-
+/* Hero Secondary (White Outline) */
 .btn-hero-secondary {
-    background-color: rgba(255, 255, 255, 0.2);
+    background-color: transparent;
     color: var(--color-white);
     border: 2px solid var(--color-white);
     padding: var(--space-4) var(--space-8);
     font-size: 1.125rem;
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(4px);
 }
 
 .btn-hero-secondary:hover {
     background-color: var(--color-white);
-    color: var(--color-primary);
+    color: var(--color-brand-green);
 }
 
+/* Tertiary Button (Quiet) */
+.btn-tertiary {
+    background-color: transparent;
+    color: var(--color-brand-green);
+    border: none;
+    padding: var(--space-2) var(--space-4);
+}
+
+.btn-tertiary:hover {
+    text-decoration: underline;
+    color: var(--color-brand-green-dark);
+}
+
+/* Button Sizes */
 .btn-lg {
     padding: var(--space-4) var(--space-8);
     font-size: 1.0625rem;
@@ -463,47 +478,8 @@ ol {
     width: 100%;
 }
 
-.btn-cta-amount {
-    background-color: var(--color-white);
-    color: var(--color-primary);
-    border: 2px solid var(--color-primary);
-    padding: var(--space-3) var(--space-6);
-    font-size: 1.125rem;
-    font-weight: var(--font-weight-bold);
-}
-
-.btn-cta-amount:hover {
-    background-color: var(--color-primary);
-    color: var(--color-white);
-    transform: scale(1.05);
-}
-
-.btn-cta-other {
-    background-color: var(--color-accent);
-    color: var(--color-black);
-    padding: var(--space-3) var(--space-8);
-    font-size: 1.125rem;
-    font-weight: var(--font-weight-bold);
-}
-
-.btn-cta-other:hover {
-    background-color: var(--color-accent-dark);
-    transform: scale(1.05);
-}
-
-.btn-newsletter {
-    background-color: var(--color-primary);
-    color: var(--color-white);
-    padding: var(--space-3) var(--space-6);
-    white-space: nowrap;
-}
-
-.btn-newsletter:hover {
-    background-color: var(--color-primary-dark);
-}
-
 /* ============================================
-   Full-Width Hero Section
+   Hero Section
    ============================================ */
 
 .hero-fullwidth {
@@ -537,9 +513,10 @@ ol {
 .hero-overlay {
     position: absolute;
     inset: 0;
+    /* Green Gradient Overlay */
     background: linear-gradient(135deg,
-            rgba(78, 168, 4, 0.85) 0%,
-            rgba(62, 134, 3, 0.75) 100%);
+            rgba(76, 170, 0, 0.85) 0%,
+            rgba(62, 138, 0, 0.75) 100%);
 }
 
 .hero-content-wrapper {
@@ -563,7 +540,7 @@ ol {
 
 .hero-subheading {
     font-size: clamp(1.125rem, 2.5vw, 1.375rem);
-    color: rgba(255, 255, 255, 0.95);
+    color: rgba(255, 255, 255, 0.9);
     line-height: 1.6;
     margin-bottom: var(--space-8);
     max-width: 650px;
@@ -590,7 +567,7 @@ ol {
    ============================================ */
 
 .impact-snapshot {
-    background-color: var(--color-primary);
+    background-color: var(--color-brand-green);
     color: var(--color-white);
     padding: var(--space-12) 0;
 }
@@ -614,7 +591,8 @@ ol {
 .impact-number {
     font-size: clamp(2.5rem, 5vw, 4rem);
     font-weight: var(--font-weight-black);
-    color: var(--color-accent);
+    color: var(--color-action-orange);
+    /* Highlight in Orange */
     line-height: 1;
     margin-bottom: var(--space-3);
 }
@@ -630,9 +608,12 @@ ol {
    Section Styles
    ============================================ */
 
-.mission-statement {
+/* Feature / Content Sections - Light Green Tint */
+.mission-statement,
+.our-work-section,
+.featured-projects {
     padding: var(--space-20) 0;
-    background-color: var(--color-gray-50);
+    background-color: var(--color-bg-green-tint);
 }
 
 .mission-content {
@@ -647,28 +628,29 @@ ol {
     font-weight: var(--font-weight-semibold);
     text-transform: uppercase;
     letter-spacing: 0.1em;
-    color: var(--color-accent);
+    color: var(--color-action-orange);
+    /* Badges/Tags in Orange */
     margin-bottom: var(--space-4);
 }
 
 .section-title-large {
     font-size: clamp(2rem, 4vw, 2.75rem);
     font-weight: var(--font-weight-extrabold);
-    color: var(--color-gray-900);
+    color: var(--color-brand-green);
     margin-bottom: var(--space-6);
     line-height: 1.2;
 }
 
 .section-description-large {
     font-size: clamp(1.125rem, 2vw, 1.25rem);
-    color: var(--color-gray-600);
+    color: var(--color-text-muted);
     line-height: 1.6;
     margin-bottom: var(--space-8);
 }
 
 .mission-text {
     font-size: 1.125rem;
-    color: var(--color-gray-700);
+    color: var(--color-text-primary);
     line-height: 1.8;
     margin-bottom: var(--space-8);
 }
@@ -694,14 +676,12 @@ ol {
 }
 
 /* ============================================
-   Our Work Section - Image-Led Cards
+   Cards
    ============================================ */
 
-.our-work-section {
-    padding: var(--space-20) 0;
-}
-
-.work-cards-grid {
+.work-cards-grid,
+.projects-grid,
+.news-grid {
     display: grid;
     grid-template-columns: 1fr;
     gap: var(--space-8);
@@ -709,44 +689,66 @@ ol {
 }
 
 @media (min-width: 768px) {
-    .work-cards-grid {
+
+    .work-cards-grid,
+    .projects-grid,
+    .news-grid {
         grid-template-columns: repeat(2, 1fr);
     }
 }
 
 @media (min-width: 1024px) {
-    .work-cards-grid {
+
+    .work-cards-grid,
+    .news-grid {
         grid-template-columns: repeat(3, 1fr);
     }
 }
 
-.work-card {
+.work-card,
+.project-card,
+.news-card {
     background-color: var(--color-white);
     border-radius: var(--radius-xl);
     overflow: hidden;
     box-shadow: var(--shadow-md);
     transition: all var(--transition-slow);
+    border: 1px solid var(--color-border);
 }
 
-.work-card:hover {
+.work-card:hover,
+.project-card:hover,
+.news-card:hover {
     transform: translateY(-8px);
     box-shadow: var(--shadow-xl);
+    border-color: var(--color-brand-green);
 }
 
-.work-card-image {
+.work-card-image,
+.project-card-image,
+.news-card-image {
     position: relative;
     aspect-ratio: 4 / 3;
     overflow: hidden;
 }
 
-.work-card-image img {
+.project-card-image,
+.news-card-image {
+    aspect-ratio: 16 / 9;
+}
+
+.work-card-image img,
+.project-card-image img,
+.news-card-image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     transition: transform var(--transition-slow);
 }
 
-.work-card:hover .work-card-image img {
+.work-card:hover .work-card-image img,
+.project-card:hover .project-card-image img,
+.news-card:hover .news-card-image img {
     transform: scale(1.05);
 }
 
@@ -764,7 +766,8 @@ ol {
 .work-card-icon {
     width: 56px;
     height: 56px;
-    background-color: var(--color-accent);
+    background-color: var(--color-brand-green);
+    /* Icons are Green */
     border-radius: var(--radius-full);
     display: flex;
     align-items: center;
@@ -777,35 +780,76 @@ ol {
     height: 28px;
 }
 
-.work-card-content {
+.work-card-content,
+.project-card-content,
+.news-card-content {
     padding: var(--space-6);
 }
 
-.work-card-title {
+.work-card-title,
+.project-card-title,
+.news-card-title {
     font-size: 1.5rem;
     font-weight: var(--font-weight-bold);
-    color: var(--color-gray-900);
+    color: var(--color-brand-green);
+    /* Titles are Green */
     margin-bottom: var(--space-3);
 }
 
-.work-card-description {
+.work-card-description,
+.project-card-description,
+.news-card-excerpt {
     font-size: 1rem;
-    color: var(--color-gray-600);
+    color: var(--color-text-muted);
     line-height: 1.7;
     margin-bottom: var(--space-4);
 }
 
-.work-card-link {
+.work-card-link,
+.project-card-link,
+.news-read-more {
     display: inline-flex;
     align-items: center;
     gap: var(--space-2);
     font-weight: var(--font-weight-semibold);
-    color: var(--color-primary);
+    color: var(--color-action-orange);
+    /* Action links are Orange */
     transition: gap var(--transition-base);
 }
 
-.work-card-link:hover {
+.work-card-link:hover,
+.project-card-link:hover,
+.news-read-more:hover {
     gap: var(--space-3);
+    color: var(--color-action-orange-hover);
+}
+
+.project-tag,
+.news-category {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: var(--font-weight-semibold);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-white);
+    background-color: var(--color-action-orange);
+    /* Badges are Orange */
+    padding: var(--space-1) var(--space-3);
+    border-radius: var(--radius-full);
+    margin-bottom: var(--space-3);
+}
+
+.news-card-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: var(--space-4);
+    border-top: 1px solid var(--color-border);
+}
+
+.news-date {
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
 }
 
 /* ============================================
@@ -814,8 +858,8 @@ ol {
 
 .cta-banner {
     background: linear-gradient(135deg,
-            var(--color-primary) 0%,
-            var(--color-primary-dark) 100%);
+            var(--color-brand-green) 0%,
+            var(--color-brand-green-dark) 100%);
     color: var(--color-white);
     padding: var(--space-16) 0;
     text-align: center;
@@ -854,217 +898,11 @@ ol {
 }
 
 /* ============================================
-   Featured Projects
-   ============================================ */
-
-.featured-projects {
-    padding: var(--space-20) 0;
-    background-color: var(--color-gray-50);
-}
-
-.projects-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: var(--space-8);
-    margin-bottom: var(--space-12);
-}
-
-@media (min-width: 768px) {
-    .projects-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-.project-card {
-    background-color: var(--color-white);
-    border-radius: var(--radius-xl);
-    overflow: hidden;
-    box-shadow: var(--shadow-md);
-    transition: all var(--transition-slow);
-}
-
-.project-card:hover {
-    transform: translateY(-4px);
-    box-shadow: var(--shadow-xl);
-}
-
-.project-card-image {
-    aspect-ratio: 16 / 9;
-    overflow: hidden;
-}
-
-.project-card-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform var(--transition-slow);
-}
-
-.project-card:hover .project-card-image img {
-    transform: scale(1.05);
-}
-
-.project-card-content {
-    padding: var(--space-6);
-}
-
-.project-tag {
-    display: inline-block;
-    font-size: 0.75rem;
-    font-weight: var(--font-weight-semibold);
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    color: var(--color-accent);
-    background-color: rgba(78, 168, 4, 0.1);
-    padding: var(--space-1) var(--space-3);
-    border-radius: var(--radius-full);
-    margin-bottom: var(--space-3);
-}
-
-.project-card-title {
-    font-size: 1.5rem;
-    font-weight: var(--font-weight-bold);
-    color: var(--color-gray-900);
-    margin-bottom: var(--space-3);
-}
-
-.project-card-description {
-    font-size: 1rem;
-    color: var(--color-gray-600);
-    line-height: 1.7;
-    margin-bottom: var(--space-4);
-}
-
-.project-card-link {
-    display: inline-flex;
-    align-items: center;
-    gap: var(--space-2);
-    font-weight: var(--font-weight-semibold);
-    color: var(--color-primary);
-    transition: gap var(--transition-base);
-}
-
-.project-card-link:hover {
-    gap: var(--space-3);
-}
-
-/* ============================================
-   Latest News
-   ============================================ */
-
-.latest-news {
-    padding: var(--space-20) 0;
-}
-
-.news-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: var(--space-8);
-}
-
-@media (min-width: 768px) {
-    .news-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-@media (min-width: 1024px) {
-    .news-grid {
-        grid-template-columns: repeat(3, 1fr);
-    }
-}
-
-.news-card {
-    background-color: var(--color-white);
-    border-radius: var(--radius-lg);
-    overflow: hidden;
-    border: 1px solid var(--color-gray-200);
-    transition: all var(--transition-base);
-}
-
-.news-card:hover {
-    border-color: var(--color-primary);
-    box-shadow: var(--shadow-md);
-}
-
-.news-card-image {
-    aspect-ratio: 16 / 10;
-    overflow: hidden;
-}
-
-.news-card-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform var(--transition-slow);
-}
-
-.news-card:hover .news-card-image img {
-    transform: scale(1.05);
-}
-
-.news-card-content {
-    padding: var(--space-5);
-}
-
-.news-category {
-    display: inline-block;
-    font-size: 0.75rem;
-    font-weight: var(--font-weight-semibold);
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    color: var(--color-primary);
-    margin-bottom: var(--space-2);
-}
-
-.news-card-title {
-    font-size: 1.25rem;
-    font-weight: var(--font-weight-bold);
-    color: var(--color-gray-900);
-    margin-bottom: var(--space-3);
-    line-height: 1.3;
-}
-
-.news-card-excerpt {
-    font-size: 0.9375rem;
-    color: var(--color-gray-600);
-    line-height: 1.6;
-    margin-bottom: var(--space-4);
-}
-
-.news-card-meta {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-top: var(--space-4);
-    border-top: 1px solid var(--color-gray-200);
-}
-
-.news-date {
-    font-size: 0.875rem;
-    color: var(--color-gray-500);
-}
-
-.news-read-more {
-    display: inline-flex;
-    align-items: center;
-    gap: var(--space-2);
-    font-size: 0.875rem;
-    font-weight: var(--font-weight-semibold);
-    color: var(--color-primary);
-    transition: gap var(--transition-base);
-}
-
-.news-read-more:hover {
-    gap: var(--space-3);
-}
-
-/* ============================================
    Newsletter Section
    ============================================ */
 
 .newsletter-section {
-    background-color: var(--color-primary);
+    background-color: var(--color-brand-green);
     color: var(--color-white);
     padding: var(--space-16) 0;
 }
@@ -1122,7 +960,7 @@ ol {
 
 .newsletter-input:focus {
     outline: none;
-    border-color: var(--color-accent);
+    border-color: var(--color-action-orange);
     background-color: rgba(255, 255, 255, 0.15);
 }
 
@@ -1142,8 +980,23 @@ ol {
 }
 
 .newsletter-consent a {
-    color: var(--color-accent);
+    color: var(--color-action-orange);
     text-decoration: underline;
+}
+
+/* ============================================
+   Enhanced Footer
+   ============================================ */
+
+.site-footer-enhanced {
+    background-color: #1a1a1a;
+    /* Dark Neutral */
+    color: var(--color-white);
+    padding-top: var(--space-16);
+}
+
+.footer-main {
+    padding-bottom: var(--space-12);
 }
 
 .footer-grid {
@@ -1199,7 +1052,7 @@ ol {
 }
 
 .social-icon:hover {
-    background-color: var(--color-accent);
+    background-color: var(--color-action-orange);
     color: var(--color-white);
     transform: translateY(-2px);
 }
@@ -1207,7 +1060,8 @@ ol {
 .footer-heading {
     font-size: 1.125rem;
     font-weight: var(--font-weight-bold);
-    color: var(--color-white);
+    color: var(--color-action-orange);
+    /* Headings are Orange */
     margin-bottom: var(--space-4);
 }
 
@@ -1219,12 +1073,14 @@ ol {
 
 .footer-links a {
     font-size: 0.9375rem;
-    color: var(--color-gray-400);
+    color: var(--color-white);
+    /* Links are White */
     transition: color var(--transition-base);
 }
 
 .footer-links a:hover {
-    color: var(--color-accent);
+    color: var(--color-action-orange);
+    /* Hover is Orange */
 }
 
 .footer-contact {
@@ -1240,7 +1096,7 @@ ol {
 }
 
 .footer-contact .icon {
-    color: var(--color-accent);
+    color: var(--color-action-orange);
     margin-top: 0.125rem;
 }
 
@@ -1258,16 +1114,15 @@ ol {
 .footer-bottom-content {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
     gap: var(--space-4);
-    text-align: center;
+    text-align: left;
 }
 
 @media (min-width: 768px) {
     .footer-bottom-content {
         flex-direction: row;
         justify-content: space-between;
-        text-align: left;
     }
 }
 
@@ -1291,7 +1146,7 @@ ol {
 }
 
 .footer-legal a:hover {
-    color: var(--color-accent);
+    color: var(--color-action-orange);
 }
 
 .footer-legal .separator {
@@ -1341,7 +1196,7 @@ ol {
 }
 
 :focus-visible {
-    outline: 2px solid var(--color-accent);
+    outline: 2px solid var(--color-action-orange);
     outline-offset: 2px;
 }
 
