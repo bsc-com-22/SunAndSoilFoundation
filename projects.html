@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects & Impact - Sun & Soil Foundation</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* Projects Hero */
+        .projects-hero {
+            background: var(--primary-green);
+            padding: 100px 0;
+            text-align: center;
+            color: var(--white);
+        }
+
+        .projects-hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 24px;
+        }
+
+        .projects-hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+
+        /* Map Section */
+        .map-section {
+            padding: 80px 0;
+            background: var(--white);
+        }
+
+        .map-container {
+            height: 600px;
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+            border: 1px solid rgba(0,0,0,0.05);
+            z-index: 1;
+        }
+
+        .leaflet-popup-content-wrapper {
+            border-radius: 12px;
+            padding: 5px;
+        }
+
+        .leaflet-popup-content h4 {
+            color: var(--primary-green);
+            margin-bottom: 8px;
+            font-size: 1.1rem;
+        }
+
+        .popup-status {
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+
+        .status-ongoing-bg { background: var(--primary-green); color: white; }
+        .status-completed-bg { background: var(--accent-yellow); color: white; }
+
+        .popup-detail {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 4px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        /* Projects Grid */
+        .projects-grid-section {
+            padding: 0 0 100px;
+            background: var(--white);
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .project-card {
+            background: var(--white);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border: 1px solid rgba(0,0,0,0.05);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .project-image-wrapper {
+            position: relative;
+            height: 240px;
+        }
+
+        .project-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .status-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            padding: 6px 14px;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .status-ongoing {
+            background: rgba(45, 95, 46, 0.9);
+            color: var(--white);
+        }
+
+        .status-completed {
+            background: rgba(245, 183, 0, 0.9);
+            color: var(--white);
+        }
+
+        .project-content {
+            padding: 30px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-content h3 {
+            font-size: 1.4rem;
+            color: var(--primary-green);
+            margin-bottom: 20px;
+            line-height: 1.3;
+        }
+
+        .project-meta {
+            margin-bottom: 20px;
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 10px;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        .meta-item svg {
+            color: var(--accent-yellow);
+            flex-shrink: 0;
+        }
+
+        .project-description {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        .btn-view {
+            width: 100%;
+            padding: 12px;
+            background: var(--bg-light);
+            border: none;
+            border-radius: 8px;
+            color: var(--primary-green);
+            font-weight: 600;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: var(--transition);
+            text-align: center;
+            text-decoration: none;
+            margin-top: auto;
+        }
+
+        .btn-view:hover {
+            background: var(--primary-green);
+            color: var(--white);
+        }
+
+        /* Stats Section */
+        .stats-section {
+            padding: 60px 0;
+            background: var(--bg-light);
+            margin-top: -40px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            background: var(--white);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+        }
+
+        .stat-item {
+            text-align: center;
+            border-right: 1px solid #eee;
+        }
+
+        .stat-item:last-child {
+            border-right: none;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--primary-green);
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Section Headers */
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            color: var(--text-dark);
+            margin-bottom: 16px;
+        }
+
+        .section-header p {
+            color: var(--text-muted);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Capacity Building */
+        .capacity-section {
+            padding: 100px 0;
+            background: var(--bg-light);
+        }
+
+        /* Visit CTA */
+        .visit-cta {
+            padding: 100px 0;
+            background: var(--primary-green);
+            color: var(--white);
+            text-align: center;
+        }
+
+        .visit-cta h2 {
+            font-size: 2.5rem;
+            margin-bottom: 24px;
+        }
+
+        .visit-cta p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 40px;
+            opacity: 0.9;
+        }
+
+        .btn-white {
+            background: var(--white);
+            color: var(--primary-green);
+            padding: 14px 32px;
+            border-radius: 50px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: var(--transition);
+            display: inline-block;
+        }
+
+        .btn-white:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .projects-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (max-width: 768px) {
+            .projects-hero h1 { font-size: 2.5rem; }
+            .stats-grid { grid-template-columns: 1fr; gap: 40px; }
+            .stat-item { border-right: none; border-bottom: 1px solid #eee; padding-bottom: 20px; }
+            .stat-item:last-child { border-bottom: none; padding-bottom: 0; }
+            .projects-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav>
+                <a href="index.html" class="logo">
+                    <img src="assets/SUN AND SOIL LOGO.png" alt="Sun & Soil Foundation Logo" style="height: 60px;">
+                    <span>Sun & Soil<br><small>FOUNDATION</small></span>
+                </a>
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="index.html">Home</a></li>
+                    <li class="has-dropdown">
+                        <a href="about.html">About Us</a>
+                        <ul class="dropdown">
+                            <li><a href="about.html">Who We Are</a></li>
+                            <li><a href="about.html#vision">Our Mission & Vision</a></li>
+                            <li><a href="team.html">Our Team</a></li>
+                            <li><a href="partners.html">Partners</a></li>
+                        </ul>
+                    </li>
+                    <li class="has-dropdown">
+                        <a href="#" class="active">Our Work</a>
+                        <ul class="dropdown">
+                            <li><a href="programs.html">Our Programs</a></li>
+                            <li><a href="projects.html">Projects & Impact</a></li>
+                        </ul>
+                    </li>
+                    <li class="has-dropdown">
+                        <a href="#">Insights</a>
+                        <ul class="dropdown">
+                            <li><a href="news.html">News & Updates</a></li>
+                            <li><a href="blog.html">Blog / Stories</a></li>
+                        </ul>
+                    </li>
+                    <li class="has-dropdown">
+                        <a href="#">Get Involved</a>
+                        <ul class="dropdown">
+                            <li><a href="careers.html">Careers</a></li>
+                            <li><a href="volunteer.html">Volunteer</a></li>
+                            <li><a href="partners.html#partner">Partner With Us</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="donate.html" class="donate-btn">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+                        Donate
+                    </a></li>
+                </ul>
+                <button class="mobile-menu-btn" id="menuBtn">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <span class="stat-number">10</span>
+                    <span class="stat-label">Farmers Supported</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">85</span>
+                    <span class="stat-label">People Trained</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">50K</span>
+                    <span class="stat-label">Target by 2030</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <section class="map-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Work</h2>
+                <p>Explore our project locations across Malawi. Click on a marker to view project details.</p>
+            </div>
+            <div id="projectMap" class="map-container"></div>
+        </div>
+    </section>
+
+    <!-- Projects Grid Section -->
+    <section class="projects-grid-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Featured Projects</h2>
+                <p>Solar irrigation installations transforming subsistence farming into commercial enterprises.</p>
+            </div>
+            <div class="projects-grid">
+                <!-- Project 1: Rice Farming -->
+                <div class="project-card">
+                    <div class="project-image-wrapper">
+                        <img src="https://images.unsplash.com/photo-1589923188900-85dae523342b?auto=format&fit=crop&q=80&w=800" alt="Rice Farming" class="project-img">
+                        <span class="status-badge status-ongoing">Ongoing</span>
+                    </div>
+                    <div class="project-content">
+                        <h3>Rice Farming Initiative</h3>
+                        <div class="project-meta">
+                            <div class="meta-item">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                                <span>Nkhata Bay</span>
+                            </div>
+                            <div class="meta-item">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.5 2 7a7 7 0 0 1-7 7c-1.1 0-2.13-.26-3.04-.73"/><path d="M11 20c-1.43 0-2.56-1.18-2.33-2.58C9.17 14.48 11.38 12 14 12c1.43 0 2.56 1.18 2.33 2.58C15.83 17.52 13.62 20 11 20Z"/></svg>
+                                <span>180W Solar Pumps</span>
+                            </div>
+                            <div class="meta-item">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                                <span>2 Farmers</span>
+                            </div>
+                            <div class="meta-item">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg>
+                                <span>Rice</span>
+                            </div>
+                        </div>
+                        <p class="project-description">Supporting local farmers with reliable water access for consistent rice production. <strong>Key Outcome:</strong> Improved flooding consistency & increased yields.</p>
+                        <a href="#" class="btn-view">View Details</a>
+                    </div>
+                </div>
+
+                <!-- Project 2: Mixed Crop -->
+                <div class="project-card">
+                    <div class="project-image-wrapper">
+                        <img src="https://images.unsplash.com/photo-1592982537447-7440770cbfc9?auto=format&fit=crop&q=80&w=800" alt="Mixed Crop Irrigation" class="project-img">
+                        <span class="status-badge status-ongoing">Ongoing</span>
+                    </div>
+                    <div class="project-content">
+                        <h3>Mixed Crop Irrigation</h3>
+                        <div class="project-meta">
+                            <div class="meta-item">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                                <span>Nkhata Bay</span>
+                            </div>
+                            <div class="meta-item">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.5 2 7a7 7 0 0 1-7 7c-1.1 0-2.13-.26-3.04-.73"/><path d="M11 20c-1.43 0-2.56-1.18-2.33-2.58C9.17 14.48 11.38 12 14 12c1.43 0 2.56 1.18 2.33 2.58C15.83 17.52 13.62 20 11 20Z"/></svg>
+                                <span>180W Solar Pumps</span>
+                            </div>
+                            <div class="meta-item">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                                <span>3 Farmers</span>
+                            </div>
+                            <div class="meta-item">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg>
+                                <span>Maize, Veg, Cassava</span>
+                            </div>
+                        </div>
+                        <p class="project-description">Enabling diverse crop production throughout the dry season. <strong>Key Outcome:</strong> Year-round production & reduced labour.</p>
+                        <a href="#" class="btn-view">View Details</a>
+                    </div>
+                </div>
+
+                <!-- Project 3: Large-Scale Maize -->
+                <div class="project-card">
+                    <div class="project-image-wrapper">
+                        <img src="https://images.unsplash.com/photo-1523348837708-15d4a09cfac2?auto=format&fit=crop&q=80&w=800" alt="Large-Scale Maize" class="project-img">
+                        <span class="status-badge status-ongoing">Ongoing</span>
+                    </div>
+                    <div class="project-content">
+                        <h3>Large-Scale Maize</h3>
+                        <div class="project-meta">
+                            <div class="meta-item">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                                <span>Jenda, Mzimba</span>
+                            </div>
+                            <div class="meta-item">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.5 2 7a7 7 0 0 1-7 7c-1.1 0-2.13-.26-3.04-.73"/><path d="M11 20c-1.43 0-2.56-1.18-2.33-2.58C9.17 14.48 11.38 12 14 12c1.43 0 2.56 1.18 2.33 2.58C15.83 17.52 13.62 20 11 20Z"/></svg>
+                                <span>1000W Pump</span>
+                            </div>
+                            <div class="meta-item">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                                <span>1 Farmer</span>
+                            </div>
+                            <div class="meta-item">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg>
+                                <span>Maize</span>
+                            </div>
+                        </div>
+                        <p class="project-description">High-capacity solar irrigation for commercial maize farming. <strong>Key Outcome:</strong> Year-round production & reduced labour.</p>
+                        <a href="#" class="btn-view">View Details</a>
+                    </div>
+                </div>
+
+                <!-- Project 4: Horticulture -->
+                <div class="project-card">
+                    <div class="project-image-wrapper">
+                        <img src="https://images.unsplash.com/photo-1591857177580-dc82b9ac4e1e?auto=format&fit=crop&q=80&w=800" alt="Horticulture Project" class="project-img">
+                        <span class="status-badge status-ongoing">Ongoing</span>
+                    </div>
+                    <div class="project-content">
+                        <h3>Horticulture Project</h3>
+                        <div class="project-meta">
+                            <div class="meta-item">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                                <span>Mzuzu</span>
+                            </div>
+                            <div class="meta-item">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.5 2 7a7 7 0 0 1-7 7c-1.1 0-2.13-.26-3.04-.73"/><path d="M11 20c-1.43 0-2.56-1.18-2.33-2.58C9.17 14.48 11.38 12 14 12c1.43 0 2.56 1.18 2.33 2.58C15.83 17.52 13.62 20 11 20Z"/></svg>
+                                <span>180W Solar Pump</span>
+                            </div>
+                            <div class="meta-item">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                                <span>1 Farmer</span>
+                            </div>
+                            <div class="meta-item">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg>
+                                <span>Vegetables, Potatoes</span>
+                            </div>
+                        </div>
+                        <p class="project-description">Intensive vegetable farming for local markets. <strong>Key Outcome:</strong> Stable income & improved nutrition.</p>
+                        <a href="#" class="btn-view">View Details</a>
+                    </div>
+                </div>
+
+                <!-- Project 5: Mixed Systems -->
+                <div class="project-card">
+                    <div class="project-image-wrapper">
+                        <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&q=80&w=800" alt="Mixed Systems" class="project-img">
+                        <span class="status-badge status-ongoing">Ongoing</span>
+                    </div>
+                    <div class="project-content">
+                        <h3>Mixed Systems</h3>
+                        <div class="project-meta">
+                            <div class="meta-item">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                                <span>Lilongwe</span>
+                            </div>
+                            <div class="meta-item">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.5 2 7a7 7 0 0 1-7 7c-1.1 0-2.13-.26-3.04-.73"/><path d="M11 20c-1.43 0-2.56-1.18-2.33-2.58C9.17 14.48 11.38 12 14 12c1.43 0 2.56 1.18 2.33 2.58C15.83 17.52 13.62 20 11 20Z"/></svg>
+                                <span>250W Pumps</span>
+                            </div>
+                            <div class="meta-item">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                                <span>3 Farmers</span>
+                            </div>
+                            <div class="meta-item">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg>
+                                <span>Maize, Rice</span>
+                            </div>
+                        </div>
+                        <p class="project-description">Integrated farming systems for maximum land efficiency. <strong>Key Outcome:</strong> Reliable irrigation & higher yields.</p>
+                        <a href="#" class="btn-view">View Details</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Capacity Building Section -->
+    <section class="capacity-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Capacity Building</h2>
+                <p>Equipping communities with the skills and knowledge to sustain development.</p>
+            </div>
+            <div class="projects-grid">
+                <!-- Training 1: Women's Livelihood -->
+                <div class="project-card">
+                    <div class="project-image-wrapper">
+                        <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&q=80&w=800" alt="Women's Livelihood" class="project-img">
+                        <span class="status-badge status-completed">Completed</span>
+                    </div>
+                    <div class="project-content">
+                        <h3>Women's Livelihood</h3>
+                        <div class="project-meta">
+                            <div class="meta-item">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                                <span>Nkhotakota</span>
+                            </div>
+                            <div class="meta-item">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                                <span>40 Women</span>
+                            </div>
+                        </div>
+                        <p class="project-description">Commercial mindset and financial confidence building for women. Focused on empowering local women through agribusiness training.</p>
+                        <a href="#" class="btn-view">View Details</a>
+                    </div>
+                </div>
+
+                <!-- Training 2: Youth Agribusiness -->
+                <div class="project-card">
+                    <div class="project-image-wrapper">
+                        <img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&q=80&w=800" alt="Youth Agribusiness" class="project-img">
+                        <span class="status-badge status-completed">Completed</span>
+                    </div>
+                    <div class="project-content">
+                        <h3>Youth Agribusiness</h3>
+                        <div class="project-meta">
+                            <div class="meta-item">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                                <span>Nkhotakota</span>
+                            </div>
+                            <div class="meta-item">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                                <span>15 Youth</span>
+                            </div>
+                        </div>
+                        <p class="project-description">Skills development and income generation for education. Equipping the next generation with sustainable farming techniques.</p>
+                        <a href="#" class="btn-view">View Details</a>
+                    </div>
+                </div>
+
+                <!-- Training 3: Technical Training -->
+                <div class="project-card">
+                    <div class="project-image-wrapper">
+                        <img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&q=80&w=800" alt="Technical Training" class="project-img">
+                        <span class="status-badge status-completed">Completed</span>
+                    </div>
+                    <div class="project-content">
+                        <h3>Technical Training</h3>
+                        <div class="project-meta">
+                            <div class="meta-item">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                                <span>Mzuzu & Nkhata Bay</span>
+                            </div>
+                            <div class="meta-item">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                                <span>30 Farmers</span>
+                            </div>
+                        </div>
+                        <p class="project-description">Sustainable system use and yield improvement techniques. Ensuring long-term success of solar irrigation systems.</p>
+                        <a href="#" class="btn-view">View Details</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Visit CTA Section -->
+    <section class="visit-cta">
+        <div class="container">
+            <h2>Want to See Our Work in Action?</h2>
+            <p>We welcome site visits from partners, donors, and stakeholders interested in seeing the impact of our programs firsthand.</p>
+            <a href="contact.html" class="btn-white">Schedule a Visit</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <a href="index.html" class="logo">
+                        <img src="assets/SUN AND SOIL LOGO.png" alt="Sun & Soil Foundation Logo" style="height: 60px; background: white; padding: 5px; border-radius: 8px;">
+                        <span>Sun & Soil<br><small style="color: white; opacity: 0.8;">FOUNDATION</small></span>
+                    </a>
+                    <p>Empowering Malawian communities through solar-powered irrigation, climate-smart agriculture, and sustainable rural livelihoods.</p>
+                    <div class="social-links">
+                        <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+                        <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/></svg></a>
+                        <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg></a>
+                        <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="programs.html">Our Programs</a></li>
+                        <li><a href="projects.html">Projects & Impact</a></li>
+                        <li><a href="team.html">Our Team</a></li>
+                        <li><a href="partners.html">Partners</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Our Focus</h4>
+                    <ul>
+                        <li><a href="#">Solar Irrigation</a></li>
+                        <li><a href="#">Climate-Smart Agriculture</a></li>
+                        <li><a href="#">Women Empowerment</a></li>
+                        <li><a href="#">Youth Capacity Building</a></li>
+                        <li><a href="#">Rural Livelihoods</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact Us</h4>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                            <span>Kaphiri, Area 36, Lilongwe, Malawi</span>
+                        </div>
+                        <div class="contact-item">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                            <span>+265 995 856 237 / 888 655 069</span>
+                        </div>
+                        <div class="contact-item">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                            <span>sunandsoilfoundation@gmail.com</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Sun & Soil Foundation. All rights reserved.</p>
+                <div class="footer-legal">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Cookie Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script>
+        // Interactive Map Initialization
+        const map = L.map('projectMap').setView([-13.2543, 34.3015], 7); // Centered on Malawi
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        const projects = [
+            {
+                name: "Rice Farming Initiative",
+                location: [-11.6066, 34.2934], // Nkhata Bay
+                status: "Ongoing",
+                type: "Solar Irrigation",
+                details: "2 Farmers | 180W Pumps | Rice"
+            },
+            {
+                name: "Mixed Crop Irrigation",
+                location: [-11.6266, 34.2734], // Nkhata Bay (offset slightly)
+                status: "Ongoing",
+                type: "Solar Irrigation",
+                details: "3 Farmers | 180W Pumps | Maize, Veg, Cassava"
+            },
+            {
+                name: "Large-Scale Maize",
+                location: [-12.4500, 33.6333], // Jenda
+                status: "Ongoing",
+                type: "Solar Irrigation",
+                details: "1 Farmer | 1000W Pump | Maize"
+            },
+            {
+                name: "Horticulture Project",
+                location: [-11.4654, 34.0207], // Mzuzu
+                status: "Ongoing",
+                type: "Solar Irrigation",
+                details: "1 Farmer | 180W Pump | Vegetables, Potatoes"
+            },
+            {
+                name: "Mixed Systems",
+                location: [-13.9626, 33.7741], // Lilongwe
+                status: "Ongoing",
+                type: "Solar Irrigation",
+                details: "3 Farmers | 250W Pumps | Maize, Rice"
+            },
+            {
+                name: "Women's Livelihood",
+                location: [-12.9274, 34.2961], // Nkhotakota
+                status: "Completed",
+                type: "Capacity Building",
+                details: "40 Women | Agribusiness Training"
+            },
+            {
+                name: "Youth Agribusiness",
+                location: [-12.9474, 34.2761], // Nkhotakota (offset slightly)
+                status: "Completed",
+                type: "Capacity Building",
+                details: "15 Youth | Skills Development"
+            },
+            {
+                name: "Technical Training",
+                location: [-11.5054, 34.1007], // Mzuzu/Nkhata Bay area
+                status: "Completed",
+                type: "Capacity Building",
+                details: "30 Farmers | System Sustainability"
+            }
+        ];
+
+        projects.forEach(project => {
+            const statusClass = project.status === "Ongoing" ? "status-ongoing-bg" : "status-completed-bg";
+            
+            const popupContent = `
+                <div>
+                    <h4>${project.name}</h4>
+                    <span class="popup-status ${statusClass}">${project.status}</span>
+                    <div class="popup-detail"><strong>Type:</strong> ${project.type}</div>
+                    <div class="popup-detail"><strong>Details:</strong> ${project.details}</div>
+                </div>
+            `;
+
+            const markerColor = project.status === "Ongoing" ? "#2d5f2e" : "#f5b700";
+            
+            // Custom marker using circleMarker for a cleaner NGO look
+            L.circleMarker(project.location, {
+                radius: 8,
+                fillColor: markerColor,
+                color: "#fff",
+                weight: 2,
+                opacity: 1,
+                fillOpacity: 0.8
+            }).addTo(map).bindPopup(popupContent);
+        });
+    </script>
+</body>
+</html>

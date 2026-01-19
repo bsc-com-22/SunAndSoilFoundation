@@ -1,18 +1,958 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sun & Soil Foundation | Powering Malawi's Food Future</title>
-    <link rel="icon" type="image/x-icon" href="/src/assets/favicon.ico" />
-    <link rel="icon" type="image/png" href="/src/assets/SUN AND SOIL LOGO.png" />
-    <link rel="apple-touch-icon" href="/src/assets/SUN AND SOIL LOGO.png" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sun & Soil Foundation - Powering Malawi's Food Future</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, rgba(45, 95, 46, 0.9) 0%, rgba(74, 124, 78, 0.8) 100%), url('./assets/program-solar.jpg');
+            padding: 100px 0 160px;
+            color: var(--white);
+            position: relative;
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+
+        .hero-content {
+            max-width: 800px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            line-height: 1.1;
+            margin-bottom: 24px;
+            font-weight: 800;
+        }
+
+        .hero h1 span {
+            color: var(--accent-yellow);
+        }
+
+        .hero p {
+            font-size: 1.15rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
+            max-width: 700px;
+            line-height: 1.6;
+        }
+
+        .hero-btns {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        /* Stats Section */
+        .stats-wrapper {
+            margin-top: -80px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .stats-card {
+            background: var(--white);
+            border-radius: 16px;
+            padding: 50px 40px;
+            box-shadow: var(--shadow);
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            text-align: center;
+        }
+
+        .stat-item h2 {
+            font-size: 2.5rem;
+            color: var(--primary-green);
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+
+        .stat-item p {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-muted);
+            font-weight: 600;
+        }
+
+        /* Who We Are Section */
+        .about {
+            padding: 120px 0;
+            background: var(--white);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .about-image {
+            position: relative;
+        }
+
+        .main-img {
+            width: 100%;
+            height: 500px;
+            background: #e0e0e0;
+            border-radius: 12px;
+            object-fit: cover;
+            box-shadow: var(--shadow);
+        }
+
+        .img-label {
+            position: absolute;
+            top: 30px;
+            left: -20px;
+            background: var(--accent-yellow);
+            color: var(--white);
+            padding: 12px 24px;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .img-accent {
+            position: absolute;
+            bottom: -30px;
+            right: -30px;
+            width: 100px;
+            height: 100px;
+            background: var(--primary-green);
+            border-radius: 8px;
+            z-index: -1;
+        }
+
+        .about-content h4 {
+            color: var(--light-green);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.85rem;
+            margin-bottom: 16px;
+            font-weight: 700;
+        }
+
+        .about-content h2 {
+            font-size: 2.5rem;
+            line-height: 1.2;
+            margin-bottom: 24px;
+            color: var(--primary-green);
+        }
+
+        .about-content p {
+            color: var(--text-muted);
+            margin-bottom: 20px;
+            font-size: 1.05rem;
+        }
+
+        .read-more {
+            color: var(--primary-green);
+            text-decoration: none;
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 10px;
+            transition: var(--transition);
+        }
+
+        .read-more:hover {
+            gap: 12px;
+        }
+
+        /* Context Section */
+        .context-section {
+            padding: 100px 0;
+            background: var(--bg-light);
+        }
+
+        .context-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .context-card {
+            background: var(--white);
+            padding: 40px 30px;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+        }
+
+        .context-card h3 {
+            font-size: 1.5rem;
+            color: var(--primary-green);
+            margin-bottom: 20px;
+        }
+
+        .context-list {
+            list-style: none;
+        }
+
+        .context-list li {
+            margin-bottom: 15px;
+            padding-left: 20px;
+            position: relative;
+            color: var(--text-muted);
+        }
+
+        .context-list li::before {
+            content: '•';
+            color: var(--accent-yellow);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        .stat-highlight {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary-green);
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .stat-desc {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        /* Programs Section */
+        .programs {
+            padding: 100px 0;
+            background: var(--white);
+            text-align: center;
+        }
+
+        .section-header {
+            max-width: 700px;
+            margin: 0 auto 60px;
+        }
+
+        .section-header h4 {
+            color: var(--light-green);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.85rem;
+            margin-bottom: 16px;
+            font-weight: 700;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--primary-green);
+        }
+
+        .section-header p {
+            color: var(--text-muted);
+        }
+
+        .programs-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+        }
+
+        .program-card {
+            background: var(--bg-light);
+            padding: 40px 30px;
+            border-radius: 12px;
+            text-align: left;
+            transition: var(--transition);
+            border: 1px solid rgba(0,0,0,0.03);
+        }
+
+        .program-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow);
+        }
+
+        .icon-box {
+            width: 60px;
+            height: 60px;
+            background: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 24px;
+            color: var(--light-green);
+        }
+
+        .program-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 16px;
+            color: var(--primary-green);
+        }
+
+        .program-card p {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            margin-bottom: 24px;
+        }
+
+        .card-link {
+            color: var(--light-green);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        /* Work Across Malawi Section */
+        .work-malawi {
+            padding: 80px 0;
+            background: var(--primary-green);
+            color: var(--white);
+            text-align: center;
+        }
+
+        .work-malawi h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .work-malawi p {
+            max-width: 700px;
+            margin: 0 auto 40px;
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        /* Featured Projects Section */
+        .featured-projects {
+            padding: 100px 0;
+            background: var(--bg-light);
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .project-card {
+            background: var(--white);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border: 1px solid rgba(0,0,0,0.05);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .project-image-wrapper {
+            position: relative;
+            height: 200px;
+        }
+
+        .project-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .status-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            padding: 6px 14px;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .status-ongoing {
+            background: rgba(45, 95, 46, 0.9);
+            color: var(--white);
+        }
+
+        .project-content {
+            padding: 25px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-content h3 {
+            font-size: 1.3rem;
+            color: var(--primary-green);
+            margin-bottom: 15px;
+        }
+
+        .project-meta {
+            margin-bottom: 15px;
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 8px;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .meta-item svg {
+            color: var(--accent-yellow);
+            flex-shrink: 0;
+        }
+
+        .project-description {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+
+        .btn-view {
+            width: 100%;
+            padding: 10px;
+            background: var(--bg-light);
+            border: none;
+            border-radius: 8px;
+            color: var(--primary-green);
+            font-weight: 600;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: var(--transition);
+            text-align: center;
+            text-decoration: none;
+            margin-top: auto;
+        }
+
+        .btn-view:hover {
+            background: var(--primary-green);
+            color: var(--white);
+        }
+
+        /* Stories Section */
+        .stories-section {
+            padding: 100px 0;
+            background: var(--white);
+            text-align: center;
+        }
+
+        .story-quote {
+            max-width: 800px;
+            margin: 0 auto 40px;
+            font-size: 1.8rem;
+            font-style: italic;
+            color: var(--primary-green);
+            font-weight: 500;
+        }
+
+        .story-author {
+            font-size: 1.1rem;
+            color: var(--text-dark);
+            font-weight: 700;
+        }
+
+        /* CTA Section */
+        .cta {
+            padding: 100px 0;
+            background: var(--primary-green);
+            color: var(--white);
+            text-align: center;
+        }
+
+        .cta h2 {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+        }
+
+        .cta p {
+            max-width: 600px;
+            margin: 0 auto 40px;
+            opacity: 0.9;
+            font-size: 1.1rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .hero h1 { font-size: 3rem; }
+            .stats-card { grid-template-columns: repeat(2, 1fr); gap: 40px; }
+            .programs-grid { grid-template-columns: repeat(2, 1fr); }
+            .context-grid { grid-template-columns: 1fr; }
+            .projects-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (max-width: 768px) {
+            .about-grid { grid-template-columns: 1fr; gap: 60px; }
+            .hero h1 { font-size: 2.5rem; }
+            .stats-card { padding: 40px 20px; }
+            .projects-grid { grid-template-columns: 1fr; }
+        }
+
+        @media (max-width: 480px) {
+            .stats-card { grid-template-columns: 1fr; }
+            .programs-grid { grid-template-columns: 1fr; }
+            .hero-btns { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav>
+                <a href="index.html" class="logo">
+                    <img src="assets/SUN AND SOIL LOGO.png" alt="Sun & Soil Foundation Logo" style="height: 60px;">
+                    <span>Sun & Soil<br><small>FOUNDATION</small></span>
+                </a>
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li class="has-dropdown">
+                        <a href="about.html">About Us</a>
+                        <ul class="dropdown">
+                            <li><a href="about.html">Who We Are</a></li>
+                            <li><a href="about.html#vision">Our Mission & Vision</a></li>
+                            <li><a href="team.html">Our Team</a></li>
+                            <li><a href="partners.html">Partners</a></li>
+                        </ul>
+                    </li>
+                    <li class="has-dropdown">
+                        <a href="#">Our Work</a>
+                        <ul class="dropdown">
+                            <li><a href="programs.html">Our Programs</a></li>
+                            <li><a href="projects.html">Projects & Impact</a></li>
+                        </ul>
+                    </li>
+                    <li class="has-dropdown">
+                        <a href="#">Insights</a>
+                        <ul class="dropdown">
+                            <li><a href="news.html">News & Updates</a></li>
+                            <li><a href="blog.html">Blog / Stories</a></li>
+                        </ul>
+                    </li>
+                    <li class="has-dropdown">
+                        <a href="#">Get Involved</a>
+                        <ul class="dropdown">
+                            <li><a href="careers.html">Careers</a></li>
+                            <li><a href="volunteer.html">Volunteer</a></li>
+                            <li><a href="partners.html#partner">Partner With Us</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="donate.html" class="donate-btn">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+                        Donate
+                    </a></li>
+                </ul>
+                <button class="mobile-menu-btn" id="menuBtn">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Powering Malawi's <span>Food Future</span> with Clean Energy</h1>
+                <p>We empower rural communities across Malawi through solar-powered irrigation, climate-smart agriculture, and sustainable livelihoods—building resilience against climate change while strengthening food security and economic opportunity.</p>
+                <div class="hero-btns">
+                    <a href="programs.html" class="btn btn-primary">Our Programs 
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                    </a>
+                    <a href="partners.html#partner" class="btn btn-outline">Partner With Us</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-wrapper">
+        <div class="container">
+            <div class="stats-card">
+                <div class="stat-item">
+                    <h2 class="counter" data-target="5000">0</h2>
+                    <p>Farmers Supported</p>
+                </div>
+                <div class="stat-item">
+                    <h2 class="counter" data-target="120">0</h2>
+                    <p>Solar Pumps Installed</p>
+                </div>
+                <div class="stat-item">
+                    <h2 class="counter" data-target="45">0</h2>
+                    <p>Women Beneficiaries</p>
+                </div>
+                <div class="stat-item">
+                    <h2 class="counter" data-target="12">0</h2>
+                    <p>Districts Reached</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Who We Are Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-image">
+                    <div class="img-label">Malawian woman farmer</div>
+                    <div class="main-img" style="background: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url('https://images.unsplash.com/photo-1590739225287-bd2a5d01f27d?auto=format&fit=crop&q=80&w=800') center/cover;"></div>
+                    <div class="img-accent"></div>
+                </div>
+                <div class="about-content">
+                    <h4>Who We Are</h4>
+                    <h2>Rooted in Community. Driven by Impact.</h2>
+                    <p>Sun & Soil Foundation is a Malawian non-profit organization dedicated to transforming rural livelihoods through sustainable agriculture and clean energy solutions.</p>
+                    <p>We believe the sun and the soil are Malawi’s greatest assets. By harnessing solar energy for irrigation and promoting climate-smart farming practices, we help smallholder farmers increase yields, improve food security, and build long-term economic resilience.</p>
+                    <p>Our work is grounded in community partnerships, local leadership, and practical solutions that respond directly to the realities farmers face on the ground.</p>
+                    <a href="about.html" class="read-more">Read Our Story 
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Context Section -->
+    <section class="context-section">
+        <div class="container">
+            <div class="section-header">
+                <h4>The Context</h4>
+                <h2>Why This Work Matters</h2>
+                <p>Malawi’s agricultural sector faces unprecedented challenges that threaten food security, rural livelihoods, and national development.</p>
+            </div>
+            <div class="context-grid">
+                <div class="context-card">
+                    <h3>The Reality</h3>
+                    <span class="stat-highlight">80%</span>
+                    <span class="stat-desc">of Malawians depend on agriculture for survival</span>
+                    
+                    <span class="stat-highlight">18.2%</span>
+                    <span class="stat-desc">face food insecurity annually (Over 4 million people)</span>
+                    
+                    <span class="stat-highlight">51%</span>
+                    <span class="stat-desc">of households remain below the poverty line</span>
+                </div>
+                <div class="context-card">
+                    <h3>Key Challenges</h3>
+                    <ul class="context-list">
+                        <li>Erratic rainfall and prolonged droughts</li>
+                        <li>Rising costs of agricultural inputs and fuel</li>
+                        <li>Limited access to credit, technology, and markets</li>
+                        <li>Intensifying climate change impacts</li>
+                    </ul>
+                </div>
+                <div class="context-card">
+                    <h3>Our Solution</h3>
+                    <ul class="context-list">
+                        <li>Solar-powered irrigation for year-round farming</li>
+                        <li>Climate-smart techniques to improve yields sustainably</li>
+                        <li>Training and capacity building for farmers and cooperatives</li>
+                        <li>Community-led development for long-term impact</li>
+                    </ul>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 40px; max-width: 800px; margin-left: auto; margin-right: auto;">
+                <p style="font-size: 1.1rem; color: var(--text-muted);"><strong>Our Approach:</strong> By integrating clean energy, sustainable agriculture, and local capacity building, we help farming communities transition from subsistence to resilience—improving food security, incomes, and climate adaptability.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Programs Section -->
+    <section class="programs" id="programs">
+        <div class="container">
+            <div class="section-header">
+                <h4>Our Programs</h4>
+                <h2>Holistic Solutions for Rural Development</h2>
+            </div>
+            <div class="programs-grid">
+                <div class="program-card">
+                    <div class="icon-box">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M22 12h2"/><path d="m4.93 19.07 1.41-1.41"/><path d="m17.66 6.34 1.41-1.41"/></svg>
+                    </div>
+                    <h3>Solar Irrigation</h3>
+                    <p>Providing affordable solar water pumps to enable year-round farming.</p>
+                    <a href="programs.html" class="card-link">Learn More 
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                    </a>
+                </div>
+                <div class="program-card">
+                    <div class="icon-box">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 20h10"/><path d="M10 20c5.5-2.5 8-6.4 8-12a7.9 7.9 0 0 0-5-7.5C13.3 3.6 11.3 6 10 9.4 8.3 7.6 6.3 6 5 5a8 8 0 0 0 .5 15c2 0 3.5-1.5 4.5-5"/></svg>
+                    </div>
+                    <h3>Climate-Smart Agriculture</h3>
+                    <p>Training farmers in sustainable practices that adapt to changing weather patterns.</p>
+                    <a href="programs.html" class="card-link">Learn More 
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                    </a>
+                </div>
+                <div class="program-card">
+                    <div class="icon-box">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                    </div>
+                    <h3>Capacity Building</h3>
+                    <p>Strengthening cooperatives, skills, and community governance.</p>
+                    <a href="programs.html" class="card-link">Learn More 
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                    </a>
+                </div>
+                <div class="program-card">
+                    <div class="icon-box">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><path d="M16 7h6v6"/></svg>
+                    </div>
+                    <h3>Women Empowerment</h3>
+                    <p>Ensuring women have equal access to resources, leadership, and markets.</p>
+                    <a href="programs.html" class="card-link">Learn More 
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Work Across Malawi Section -->
+    <section class="work-malawi">
+        <div class="container">
+            <h2>Our Work Across Malawi</h2>
+            <p>Sun & Soil Foundation operates across multiple districts, implementing projects that respond to local needs while contributing to national food security goals.</p>
+            <a href="projects.html" class="btn btn-outline">Explore Project Map</a>
+        </div>
+    </section>
+
+    <!-- Featured Projects Section -->
+    <section class="featured-projects">
+        <div class="container">
+            <div class="section-header">
+                <h4>Featured Projects</h4>
+                <h2>Real Solutions. Measurable Impact.</h2>
+                <p>Our featured projects highlight how solar-powered irrigation and capacity-building initiatives are transforming subsistence farming into resilient, income-generating livelihoods.</p>
+            </div>
+            <div class="projects-grid">
+                <!-- Project 1 -->
+                <div class="project-card">
+                    <div class="project-image-wrapper">
+                        <img src="https://images.unsplash.com/photo-1589923188900-85dae523342b?auto=format&fit=crop&q=80&w=800" alt="Rice Farming" class="project-img">
+                        <span class="status-badge status-ongoing">Ongoing</span>
+                    </div>
+                    <div class="project-content">
+                        <h3>Rice Farming Initiative</h3>
+                        <div class="project-meta">
+                            <div class="meta-item">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                                <span>Nkhata Bay</span>
+                            </div>
+                            <div class="meta-item">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                                <span>2 Farmers</span>
+                            </div>
+                        </div>
+                        <p class="project-description">Supporting local farmers with reliable water access for consistent rice production. <strong>Key Outcome:</strong> Improved irrigation consistency and increased yields.</p>
+                        <a href="projects.html" class="btn-view">View Details</a>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="project-card">
+                    <div class="project-image-wrapper">
+                        <img src="https://images.unsplash.com/photo-1592982537447-7440770cbfc9?auto=format&fit=crop&q=80&w=800" alt="Mixed Crop Irrigation" class="project-img">
+                        <span class="status-badge status-ongoing">Ongoing</span>
+                    </div>
+                    <div class="project-content">
+                        <h3>Mixed Crop Irrigation</h3>
+                        <div class="project-meta">
+                            <div class="meta-item">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                                <span>Nkhata Bay</span>
+                            </div>
+                            <div class="meta-item">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                                <span>3 Farmers</span>
+                            </div>
+                        </div>
+                        <p class="project-description">Designed to support diversified farming throughout the dry season. <strong>Key Outcome:</strong> Year-round production and reduced labour demands.</p>
+                        <a href="projects.html" class="btn-view">View Details</a>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="project-card">
+                    <div class="project-image-wrapper">
+                        <img src="https://images.unsplash.com/photo-1523348837708-15d4a09cfac2?auto=format&fit=crop&q=80&w=800" alt="Large-Scale Maize" class="project-img">
+                        <span class="status-badge status-ongoing">Ongoing</span>
+                    </div>
+                    <div class="project-content">
+                        <h3>Large-Scale Maize</h3>
+                        <div class="project-meta">
+                            <div class="meta-item">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                                <span>Jenda, Mzimba</span>
+                            </div>
+                            <div class="meta-item">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                                <span>1 Commercial Farmer</span>
+                            </div>
+                        </div>
+                        <p class="project-description">Demonstrating the scalability of solar irrigation for commercial agriculture. <strong>Key Outcome:</strong> Increased production capacity and reliable irrigation.</p>
+                        <a href="projects.html" class="btn-view">View Details</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stories Section -->
+    <section class="stories-section">
+        <div class="container">
+            <div class="section-header">
+                <h4>Stories from the Field</h4>
+                <h2>Behind every project is a farmer, a family, and a community.</h2>
+            </div>
+            <p class="story-quote">“Before solar irrigation, we harvested once a year. Now we farm throughout the dry season and earn a stable income.”</p>
+            <p class="story-author">— Smallholder Farmer, Nkhata Bay</p>
+            <br><br>
+            <a href="blog.html" class="read-more">Read More Stories 
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </a>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <h2>Ready to Make a Difference?</h2>
+            <p>Join us in powering Malawi’s food future. Whether as a donor, partner, volunteer, or professional, your support creates lasting impact.</p>
+            <div class="hero-btns" style="justify-content: center;">
+                <a href="volunteer.html" class="btn btn-primary">Get Involved</a>
+                <a href="projects.html" class="btn btn-outline">View Our Impact</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <a href="index.html" class="logo">
+                        <img src="assets/SUN AND SOIL LOGO.png" alt="Sun & Soil Foundation Logo" style="height: 60px; background: white; padding: 5px; border-radius: 8px;">
+                        <span>Sun & Soil<br><small style="color: white; opacity: 0.8;">FOUNDATION</small></span>
+                    </a>
+                    <p>Empowering Malawian communities through solar-powered irrigation, climate-smart agriculture, and sustainable rural livelihoods.</p>
+                    <div class="social-links">
+                        <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+                        <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/></svg></a>
+                        <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg></a>
+                        <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="programs.html">Our Programs</a></li>
+                        <li><a href="projects.html">Projects & Impact</a></li>
+                        <li><a href="team.html">Our Team</a></li>
+                        <li><a href="partners.html">Partners</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Our Focus</h4>
+                    <ul>
+                        <li><a href="#">Solar Irrigation</a></li>
+                        <li><a href="#">Climate-Smart Agriculture</a></li>
+                        <li><a href="#">Women Empowerment</a></li>
+                        <li><a href="#">Youth Capacity Building</a></li>
+                        <li><a href="#">Rural Livelihoods</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact Us</h4>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                            <span>Kaphiri, Area 36, Lilongwe, Malawi</span>
+                        </div>
+                        <div class="contact-item">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                            <span>+265 995 856 237 / +265 888 655 069</span>
+                        </div>
+                        <div class="contact-item">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                            <span>sunandsoilfoundation@gmail.com</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Sun & Soil Foundation. All rights reserved.</p>
+                <div class="footer-legal">
+                    <span>Crafted By Nyasa Creatives.</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script>
+        // Counter Animation
+        const counters = document.querySelectorAll('.counter');
+        const speed = 200;
+
+        const startCounters = () => {
+            counters.forEach(counter => {
+                const updateCount = () => {
+                    const target = +counter.getAttribute('data-target');
+                    const count = +counter.innerText.replace('+', '').replace('%', '');
+                    const inc = target / speed;
+
+                    if (count < target) {
+                        const nextVal = Math.ceil(count + inc);
+                        counter.innerText = nextVal + (counter.getAttribute('data-target') === '45' ? '%' : '+');
+                        setTimeout(updateCount, 1);
+                    } else {
+                        counter.innerText = target + (counter.getAttribute('data-target') === '45' ? '%' : '+');
+                    }
+                };
+                updateCount();
+            });
+        };
+
+        // Intersection Observer for Stats
+        const observerOptions = {
+            threshold: 0.5
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    startCounters();
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        if (document.querySelector('.stats-card')) {
+            observer.observe(document.querySelector('.stats-card'));
+        }
+    </script>
+</body>
 </html>
