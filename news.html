@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News & Updates - Sun & Soil Foundation</title>
+    <meta name="description" content="Stay informed about our latest programmes, partnerships, and impact stories from the field.">
+    <link rel="stylesheet" href="./css/main.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/3.0.0/uicons-bold-rounded/css/uicons-bold-rounded.css'>
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/3.0.0/uicons-regular-rounded/css/uicons-regular-rounded.css'>
+    <style>
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+        .news-card {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid var(--border);
+        }
+        .news-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+        .news-content {
+            padding: 24px;
+        }
+        .news-date {
+            color: var(--primary);
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+            display: block;
+        }
+        .news-title {
+            font-size: 1.25rem;
+            color: var(--dark);
+            margin-bottom: 12px;
+            line-height: 1.4;
+        }
+        .news-excerpt {
+            color: var(--gray-medium);
+            margin-bottom: 20px;
+            font-size: 1rem;
+        }
+        .read-more-link {
+            color: var(--primary);
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .read-more-link:hover {
+            text-decoration: underline;
+        }
+        .events-list {
+            list-style: none;
+        }
+        .event-item {
+            background: var(--white);
+            padding: 24px;
+            border-radius: var(--border-radius);
+            margin-bottom: 20px;
+            border-left: 4px solid var(--accent);
+            box-shadow: var(--shadow);
+        }
+        .event-date {
+            font-weight: 700;
+            color: var(--dark);
+            font-size: 1.1rem;
+            margin-bottom: 4px;
+        }
+        .press-list {
+            list-style: none;
+        }
+        .press-item {
+            margin-bottom: 16px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid var(--border);
+        }
+        .press-item:last-child {
+            border-bottom: none;
+        }
+        .press-source {
+            font-weight: 600;
+            color: var(--primary);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <img src="./assets/images/SUN AND SOIL LOGO.png" alt="Sun & Soil Foundation Logo">
+            </a>
+            <div class="menu-toggle" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="our-work.html">Our Work</a></li>
+                <li><a href="impact.html">Impact</a></li>
+                <li><a href="news.html" class="active">News</a></li>
+                <li><a href="get-involved.html">Get Involved</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="donate.html" class="cta-button">Donate</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero" style="background: linear-gradient(rgba(27, 94, 32, 0.8), rgba(0, 0, 0, 0.6)), url('./assets/images/hero-bg.png'); background-size: cover; background-position: center;">
+        <div class="hero-content">
+            <h1>News & Updates</h1>
+            <p>Stay informed about our latest programmes, partnerships, and impact stories.</p>
+        </div>
+    </header>
+
+    <!-- Latest News Section -->
+    <section class="services-section" style="background: var(--gray-light);">
+        <div class="main-container">
+            <div class="services-heading">
+                <div class="icon-text">
+                    <i class="fi fi-rr-bullhorn"></i>
+                    <p>LATEST NEWS</p>
+                </div>
+                <h2 style="color: var(--dark);">Stories of Change</h2>
+            </div>
+
+            <div class="news-grid">
+                <!-- News Item 1 -->
+                <article class="news-card">
+                    <div class="news-content">
+                        <span class="news-date">January 2025</span>
+                        <h3 class="news-title">New Solar Hub Launched in Dedza District</h3>
+                        <p class="news-excerpt">We are thrilled to announce the launch of our newest solar irrigation hub in Dedza. This community-managed facility will serve 50+ households, providing year-round water access.</p>
+                        <a href="#" class="read-more-link">Read More <i class="fi fi-rr-arrow-right"></i></a>
+                    </div>
+                </article>
+
+                <!-- News Item 2 -->
+                <article class="news-card">
+                    <div class="news-content">
+                        <span class="news-date">December 2024</span>
+                        <h3 class="news-title">Annual Impact Report 2024 Now Available</h3>
+                        <p class="news-excerpt">Our 2024 impact report is out! This year, we reached over 1,000 farmers through training programmes and installed 15 solar irrigation systems.</p>
+                        <a href="#" class="read-more-link">Download Report <i class="fi fi-rr-download"></i></a>
+                    </div>
+                </article>
+
+                <!-- News Item 3 -->
+                <article class="news-card">
+                    <div class="news-content">
+                        <span class="news-date">November 2024</span>
+                        <h3 class="news-title">Partner Spotlight: Collaborating for Climate Resilience</h3>
+                        <p class="news-excerpt">Highlighting our partnership with the Malawi Department of Agriculture to train extension workers in solar irrigation and climate-smart techniques.</p>
+                        <a href="#" class="read-more-link">Read More <i class="fi fi-rr-arrow-right"></i></a>
+                    </div>
+                </article>
+
+                <!-- News Item 4 -->
+                <article class="news-card">
+                    <div class="news-content">
+                        <span class="news-date">October 2024</span>
+                        <h3 class="news-title">Farmer Field School Graduation in Salima</h3>
+                        <p class="news-excerpt">Congratulations to 40 farmers who completed our 6-month climate-smart agriculture training programme! Graduates are now practising crop rotation and water conservation.</p>
+                        <a href="#" class="read-more-link">See Photos <i class="fi fi-rr-picture"></i></a>
+                    </div>
+                </article>
+
+                <!-- News Item 5 -->
+                <article class="news-card">
+                    <div class="news-content">
+                        <span class="news-date">September 2024</span>
+                        <h3 class="news-title">Youth Agribusiness Competition Winners Announced</h3>
+                        <p class="news-excerpt">We're proud to announce the winners of our first Youth Agribusiness Competition. Three young entrepreneurs received startup grants to launch their businesses.</p>
+                        <a href="#" class="read-more-link">Meet the Winners <i class="fi fi-rr-arrow-right"></i></a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Upcoming Events -->
+    <section class="services-section" style="background: var(--white);">
+        <div class="main-container">
+            <div class="services-heading">
+                <div class="icon-text">
+                    <i class="fi fi-rr-calendar"></i>
+                    <p>UPCOMING EVENTS</p>
+                </div>
+                <h2 style="color: var(--dark);">Mark Your Calendar</h2>
+            </div>
+
+            <div style="max-width: 800px; margin: 0 auto;">
+                <ul class="events-list">
+                    <li class="event-item">
+                        <div class="event-date">March 2025</div>
+                        <h3 style="margin-bottom: 8px; color: var(--primary);">Farmer Exchange Visit</h3>
+                        <p>Farmers from our Dedza programme will visit successful solar irrigation schemes in Salima to learn and share best practices.</p>
+                    </li>
+                    <li class="event-item">
+                        <div class="event-date">April 2025</div>
+                        <h3 style="margin-bottom: 8px; color: var(--primary);">Women in Agriculture Workshop</h3>
+                        <p>A 3-day workshop focused on financial literacy, marketing, and leadership for women farmers and entrepreneurs.</p>
+                    </li>
+                    <li class="event-item">
+                        <div class="event-date">June 2025</div>
+                        <h3 style="margin-bottom: 8px; color: var(--primary);">Annual Stakeholder Meeting</h3>
+                        <p>Join us for our annual meeting where we'll share progress, challenges, and plans for the year ahead.</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Media & Press -->
+    <section class="services-section" style="background: var(--gray-light);">
+        <div class="main-container">
+            <div class="services-heading">
+                <div class="icon-text">
+                    <i class="fi fi-rr-microphone"></i>
+                    <p>MEDIA & PRESS</p>
+                </div>
+                <h2 style="color: var(--dark);">In the News</h2>
+            </div>
+
+            <div style="max-width: 800px; margin: 0 auto; background: var(--white); padding: 40px; border-radius: var(--border-radius); box-shadow: var(--shadow);">
+                <ul class="press-list">
+                    <li class="press-item">
+                        <span class="press-source">The Nation</span>
+                        <p>"Solar Power Transforms Malawian Farms"</p>
+                    </li>
+                    <li class="press-item">
+                        <span class="press-source">Malawi Daily Times</span>
+                        <p>"Youth Find Opportunity in Agriculture"</p>
+                    </li>
+                    <li class="press-item">
+                        <span class="press-source">Development Today</span>
+                        <p>"Climate-Smart Solutions for Smallholder Farmers"</p>
+                    </li>
+                </ul>
+                <div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid var(--border);">
+                    <h3 style="font-size: 1.1rem; margin-bottom: 10px;">Press Enquiries</h3>
+                    <p style="color: var(--gray-medium);">For media requests, interviews, or press materials, please contact our Communications Team at <a href="mailto:sunandsoilfoundation@gmail.com" style="color: var(--primary); font-weight: 600;">sunandsoilfoundation@gmail.com</a>.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Subscribe Section -->
+    <section class="services-section" style="background: var(--secondary); color: var(--white); text-align: center;">
+        <div class="main-container">
+            <h2 style="color: var(--white); margin-bottom: 16px;">Subscribe to Our Newsletter</h2>
+            <p style="color: rgba(255,255,255,0.9); margin-bottom: 30px; max-width: 600px; margin-left: auto; margin-right: auto;">Stay updated with monthly news, impact stories, and opportunities to get involved.</p>
+            
+            <form style="max-width: 500px; margin: 0 auto; display: flex; gap: 10px; flex-wrap: wrap;">
+                <input type="email" placeholder="Enter your email address" style="flex: 1; padding: 12px 20px; border-radius: 4px; border: none; min-width: 250px;">
+                <button type="submit" class="btn btn-primary" style="background: var(--accent); color: var(--dark); border: none;">Subscribe</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="cta-section">
+        <div class="cta-container">
+            <h2>Follow Our Journey</h2>
+            <p>Connect with us on social media to see real-time updates from the field.</p>
+            <div class="cta-buttons">
+                <a href="#" class="btn btn-primary">Facebook</a>
+                <a href="#" class="btn btn-primary">Twitter</a>
+                <a href="#" class="btn btn-primary">LinkedIn</a>
+                <a href="#" class="btn btn-primary">Instagram</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-content">
+                <!-- Company Info -->
+                <div class="footer-section">
+                    <h3>Sun & Soil Foundation</h3>
+                    <p>Powering Malawi's food future through solar-powered irrigation, climate-smart agriculture, and sustainable rural livelihoods.</p>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="our-work.html">Our Work</a></li>
+                        <li><a href="impact.html">Impact</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- Get Involved -->
+                <div class="footer-section">
+                    <h3>Get Involved</h3>
+                    <ul class="footer-links">
+                        <li><a href="donate.html">Donate</a></li>
+                        <li><a href="get-involved.html">Partner With Us</a></li>
+                        <li><a href="get-involved.html#volunteer">Volunteer</a></li>
+                        <li><a href="impact.html">Impact Stories</a></li>
+                        <li><a href="news.html">Latest News</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Info -->
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <div class="footer-contact-item">
+                        <i class="fi fi-rr-marker"></i>
+                        <span>Kaphiri, Area 36, Lilongwe, Malawi</span>
+                    </div>
+                    <div class="footer-contact-item">
+                        <i class="fi fi-rr-phone-call"></i>
+                        <span>+265 995 856 237 / +265 888 655 069</span>
+                    </div>
+                    <div class="footer-contact-item">
+                        <i class="fi fi-rr-envelope"></i>
+                        <span>sunandsoilfoundation@gmail.com</span>
+                    </div>
+                    <div class="footer-contact-item">
+                        <i class="fi fi-rr-globe"></i>
+                        <span>www.sunandsoilfoundation.org</span>
+                    </div>
+                    <div class="footer-contact-item">
+                        <i class="fi fi-rr-clock"></i>
+                        <span>Mon - Fri: 8:00 AM - 5:00 PM</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 Sun & Soil Foundation. All rights reserved.</p>
+                <div class="footer-bottom-links">
+                    <a href="https://nyasacreatives.netlify.app/" target="_blank">Developed by Nyasa Creatives.</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu functionality
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
+
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+
+            // Animate hamburger menu
+            const spans = menuToggle.getElementsByTagName('span');
+            if (navLinks.classList.contains('active')) {
+                spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
+                spans[1].style.opacity = '0';
+                spans[2].style.transform = 'rotate(-45deg) translate(7px, -6px)';
+            } else {
+                spans[0].style.transform = 'rotate(0) translate(0, 0)';
+                spans[1].style.opacity = '1';
+                spans[2].style.transform = 'rotate(0) translate(0, 0)';
+            }
+        });
+
+        // Close mobile menu when clicking on a link
+        navLinks.addEventListener('click', (e) => {
+            if (e.target.tagName === 'A') {
+                navLinks.classList.remove('active');
+                const spans = menuToggle.getElementsByTagName('span');
+                spans[0].style.transform = 'rotate(0) translate(0, 0)';
+                spans[1].style.opacity = '1';
+                spans[2].style.transform = 'rotate(0) translate(0, 0)';
+            }
+        });
+    </script>
+</body>
+</html>

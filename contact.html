@@ -1,157 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us - Sun and Soil Foundation</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <title>Contact Us - Sun & Soil Foundation</title>
+    <meta name="description" content="Get in touch with Sun & Soil Foundation. We'd love to hear from you.">
+    <link rel="stylesheet" href="./css/main.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/3.0.0/uicons-bold-rounded/css/uicons-bold-rounded.css'>
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/3.0.0/uicons-regular-rounded/css/uicons-regular-rounded.css'>
     <style>
-        :root {
-            --primary: #1b5e20;
-            --secondary: #216825;
-            --accent: #fbc02d;
-            --white: #ffffff;
-            --dark: #1a1a1a;
-            --gray-light: #fafafa;
-            --gray-medium: #666;
-            --gray-border: #eee;
-            --shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
-            --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
-            --border: #e5e7eb;
-            --border-radius: 12px;
-            --border-radius-sm: 8px;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
-            line-height: 1.6;
-            background: var(--white);
-        }
-
-        /* Navigation */
-        .navbar {
-            background: var(--white);
-            border-bottom: 1px solid var(--border);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            backdrop-filter: blur(10px);
-            background: rgba(255, 255, 255, 0.95);
-        }
-
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 24px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            height: 72px;
-        }
-
-        .logo img {
-            margin-top: 20px;
-            height: 90px;
-            max-width: 180px;
-            object-fit: contain;
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 32px;
-            align-items: center;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: var(--gray-medium);
-            font-weight: 500;
-            font-size: 15px;
-            transition: color 0.2s ease;
-            padding: 8px 0;
-        }
-
-        .nav-links a:hover,
-        .nav-links a.active {
-            color: var(--primary);
-        }
-
-        .cta-button {
-            background: var(--accent) !important;
-            color: var(--secondary) !important;
-            padding: 12px 24px !important;
-            border-radius: var(--border-radius-sm) !important;
-            font-weight: 600 !important;
-            transition: all 0.2s ease !important;
-            border: none;
-            cursor: pointer;
-        }
-
-        .cta-button:hover {
-            background: var(--primary) !important;
-            color: var(--white) !important;
-            transform: translateY(-1px);
-            box-shadow: var(--shadow-lg);
-        }
-
-        .menu-toggle {
-            display: none;
-            flex-direction: column;
-            cursor: pointer;
-            gap: 4px;
-            padding: 8px;
-        }
-
-        .menu-toggle span {
-            width: 24px;
-            height: 2px;
-            background: var(--dark);
-            transition: all 0.3s ease;
-            border-radius: 2px;
-        }
-
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
-                url('./assets/images/hero-bg.png');
-            background-size: cover;
-            background-position: center;
-            height: 50vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: var(--white);
-        }
-
-        .hero-content {
-            max-width: 800px;
-            padding: 0 24px;
-        }
-
-        .hero h1 {
-            font-size: clamp(2.5rem, 5vw, 3.5rem);
-            font-weight: 700;
-            margin-bottom: 16px;
-            letter-spacing: -0.02em;
-        }
-
-        .hero p {
-            font-size: 18px;
-            opacity: 0.9;
-        }
-
-        /* Contact Section */
         .contact-section {
             padding: 80px 20px;
             background: var(--white);
@@ -164,26 +22,83 @@
 
         .contact-grid {
             display: grid;
-            grid-template-columns: 2fr 1fr;
+            grid-template-columns: 1fr 1.5fr;
             gap: 60px;
             align-items: start;
         }
 
-        /* Contact Form */
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .contact-info-card {
+            background: var(--white);
+            padding: 30px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border);
+            transition: transform 0.3s ease;
+        }
+
+        .contact-info-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .contact-info-item {
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: rgba(27, 94, 32, 0.1);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .contact-icon i {
+            font-size: 24px;
+            color: var(--primary);
+        }
+
+        .contact-details h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--dark);
+            margin-bottom: 8px;
+        }
+
+        .contact-details p {
+            color: var(--gray-medium);
+            line-height: 1.6;
+            font-size: 1rem;
+        }
+
         .contact-form-card {
             background: var(--white);
-            border-radius: var(--border-radius);
             padding: 40px;
+            border-radius: var(--border-radius);
             box-shadow: var(--shadow-lg);
             border: 1px solid var(--border);
         }
 
         .contact-form-card h2 {
-            font-size: clamp(1.8rem, 3vw, 2rem);
-            font-weight: 700;
-            color: var(--primary);
-            margin-bottom: 24px;
-            letter-spacing: -0.02em;
+            font-size: 2rem;
+            color: var(--dark);
+            margin-bottom: 10px;
+        }
+
+        .contact-form-card p {
+            color: var(--gray-medium);
+            margin-bottom: 30px;
         }
 
         .form-group {
@@ -192,120 +107,59 @@
 
         .form-group label {
             display: block;
-            font-weight: 600;
-            color: var(--dark);
             margin-bottom: 8px;
-            letter-spacing: 0.01em;
+            font-weight: 500;
+            color: var(--dark);
         }
 
-        .form-group input,
-        .form-group textarea,
-        .form-group select {
+        .form-control {
             width: 100%;
-            padding: 14px 16px;
-            border: 2px solid var(--border);
+            padding: 12px 16px;
+            border: 1px solid var(--border);
             border-radius: var(--border-radius-sm);
-            font-size: 15px;
-            background: var(--white);
-            transition: all 0.2s ease;
             font-family: inherit;
+            font-size: 1rem;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
         }
 
-        .form-group input:focus,
-        .form-group textarea:focus,
-        .form-group select:focus {
-            border-color: var(--primary);
+        .form-control:focus {
             outline: none;
+            border-color: var(--primary);
             box-shadow: 0 0 0 3px rgba(27, 94, 32, 0.1);
         }
 
-        .form-group textarea {
-            min-height: 120px;
+        textarea.form-control {
             resize: vertical;
+            min-height: 150px;
         }
 
         .submit-btn {
-            background: var(--secondary);
+            background: var(--primary);
             color: var(--white);
-            padding: 16px 32px;
             border: none;
+            padding: 16px 32px;
             border-radius: var(--border-radius-sm);
-            font-weight: 700;
-            font-size: 16px;
+            font-weight: 600;
+            font-size: 1rem;
             cursor: pointer;
-            transition: all 0.2s ease;
             width: 100%;
-            letter-spacing: 0.02em;
-            box-shadow: var(--shadow);
+            transition: background 0.3s ease, transform 0.2s ease;
         }
 
         .submit-btn:hover {
-            background: var(--primary);
-            transform: translateY(-1px);
-            box-shadow: var(--shadow-lg);
-        }
-
-        /* Contact Info */
-        .contact-info {
-            display: flex;
-            flex-direction: column;
-            gap: 30px;
-        }
-
-        .contact-info-card {
-            background: var(--gray-light);
-            border-radius: var(--border-radius);
-            padding: 30px;
-            border: 1px solid var(--border);
-            transition: transform 0.3s ease;
-        }
-
-        .contact-info-card:hover {
+            background: var(--secondary);
             transform: translateY(-2px);
         }
 
-        .contact-info-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 16px;
-        }
-
-        .contact-icon {
-            width: 50px;
-            height: 50px;
-            background: var(--primary);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--white);
-            font-size: 1.2rem;
-            flex-shrink: 0;
-        }
-
-        .contact-details h3 {
-            font-size: 1.1rem;
-            color: var(--secondary);
-            margin-bottom: 8px;
-            font-weight: 600;
-        }
-
-        .contact-details p {
-            color: var(--gray-medium);
-            line-height: 1.6;
-            font-size: 15px;
-            margin: 0;
-        }
-
-        /* Map Section */
         .map-section {
-            padding: 80px 20px;
-            background: var(--gray-light);
+            padding: 0 0 80px;
+            background: var(--white);
         }
 
         .map-container {
             max-width: 1200px;
             margin: 0 auto;
+            padding: 0 20px;
         }
 
         .map-header {
@@ -314,272 +168,55 @@
         }
 
         .map-header h2 {
-            font-size: clamp(2rem, 4vw, 2.5rem);
-            font-weight: 700;
-            color: var(--primary);
+            font-size: 2.5rem;
+            color: var(--dark);
             margin-bottom: 16px;
-            letter-spacing: -0.02em;
         }
 
         .map-header p {
-            font-size: 18px;
             color: var(--gray-medium);
+            font-size: 1.1rem;
         }
 
         .map-frame {
-            background: var(--white);
+            width: 100%;
+            height: 450px;
             border-radius: var(--border-radius);
-            padding: 20px;
-            box-shadow: var(--shadow-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow);
             border: 1px solid var(--border);
         }
 
         .map-frame iframe {
             width: 100%;
-            height: 400px;
+            height: 100%;
             border: 0;
-            border-radius: var(--border-radius-sm);
         }
 
-        /* CTA Section */
-        .cta-section {
-            padding: 80px 20px;
-            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
-                url('./assets/images/hero-bg.png');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            color: var(--white);
-            text-align: center;
-        }
-
-        .cta-container {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .cta-section h2 {
-            font-size: clamp(2rem, 4vw, 2.5rem);
-            font-weight: 700;
-            margin-bottom: 24px;
-            letter-spacing: -0.02em;
-        }
-
-        .cta-section p {
-            font-size: 18px;
-            line-height: 1.6;
-            margin-bottom: 40px;
-            opacity: 0.9;
-        }
-
-        .cta-buttons {
-            display: flex;
-            gap: 16px;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .btn {
-            padding: 16px 32px;
-            border-radius: var(--border-radius);
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 16px;
-            transition: all 0.2s ease;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            border: none;
-            cursor: pointer;
-        }
-
-        .btn-primary {
-            background: var(--secondary);
-            color: var(--white);
-        }
-
-        .btn-primary:hover {
-            background: var(--primary);
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-lg);
-        }
-
-        .btn-secondary {
-            background: transparent;
-            color: var(--white);
-            border: 2px solid var(--white);
-        }
-
-        .btn-secondary:hover {
-            background: var(--white);
-            color: var(--dark);
-        }
-
-        /* Footer */
-        .footer {
-            background: linear-gradient(135deg, #1b5e20 0%, #1b5e20 100%);
-            color: var(--white);
-            padding: 60px 0 20px;
-        }
-
-        .footer-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        .footer-content {
-            display: grid;
-            grid-template-columns: 2fr 1fr 1fr 1fr;
-            gap: 40px;
-            margin-bottom: 40px;
-        }
-
-        .footer-section h3 {
-            font-size: 1.3rem;
-            font-weight: 600;
-            margin-bottom: 20px;
-            color: var(--accent);
-        }
-
-        .footer-section p {
-            line-height: 1.6;
-            margin-bottom: 20px;
-            opacity: 0.8;
-        }
-
-        .footer-links {
-            list-style: none;
-        }
-
-        .footer-links li {
-            margin-bottom: 12px;
-        }
-
-        .footer-links a {
-            color: rgba(255, 255, 255, 0.8);
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-
-        .footer-links a:hover {
-            color: var(--accent);
-        }
-
-        .footer-contact-item {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            margin-bottom: 16px;
-            color: rgba(255, 255, 255, 0.8);
-        }
-
-        .footer-contact-item i {
-            color: var(--accent);
-            width: 20px;
-            text-align: center;
-        }
-
-        .footer-bottom {
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            padding-top: 30px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 20px;
-        }
-
-        .footer-bottom p {
-            margin: 0;
-            opacity: 0.7;
-        }
-
-        .footer-bottom-links a {
-            color: rgba(255, 255, 255, 0.8);
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-
-        .footer-bottom-links a:hover {
-            color: var(--accent);
-        }
-
-        /* Mobile Responsive */
-        @media (max-width: 768px) {
-            .menu-toggle {
-                display: flex;
-            }
-
-            .nav-links {
-                position: fixed;
-                top: 72px;
-                left: 0;
-                width: 100%;
-                height: calc(100vh - 72px);
-                background: var(--white);
-                flex-direction: column;
-                gap: 0;
-                padding: 32px 24px;
-                transform: translateX(-100%);
-                transition: transform 0.3s ease;
-                box-shadow: var(--shadow-lg);
-            }
-
-            .nav-links.active {
-                transform: translateX(0);
-            }
-
-            .nav-links li {
-                width: 100%;
-                text-align: center;
-                padding: 16px 0;
-                border-bottom: 1px solid var(--border);
-            }
-
-            .nav-links li:last-child {
-                border-bottom: none;
-                margin-top: 24px;
-            }
-
+        @media (max-width: 968px) {
             .contact-grid {
                 grid-template-columns: 1fr;
                 gap: 40px;
             }
 
-            .contact-form-card,
+            .contact-info {
+                flex-direction: row;
+                flex-wrap: wrap;
+            }
+
             .contact-info-card {
-                padding: 24px;
+                flex: 1;
+                min-width: 280px;
             }
+        }
 
+        @media (max-width: 768px) {
+            .contact-info {
+                flex-direction: column;
+            }
+            
             .map-frame {
-                padding: 16px;
-            }
-
-            .map-frame iframe {
-                height: 300px;
-            }
-
-            .cta-buttons {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .btn {
-                width: 100%;
-                max-width: 300px;
-                justify-content: center;
-            }
-
-            .footer-content {
-                grid-template-columns: 1fr;
-                gap: 30px;
-                text-align: left;
-            }
-
-            .footer-bottom {
-                flex-direction: column;
-                text-align: center;
+                height: 350px;
             }
         }
     </style>
@@ -604,55 +241,25 @@
                 <li><a href="impact.html">Impact</a></li>
                 <li><a href="news.html">News</a></li>
                 <li><a href="get-involved.html">Get Involved</a></li>
-                <li><a href="contact.html" class="cta-button active">Donate</a></li>
+                <li><a href="contact.html" class="active">Contact</a></li>
+                <li><a href="donate.html" class="cta-button">Donate</a></li>
             </ul>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <header class="hero">
+    <header class="hero" style="background: linear-gradient(rgba(27, 94, 32, 0.8), rgba(0, 0, 0, 0.6)), url('./assets/images/hero-bg.png'); background-size: cover; background-position: center;">
         <div class="hero-content">
-            <h1>Get in Touch With Us</h1>
-            <p>Have questions or want to partner with us? Our team is ready to assist you. Let's build a sustainable food future for Malawi together.</p>
+            <h1>Contact Us</h1>
+            <p>We'd love to hear from you. Get in touch with our team.</p>
         </div>
     </header>
 
     <!-- Main Content -->
     <main>
-        <!-- Contact Section -->
         <section class="contact-section">
             <div class="contact-container">
                 <div class="contact-grid">
-                    <!-- Contact Form -->
-                    <div class="contact-form-card">
-                        <h2>Send Us a Message</h2>
-                        <form id="contactForm">
-                            <div class="form-group">
-                                <label for="name">Full Name</label>
-                                <input type="text" id="name" name="name" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="email">Email Address</label>
-                                <input type="email" id="email" name="email" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="subject">Inquiry Type</label>
-                                <select id="subject" name="subject" required>
-                                    <option value="">Select an option...</option>
-                                    <option value="partnership">Partnership Opportunities</option>
-                                    <option value="donation">Donation Inquiry</option>
-                                    <option value="volunteer">Volunteer Opportunities</option>
-                                    <option value="program">Program Information</option>
-                                    <option value="general">General Inquiry</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label for="message">Message</label>
-                                <textarea id="message" name="message" placeholder="How can we help you?" required></textarea>
-                            </div>
-                            <button type="submit" class="submit-btn">Send Message</button>
-                        </form>
-                    </div>
                     <!-- Contact Info -->
                     <div class="contact-info">
                         <div class="contact-info-card">
@@ -686,7 +293,7 @@
                                 </div>
                                 <div class="contact-details">
                                     <h3>Email Us</h3>
-                                    <p>info@sunandsoil.org<br>partnerships@sunandsoil.org</p>
+                                    <p>sunandsoilfoundation@gmail.com</p>
                                 </div>
                             </div>
                         </div>
@@ -703,6 +310,31 @@
                             </div>
                         </div>
                     </div>
+
+                    <!-- Contact Form -->
+                    <div class="contact-form-card" id="contactForm">
+                        <h2>Send Us a Message</h2>
+                        <p>Have a question or want to get involved? Fill out the form below and we'll get back to you shortly.</p>
+                        <form>
+                            <div class="form-group">
+                                <label for="name">Full Name</label>
+                                <input type="text" id="name" class="form-control" placeholder="Enter your full name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email Address</label>
+                                <input type="email" id="email" class="form-control" placeholder="Enter your email address" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="subject">Subject</label>
+                                <input type="text" id="subject" class="form-control" placeholder="What is this regarding?" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Message</label>
+                                <textarea id="message" class="form-control" placeholder="Type your message here..." required></textarea>
+                            </div>
+                            <button type="submit" class="submit-btn">Send Message</button>
+                        </form>
+                    </div>
                 </div>
                 
             </div>
@@ -716,7 +348,7 @@
                     <p>Located in the heart of Lilongwe for your convenience</p>
                 </div>
                 <div class="map-frame">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3316.652662150282!2d33.78470227433858!3d-14.011593686407874!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1921d307e7312e61%3A0x816bf900ba911b71!2sTutum%20Tech%20Security%20Services!5e1!3m2!1sen!2smw!4v1753518607126!5m2!1sen!2smw" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3870.588606194063!2d33.78645387122638!3d-14.042383056279942!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1921cd35d774b58f%3A0x2d4bc87cfb65268b!2sKaphiri%20Trading%20Centre!5e0!3m2!1sen!2smw!4v1769064553646!5m2!1sen!2smw" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
             </div>
         </section>
@@ -729,11 +361,20 @@
             <p>Join us in powering Malawi’s food future. Whether as a donor, partner, or volunteer, your support creates lasting impact.</p>
 
             <div class="cta-buttons">
-                <a href="tel:+265999613068" class="btn btn-primary">
-                    Call: +265 999 613 068
+                <a href="donate.html" class="btn btn-primary">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l8.84-8.84 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                    </svg>
+                    Donate
                 </a>
-                <a href="#contactForm" class="btn btn-secondary">
-                    Send Message
+                <a href="get-involved.html" class="btn btn-secondary">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="9" cy="7" r="4"></circle>
+                        <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                        <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                    </svg>
+                    Partner With Us
                 </a>
             </div>
         </div>
@@ -745,7 +386,7 @@
             <div class="footer-content">
                 <!-- Company Info -->
                 <div class="footer-section">
-                    <h3>Sun and Soil Foundation</h3>
+                    <h3>Sun & Soil Foundation</h3>
                     <p>Powering Malawi's food future through solar-powered irrigation, climate-smart agriculture, and sustainable rural livelihoods.</p>
                 </div>
 
@@ -778,15 +419,19 @@
                     <h3>Contact Info</h3>
                     <div class="footer-contact-item">
                         <i class="fi fi-rr-marker"></i>
-                        <span>Behind Walkers Total Filling Station, Lilongwe</span>
+                        <span>Kaphiri, Area 36, Lilongwe, Malawi</span>
                     </div>
                     <div class="footer-contact-item">
                         <i class="fi fi-rr-phone-call"></i>
-                        <span>+265 999 61 30 68</span>
+                        <span>+265 995 856 237 / +265 888 655 069</span>
                     </div>
                     <div class="footer-contact-item">
                         <i class="fi fi-rr-envelope"></i>
-                        <span>info@sunandsoil.org</span>
+                        <span>sunandsoilfoundation@gmail.com</span>
+                    </div>
+                    <div class="footer-contact-item">
+                        <i class="fi fi-rr-globe"></i>
+                        <span>www.sunandsoilfoundation.org</span>
                     </div>
                     <div class="footer-contact-item">
                         <i class="fi fi-rr-clock"></i>
@@ -796,7 +441,7 @@
             </div>
 
             <div class="footer-bottom">
-                <p>&copy; 2025 Sun and Soil Foundation. All rights reserved.</p>
+                <p>&copy; 2025 Sun & Soil Foundation. All rights reserved.</p>
                 <div class="footer-bottom-links">
                     <a href="https://nyasacreatives.netlify.app/" target="_blank">Developed by Nyasa Creatives.</a>
                 </div>
@@ -837,5 +482,4 @@
         });
     </script>
 </body>
-
 </html>

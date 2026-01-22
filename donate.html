@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donate - Sun & Soil Foundation</title>
+    <meta name="description" content="Your support powers sustainable change in rural Malawi. Donate today to help us install solar irrigation, train farmers, and build resilient communities.">
+    <link rel="stylesheet" href="./css/main.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/3.0.0/uicons-bold-rounded/css/uicons-bold-rounded.css'>
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/3.0.0/uicons-regular-rounded/css/uicons-regular-rounded.css'>
+    <style>
+        .impact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+        .impact-card {
+            background: var(--white);
+            padding: 30px;
+            border-radius: var(--border-radius);
+            text-align: center;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border);
+        }
+        .impact-amount {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 10px;
+            display: block;
+        }
+        .impact-desc {
+            color: var(--gray-medium);
+            font-size: 1.1rem;
+        }
+        .donation-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        .option-card {
+            background: var(--white);
+            padding: 40px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            border-top: 5px solid var(--accent);
+        }
+        .option-title {
+            font-size: 1.5rem;
+            color: var(--dark);
+            margin-bottom: 16px;
+            font-weight: 700;
+        }
+        .transparency-section {
+            background: var(--secondary);
+            color: var(--white);
+            padding: 60px 20px;
+            text-align: center;
+            border-radius: var(--border-radius);
+            margin: 60px 0;
+        }
+        .breakdown-flex {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            margin-top: 40px;
+        }
+        .breakdown-item {
+            text-align: center;
+        }
+        .breakdown-percent {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--accent);
+            display: block;
+            margin-bottom: 8px;
+        }
+        .payment-methods {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+        .payment-method {
+            background: var(--gray-light);
+            padding: 15px 25px;
+            border-radius: 8px;
+            font-weight: 600;
+            color: var(--dark);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <img src="./assets/images/SUN AND SOIL LOGO.png" alt="Sun & Soil Foundation Logo">
+            </a>
+            <div class="menu-toggle" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="our-work.html">Our Work</a></li>
+                <li><a href="impact.html">Impact</a></li>
+                <li><a href="news.html">News</a></li>
+                <li><a href="get-involved.html">Get Involved</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="donate.html" class="active">Donate</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero" style="background: linear-gradient(rgba(27, 94, 32, 0.8), rgba(0, 0, 0, 0.6)), url('./assets/images/hero-bg.png'); background-size: cover; background-position: center;">
+        <div class="hero-content">
+            <h1>Donate</h1>
+            <p>Your support powers sustainable change in rural Malawi.</p>
+        </div>
+    </header>
+
+    <!-- Why Donate -->
+    <section class="services-section" style="background: var(--white);">
+        <div class="main-container">
+            <div class="services-heading">
+                <div class="icon-text">
+                    <i class="fi fi-rr-heart"></i>
+                    <p>WHY DONATE?</p>
+                </div>
+                <h2 style="color: var(--dark);">Invest in Lasting Change</h2>
+                <p style="color: var(--gray-medium);">Every donation to Sun & Soil Foundation creates lasting impact. Your contribution helps us install solar irrigation systems, train women and youth, and build resilient communities.</p>
+            </div>
+
+            <!-- How Your Donation Helps -->
+            <div class="impact-grid">
+                <div class="impact-card">
+                    <span class="impact-amount">£50</span>
+                    <p class="impact-desc">Provides training materials for 10 farmers</p>
+                </div>
+                <div class="impact-card">
+                    <span class="impact-amount">£150</span>
+                    <p class="impact-desc">Supplies drip irrigation kits for a small farm</p>
+                </div>
+                <div class="impact-card">
+                    <span class="impact-amount">£500</span>
+                    <p class="impact-desc">Funds a farmer field school for 20 participants</p>
+                </div>
+                <div class="impact-card">
+                    <span class="impact-amount">£2,000</span>
+                    <p class="impact-desc">Installs a solar water pump for a cooperative</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Donation Options -->
+    <section class="services-section" style="background: var(--gray-light);">
+        <div class="main-container">
+            <div class="services-heading">
+                <h2 style="color: var(--dark);">Ways to Give</h2>
+            </div>
+
+            <div class="donation-options">
+                <!-- One-Time -->
+                <div class="option-card">
+                    <h3 class="option-title">One-Time Donation</h3>
+                    <p style="margin-bottom: 20px; color: var(--gray-medium);">Make an immediate impact with a single contribution to support our ongoing projects.</p>
+                    <a href="#donate-form" class="btn btn-primary" style="width: 100%; justify-content: center;">Donate Now</a>
+                </div>
+
+                <!-- Monthly -->
+                <div class="option-card">
+                    <h3 class="option-title">Monthly Giving</h3>
+                    <p style="margin-bottom: 20px; color: var(--gray-medium);">Become a sustaining partner. Reliable monthly support allows us to plan long-term initiatives.</p>
+                    <a href="#donate-form" class="btn btn-primary" style="width: 100%; justify-content: center; background: var(--secondary);">Set Up Monthly Donation</a>
+                </div>
+
+                <!-- Corporate -->
+                <div class="option-card">
+                    <h3 class="option-title">Corporate Sponsorship</h3>
+                    <p style="margin-bottom: 20px; color: var(--gray-medium);">Partner with us to fund programmes, sponsor events, or support specific initiatives aligned with your ESG goals.</p>
+                    <a href="contact.html" class="btn btn-secondary" style="width: 100%; justify-content: center; color: var(--primary); border-color: var(--primary);">Contact Us</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Transparency -->
+    <section class="main-container">
+        <div class="transparency-section">
+            <h2 style="color: var(--white); margin-bottom: 16px;">Transparency & Accountability</h2>
+            <p style="color: rgba(255,255,255,0.9); max-width: 700px; margin: 0 auto;">We are committed to transparency. Here is how we use your donation:</p>
+            
+            <div class="breakdown-flex">
+                <div class="breakdown-item">
+                    <span class="breakdown-percent">75%</span>
+                    <p>Direct Programme Delivery</p>
+                </div>
+                <div class="breakdown-item">
+                    <span class="breakdown-percent">15%</span>
+                    <p>Monitoring & Evaluation</p>
+                </div>
+                <div class="breakdown-item">
+                    <span class="breakdown-percent">10%</span>
+                    <p>Administration & Fundraising</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Secure Donation -->
+    <section class="services-section" style="background: var(--white); padding-top: 0;" id="donate-form">
+        <div class="main-container">
+            <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+                <h2 style="color: var(--dark); margin-bottom: 20px;">Donate Securely</h2>
+                <p style="color: var(--gray-medium); margin-bottom: 30px;">We use secure payment processing to protect your information. We accept:</p>
+                
+                <div class="payment-methods">
+                    <div class="payment-method"><i class="fi fi-rr-credit-card"></i> Credit/Debit Card</div>
+                    <div class="payment-method"><i class="fi fi-rr-bank"></i> Bank Transfer</div>
+                    <div class="payment-method"><i class="fi fi-rr-smartphone"></i> Mobile Money (Malawi)</div>
+                    <div class="payment-method"><i class="fi fi-rr-wallet"></i> PayPal</div>
+                </div>
+
+                <div style="margin-top: 50px; padding: 40px; background: var(--gray-light); border-radius: var(--border-radius); border: 1px solid var(--border);">
+                    <h3 style="margin-bottom: 20px; color: var(--dark);">Bank Transfer Details</h3>
+                    <p style="margin-bottom: 10px;"><strong>Bank Name:</strong> National Bank of Malawi</p>
+                    <p style="margin-bottom: 10px;"><strong>Account Name:</strong> Sun & Soil Foundation</p>
+                    <p style="margin-bottom: 10px;"><strong>Account Number:</strong> [Account Number]</p>
+                    <p style="margin-bottom: 10px;"><strong>Branch:</strong> Lilongwe</p>
+                    <p style="margin-bottom: 10px;"><strong>Swift Code:</strong> [Swift Code]</p>
+                    <p style="margin-top: 20px; font-size: 0.9rem; color: var(--gray-medium);">Please reference your name when making a transfer.</p>
+                </div>
+
+                <div style="margin-top: 40px;">
+                    <p style="margin-bottom: 16px;">Questions about donating? Contact our Development Team:</p>
+                    <a href="mailto:sunandsoilfoundation@gmail.com" style="color: var(--primary); font-weight: 600; font-size: 1.1rem;">sunandsoilfoundation@gmail.com</a>
+                    <br>
+                    <span style="display: block; margin-top: 8px; font-weight: 600; color: var(--dark);">+265 995 856 237</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="cta-section">
+        <div class="cta-container">
+            <h2>Make Your Donation Today</h2>
+            <p>Join hundreds of supporters powering Malawi's food future.</p>
+            <div class="cta-buttons">
+                <a href="#donate-form" class="btn btn-primary">Donate Now</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-content">
+                <!-- Company Info -->
+                <div class="footer-section">
+                    <h3>Sun & Soil Foundation</h3>
+                    <p>Powering Malawi's food future through solar-powered irrigation, climate-smart agriculture, and sustainable rural livelihoods.</p>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="our-work.html">Our Work</a></li>
+                        <li><a href="impact.html">Impact</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- Get Involved -->
+                <div class="footer-section">
+                    <h3>Get Involved</h3>
+                    <ul class="footer-links">
+                        <li><a href="donate.html">Donate</a></li>
+                        <li><a href="get-involved.html">Partner With Us</a></li>
+                        <li><a href="get-involved.html#volunteer">Volunteer</a></li>
+                        <li><a href="impact.html">Impact Stories</a></li>
+                        <li><a href="news.html">Latest News</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Info -->
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <div class="footer-contact-item">
+                        <i class="fi fi-rr-marker"></i>
+                        <span>Kaphiri, Area 36, Lilongwe, Malawi</span>
+                    </div>
+                    <div class="footer-contact-item">
+                        <i class="fi fi-rr-phone-call"></i>
+                        <span>+265 995 856 237 / +265 888 655 069</span>
+                    </div>
+                    <div class="footer-contact-item">
+                        <i class="fi fi-rr-envelope"></i>
+                        <span>sunandsoilfoundation@gmail.com</span>
+                    </div>
+                    <div class="footer-contact-item">
+                        <i class="fi fi-rr-globe"></i>
+                        <span>www.sunandsoilfoundation.org</span>
+                    </div>
+                    <div class="footer-contact-item">
+                        <i class="fi fi-rr-clock"></i>
+                        <span>Mon - Fri: 8:00 AM - 5:00 PM</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 Sun & Soil Foundation. All rights reserved.</p>
+                <div class="footer-bottom-links">
+                    <a href="https://nyasacreatives.netlify.app/" target="_blank">Developed by Nyasa Creatives.</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu functionality
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
+
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+
+            // Animate hamburger menu
+            const spans = menuToggle.getElementsByTagName('span');
+            if (navLinks.classList.contains('active')) {
+                spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
+                spans[1].style.opacity = '0';
+                spans[2].style.transform = 'rotate(-45deg) translate(7px, -6px)';
+            } else {
+                spans[0].style.transform = 'rotate(0) translate(0, 0)';
+                spans[1].style.opacity = '1';
+                spans[2].style.transform = 'rotate(0) translate(0, 0)';
+            }
+        });
+
+        // Close mobile menu when clicking on a link
+        navLinks.addEventListener('click', (e) => {
+            if (e.target.tagName === 'A') {
+                navLinks.classList.remove('active');
+                const spans = menuToggle.getElementsByTagName('span');
+                spans[0].style.transform = 'rotate(0) translate(0, 0)';
+                spans[1].style.opacity = '1';
+                spans[2].style.transform = 'rotate(0) translate(0, 0)';
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get Involved - Sun & Soil Foundation</title>
+    <meta name="description" content="Join us in building a sustainable, food-secure future for Malawi. Donate, partner, volunteer, or advocate for change.">
+    <link rel="stylesheet" href="./css/main.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/3.0.0/uicons-bold-rounded/css/uicons-bold-rounded.css'>
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/3.0.0/uicons-regular-rounded/css/uicons-regular-rounded.css'>
+    <style>
+        .involvement-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+        .involvement-card {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            padding: 40px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: center;
+        }
+        .involvement-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+        .involvement-icon {
+            width: 80px;
+            height: 80px;
+            background: rgba(27, 94, 32, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 24px;
+        }
+        .involvement-icon i {
+            font-size: 32px;
+            color: var(--primary);
+        }
+        .involvement-title {
+            font-size: 1.5rem;
+            color: var(--dark);
+            margin-bottom: 16px;
+            font-weight: 700;
+        }
+        .involvement-desc {
+            color: var(--gray-medium);
+            margin-bottom: 24px;
+            line-height: 1.6;
+        }
+        .volunteer-roles {
+            list-style: none;
+            text-align: left;
+            margin-bottom: 24px;
+        }
+        .volunteer-roles li {
+            margin-bottom: 10px;
+            padding-left: 24px;
+            position: relative;
+        }
+        .volunteer-roles li::before {
+            content: '•';
+            color: var(--accent);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+            font-size: 1.2rem;
+            line-height: 1;
+        }
+        .partner-types {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+            margin-bottom: 24px;
+        }
+        .partner-badge {
+            background: var(--gray-light);
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            color: var(--dark);
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <img src="./assets/images/SUN AND SOIL LOGO.png" alt="Sun & Soil Foundation Logo">
+            </a>
+            <div class="menu-toggle" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="our-work.html">Our Work</a></li>
+                <li><a href="impact.html">Impact</a></li>
+                <li><a href="news.html">News</a></li>
+                <li><a href="get-involved.html" class="active">Get Involved</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="donate.html" class="cta-button">Donate</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero" style="background: linear-gradient(rgba(27, 94, 32, 0.8), rgba(0, 0, 0, 0.6)), url('./assets/images/hero-bg.png'); background-size: cover; background-position: center;">
+        <div class="hero-content">
+            <h1>Get Involved</h1>
+            <p>Join us in building a sustainable, food-secure future for Malawi.</p>
+        </div>
+    </header>
+
+    <!-- Introduction -->
+    <section class="services-section" style="background: var(--white);">
+        <div class="main-container">
+            <div class="services-heading">
+                <div class="icon-text">
+                    <i class="fi fi-rr-users-alt"></i>
+                    <p>JOIN THE MOVEMENT</p>
+                </div>
+                <h2 style="color: var(--dark);">Ways to Make a Difference</h2>
+                <p style="color: var(--gray-medium);">There are many ways to support Sun & Soil Foundation's mission. Whether you're an individual, organisation, or business, your contribution creates lasting impact.</p>
+            </div>
+
+            <div class="involvement-grid">
+                <!-- Donate -->
+                <div class="involvement-card">
+                    <div class="involvement-icon">
+                        <i class="fi fi-rr-heart"></i>
+                    </div>
+                    <h3 class="involvement-title">Donate</h3>
+                    <p class="involvement-desc">Your financial support powers our programmes and reaches more farmers across Malawi. Choose from one-time or monthly giving options.</p>
+                    <a href="donate.html" class="btn btn-primary">Donate Now</a>
+                </div>
+
+                <!-- Partner -->
+                <div class="involvement-card" id="partner">
+                    <div class="involvement-icon">
+                        <i class="fi fi-rr-handshake"></i>
+                    </div>
+                    <h3 class="involvement-title">Partner With Us</h3>
+                    <p class="involvement-desc">We collaborate with organisations to scale impact. Join us as a technical, funding, or implementation partner.</p>
+                    <div class="partner-types">
+                        <span class="partner-badge">NGOs</span>
+                        <span class="partner-badge">Government</span>
+                        <span class="partner-badge">Private Sector</span>
+                        <span class="partner-badge">Research</span>
+                    </div>
+                    <a href="contact.html" class="btn btn-secondary" style="color: var(--primary); border-color: var(--primary);">Contact Us</a>
+                </div>
+
+                <!-- Volunteer -->
+                <div class="involvement-card" id="volunteer">
+                    <div class="involvement-icon">
+                        <i class="fi fi-rr-user-add"></i>
+                    </div>
+                    <h3 class="involvement-title">Volunteer</h3>
+                    <p class="involvement-desc">Share your skills and time. We need passionate individuals for various roles.</p>
+                    <ul class="volunteer-roles">
+                        <li>Agricultural Trainers</li>
+                        <li>Solar Technicians</li>
+                        <li>Business Mentors</li>
+                        <li>Communications Support</li>
+                    </ul>
+                    <a href="mailto:sunandsoilfoundation@gmail.com" class="btn btn-secondary" style="color: var(--primary); border-color: var(--primary);">Apply to Volunteer</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Corporate Partnerships -->
+    <section class="services-section" style="background: var(--gray-light);">
+        <div class="main-container">
+            <div class="services-heading">
+                <h2 style="color: var(--dark);">Corporate & Institutional Partnerships</h2>
+                <p style="color: var(--gray-medium);">Align your ESG goals with tangible impact on the ground.</p>
+            </div>
+
+            <div style="max-width: 800px; margin: 0 auto; background: var(--white); padding: 40px; border-radius: var(--border-radius); box-shadow: var(--shadow);">
+                <h3 style="font-size: 1.5rem; color: var(--primary); margin-bottom: 20px;">Why Partner With Us?</h3>
+                <ul style="list-style: none; margin-bottom: 30px;">
+                    <li style="margin-bottom: 15px; display: flex; gap: 10px;">
+                        <i class="fi fi-rr-check" style="color: var(--accent); margin-top: 4px;"></i>
+                        <span><strong>Proven Impact:</strong> Our programmes deliver measurable results in food security and income generation.</span>
+                    </li>
+                    <li style="margin-bottom: 15px; display: flex; gap: 10px;">
+                        <i class="fi fi-rr-check" style="color: var(--accent); margin-top: 4px;"></i>
+                        <span><strong>ESG Leadership:</strong> Demonstrate commitment to environmental sustainability and social responsibility.</span>
+                    </li>
+                    <li style="margin-bottom: 15px; display: flex; gap: 10px;">
+                        <i class="fi fi-rr-check" style="color: var(--accent); margin-top: 4px;"></i>
+                        <span><strong>Community-Led:</strong> Support solutions that are owned and sustained by local communities.</span>
+                    </li>
+                    <li style="margin-bottom: 15px; display: flex; gap: 10px;">
+                        <i class="fi fi-rr-check" style="color: var(--accent); margin-top: 4px;"></i>
+                        <span><strong>Transparency:</strong> We provide rigorous monitoring, evaluation, and financial reporting.</span>
+                    </li>
+                </ul>
+                <div style="text-align: center;">
+                    <a href="contact.html" class="btn btn-primary">Discuss Partnership</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Advocate -->
+    <section class="services-section" style="background: var(--secondary); color: var(--white); text-align: center;">
+        <div class="main-container">
+            <h2 style="color: var(--white); margin-bottom: 20px;">Advocate for Change</h2>
+            <p style="color: rgba(255,255,255,0.9); max-width: 700px; margin: 0 auto 30px;">Raise awareness about climate-smart agriculture and solar energy. Share our stories, host a fundraiser, or speak about our work in your network.</p>
+            <div class="cta-buttons">
+                <a href="#" class="btn btn-primary" style="background: var(--white); color: var(--primary);">Share on Facebook</a>
+                <a href="#" class="btn btn-primary" style="background: var(--white); color: var(--primary);">Share on Twitter</a>
+                <a href="#" class="btn btn-primary" style="background: var(--white); color: var(--primary);">Start a Fundraiser</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-content">
+                <!-- Company Info -->
+                <div class="footer-section">
+                    <h3>Sun & Soil Foundation</h3>
+                    <p>Powering Malawi's food future through solar-powered irrigation, climate-smart agriculture, and sustainable rural livelihoods.</p>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="our-work.html">Our Work</a></li>
+                        <li><a href="impact.html">Impact</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- Get Involved -->
+                <div class="footer-section">
+                    <h3>Get Involved</h3>
+                    <ul class="footer-links">
+                        <li><a href="donate.html">Donate</a></li>
+                        <li><a href="get-involved.html">Partner With Us</a></li>
+                        <li><a href="get-involved.html#volunteer">Volunteer</a></li>
+                        <li><a href="impact.html">Impact Stories</a></li>
+                        <li><a href="news.html">Latest News</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Info -->
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <div class="footer-contact-item">
+                        <i class="fi fi-rr-marker"></i>
+                        <span>Kaphiri, Area 36, Lilongwe, Malawi</span>
+                    </div>
+                    <div class="footer-contact-item">
+                        <i class="fi fi-rr-phone-call"></i>
+                        <span>+265 995 856 237 / +265 888 655 069</span>
+                    </div>
+                    <div class="footer-contact-item">
+                        <i class="fi fi-rr-envelope"></i>
+                        <span>sunandsoilfoundation@gmail.com</span>
+                    </div>
+                    <div class="footer-contact-item">
+                        <i class="fi fi-rr-globe"></i>
+                        <span>www.sunandsoilfoundation.org</span>
+                    </div>
+                    <div class="footer-contact-item">
+                        <i class="fi fi-rr-clock"></i>
+                        <span>Mon - Fri: 8:00 AM - 5:00 PM</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 Sun & Soil Foundation. All rights reserved.</p>
+                <div class="footer-bottom-links">
+                    <a href="https://nyasacreatives.netlify.app/" target="_blank">Developed by Nyasa Creatives.</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu functionality
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
+
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+
+            // Animate hamburger menu
+            const spans = menuToggle.getElementsByTagName('span');
+            if (navLinks.classList.contains('active')) {
+                spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
+                spans[1].style.opacity = '0';
+                spans[2].style.transform = 'rotate(-45deg) translate(7px, -6px)';
+            } else {
+                spans[0].style.transform = 'rotate(0) translate(0, 0)';
+                spans[1].style.opacity = '1';
+                spans[2].style.transform = 'rotate(0) translate(0, 0)';
+            }
+        });
+
+        // Close mobile menu when clicking on a link
+        navLinks.addEventListener('click', (e) => {
+            if (e.target.tagName === 'A') {
+                navLinks.classList.remove('active');
+                const spans = menuToggle.getElementsByTagName('span');
+                spans[0].style.transform = 'rotate(0) translate(0, 0)';
+                spans[1].style.opacity = '1';
+                spans[2].style.transform = 'rotate(0) translate(0, 0)';
+            }
+        });
+    </script>
+</body>
+</html>
