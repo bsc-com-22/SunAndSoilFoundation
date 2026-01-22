@@ -1,727 +1,1270 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us - Sun & Soil Foundation</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
+    <meta name="description" content="Learn about Sun & Soil Foundation's mission to build a sustainable, food-secure future for Malawi through solar-powered agriculture and climate-smart farming.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/3.0.0/uicons-bold-rounded/css/uicons-bold-rounded.css'>
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/3.0.0/uicons-regular-rounded/css/uicons-regular-rounded.css'>
+    <link rel="stylesheet" href="css/main.css">
     <style>
-        /* About Hero */
-        .about-hero {
-            background: linear-gradient(rgba(45, 95, 46, 0.9), rgba(45, 95, 46, 0.9)), url('https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&q=80&w=1600') center/cover;
-            padding: 120px 0;
+        /* Enhanced Hero Section */
+        .hero {
+            position: relative;
+            background: linear-gradient(135deg, rgba(27, 94, 32, 0.95) 0%, rgba(33, 104, 37, 0.9) 100%),
+                url('./assets/images/hero-bg.png');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            min-height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 30% 50%, rgba(251, 192, 45, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
             text-align: center;
-            color: var(--white);
+            animation: fadeInUp 1s ease-out;
         }
 
-        .about-hero h1 {
-            font-size: 3.5rem;
+        .hero h1 {
+            font-size: clamp(3rem, 6vw, 5rem);
             font-weight: 800;
-            margin-bottom: 24px;
+            color: var(--white);
+            margin-bottom: 20px;
+            letter-spacing: -0.03em;
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
         }
 
-        .about-hero p {
-            font-size: 1.2rem;
+        .hero p {
+            font-size: clamp(1.1rem, 2vw, 1.4rem);
+            color: rgba(255, 255, 255, 0.95);
             max-width: 700px;
             margin: 0 auto;
-            opacity: 0.9;
+            line-height: 1.6;
         }
 
-        /* Our Story */
-        .story {
-            padding: 100px 0;
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
-        .story-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 80px;
-            align-items: center;
-        }
-
-        .story-content h4 {
-            color: var(--light-green);
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            font-size: 0.85rem;
-            margin-bottom: 16px;
-            font-weight: 700;
-        }
-
-        .story-content h2 {
-            font-size: 2.5rem;
-            color: var(--primary-green);
-            margin-bottom: 24px;
-            line-height: 1.2;
-        }
-
-        .story-content p {
-            color: var(--text-muted);
-            margin-bottom: 20px;
-            font-size: 1.05rem;
-        }
-
-        .story-image {
+        /* Intro Section with Image */
+        .intro-section {
+            padding: 100px 20px;
+            background: var(--white);
             position: relative;
         }
 
-        .story-img {
+        .intro-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: var(--white);
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 14px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 24px;
+        }
+
+        .section-title {
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            font-weight: 800;
+            color: var(--dark);
+            margin-bottom: 32px;
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+        }
+
+        .section-title .highlight {
+            color: var(--primary);
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title .highlight::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
             width: 100%;
-            height: 500px;
-            background: #e0e0e0;
-            border-radius: 12px;
-            object-fit: cover;
-            box-shadow: var(--shadow);
+            height: 8px;
+            background: var(--accent);
+            opacity: 0.3;
+            border-radius: 4px;
         }
 
-        /* Vision & Mission */
-        .vision-mission {
-            padding: 100px 0;
-            background: var(--bg-light);
-        }
-
-        .vm-grid {
+        .intro-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            margin-top: 60px;
+        }
+
+        .intro-content p {
+            font-size: 18px;
+            line-height: 1.8;
+            color: var(--gray-medium);
+            margin-bottom: 24px;
+        }
+
+        .intro-content strong {
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        .intro-image {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+            transition: transform 0.3s ease;
+        }
+
+        .intro-image:hover {
+            transform: translateY(-10px);
+        }
+
+        .intro-image img {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .intro-image figcaption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+            color: var(--white);
+            padding: 30px 20px 20px;
+            font-size: 14px;
+            font-style: italic;
+        }
+
+        /* Stats Banner */
+        .stats-banner {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            padding: 60px 20px;
+            margin: 80px 0;
+        }
+
+        .stats-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 40px;
+            text-align: center;
         }
 
-        .vm-card {
+        .stat-item {
+            color: var(--white);
+        }
+
+        .stat-number {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 800;
+            color: var(--accent);
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 16px;
+            font-weight: 500;
+            opacity: 0.95;
+        }
+
+        /* Vision Mission Cards */
+        .vision-mission-section {
+            padding: 100px 20px;
+            background: var(--gray-light);
+        }
+
+        .vision-mission-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .vision-mission-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .vision-mission-card {
             background: var(--white);
-            padding: 50px;
-            border-radius: 16px;
-            box-shadow: var(--shadow);
-            border-top: 5px solid var(--primary-green);
+            border-radius: 20px;
+            padding: 50px 40px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
         }
 
-        .vm-card.mission {
-            border-top-color: var(--accent-yellow);
+        .vision-mission-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s ease;
         }
 
-        .vm-icon {
-            width: 60px;
-            height: 60px;
-            background: var(--bg-light);
+        .vision-mission-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .vision-mission-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.12);
+        }
+
+        .vision-mission-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 24px;
-            color: var(--primary-green);
-        }
-
-        .vm-card h3 {
-            font-size: 1.8rem;
-            color: var(--primary-green);
-            margin-bottom: 20px;
-        }
-
-        .vm-card p {
-            color: var(--text-muted);
-            font-size: 1.1rem;
-        }
-
-        /* Core Values */
-        .values {
-            padding: 100px 0;
-        }
-
-        .section-header {
-            text-align: center;
-            max-width: 700px;
-            margin: 0 auto 60px;
-        }
-
-        .section-header h2 {
+            margin: 0 auto 24px;
             font-size: 2.5rem;
-            color: var(--primary-green);
-            margin-bottom: 20px;
+            color: var(--white);
         }
 
-        .section-header p {
-            color: var(--text-muted);
+        .vision-mission-card h3 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 16px;
+        }
+
+        .vision-mission-card p {
+            font-size: 16px;
+            line-height: 1.7;
+            color: var(--gray-medium);
+        }
+
+        /* Core Values Section */
+        .values-section {
+            padding: 100px 20px;
+            background: var(--white);
+        }
+
+        .values-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
         }
 
         .values-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 30px;
+            margin-top: 60px;
         }
 
         .value-card {
-            padding: 30px;
-            border-radius: 12px;
             background: var(--white);
-            border: 1px solid rgba(0,0,0,0.05);
-            transition: var(--transition);
+            border: 2px solid var(--gray-border);
+            border-radius: 16px;
+            padding: 40px 30px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .value-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            opacity: 0;
+            border-radius: 16px;
+            transition: opacity 0.3s ease;
+            z-index: 0;
+        }
+
+        .value-card:hover::before {
+            opacity: 1;
         }
 
         .value-card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow);
+            border-color: transparent;
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(27, 94, 32, 0.2);
         }
 
-        .value-header {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            margin-bottom: 15px;
+        .value-card:hover .value-icon,
+        .value-card:hover h3,
+        .value-card:hover p {
+            color: var(--white);
+            position: relative;
+            z-index: 1;
         }
 
-        .value-header svg {
-            color: var(--accent-yellow);
+        .value-icon {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+            transition: color 0.3s ease;
+            position: relative;
+            z-index: 1;
         }
 
-        .value-header h3 {
-            font-size: 1.25rem;
-            color: var(--primary-green);
+        .value-card h3 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 12px;
+            transition: color 0.3s ease;
+            position: relative;
+            z-index: 1;
         }
 
         .value-card p {
-            color: var(--text-muted);
-            font-size: 0.95rem;
+            font-size: 15px;
+            line-height: 1.6;
+            color: var(--gray-medium);
+            transition: color 0.3s ease;
+            position: relative;
+            z-index: 1;
         }
 
-        /* Strategic Alignment */
+        /* Strategic Alignment Section */
         .alignment-section {
-            padding: 100px 0;
-            background: var(--white);
+            padding: 100px 20px;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        }
+
+        .alignment-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .alignment-intro {
+            max-width: 800px;
+            margin: 0 auto 60px;
+        }
+
+        .alignment-intro p {
+            font-size: 18px;
+            color: var(--gray-medium);
+            line-height: 1.7;
         }
 
         .alignment-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            margin-top: 40px;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
         }
 
-        .framework-card {
-            background: var(--bg-light);
-            padding: 40px;
+        .alignment-card {
+            background: var(--white);
             border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+            text-align: left;
+            transition: transform 0.3s ease;
         }
 
-        .framework-card h3 {
-            color: var(--primary-green);
+        .alignment-card:hover {
+            transform: translateY(-8px);
+        }
+
+        .alignment-card h3 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
             margin-bottom: 24px;
-            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 12px;
         }
 
-        .pillar-list {
-            list-style: none;
+        .alignment-card h3 i {
+            font-size: 2rem;
+            color: var(--accent);
+        }
+
+        /* Malawi Vision Pillars */
+        .alignment-pillars {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-top: 24px;
         }
 
         .pillar-item {
-            margin-bottom: 20px;
-            display: flex;
-            gap: 15px;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 20px;
+            border-radius: 12px;
+            border-left: 4px solid var(--primary);
+            transition: all 0.3s ease;
         }
 
-        .pillar-num {
-            background: var(--primary-green);
+        .pillar-item:hover {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            border-left-color: var(--accent);
+        }
+
+        .pillar-item:hover h4,
+        .pillar-item:hover p {
             color: var(--white);
-            width: 32px;
-            height: 32px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-            font-weight: 700;
-            font-size: 0.8rem;
         }
 
-        .pillar-text h4 {
+        .pillar-item h4 {
             font-size: 1rem;
-            margin-bottom: 4px;
-            color: var(--text-dark);
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 8px;
+            transition: color 0.3s ease;
         }
 
-        .pillar-text p {
-            font-size: 0.9rem;
-            color: var(--text-muted);
+        .pillar-item p {
+            font-size: 14px;
+            color: var(--gray-medium);
+            line-height: 1.5;
+            transition: color 0.3s ease;
         }
 
         /* SDG Grid */
         .sdg-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-            gap: 15px;
-            margin-top: 30px;
+            grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+            gap: 16px;
+            margin-top: 24px;
         }
 
         .sdg-item {
-            background: var(--white);
-            padding: 15px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: var(--white);
+            padding: 24px 16px;
             border-radius: 12px;
             text-align: center;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-            border-bottom: 4px solid var(--primary-green);
+            font-weight: 600;
+            font-size: 13px;
+            transition: all 0.3s ease;
+            cursor: pointer;
         }
 
-        .sdg-num {
-            font-size: 1.5rem;
+        .sdg-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(27, 94, 32, 0.3);
+        }
+
+        .sdg-number {
+            font-size: 2rem;
             font-weight: 800;
-            color: var(--primary-green);
+            color: var(--accent);
+            margin-bottom: 8px;
             display: block;
         }
 
-        .sdg-label {
-            font-size: 0.75rem;
-            font-weight: 600;
-            color: var(--text-muted);
-            text-transform: uppercase;
-        }
-
-        /* ESG Section */
-        .esg-grid {
+        /* ESG Pillars */
+        .esg-pillars {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 20px;
-            margin-top: 40px;
+            margin-top: 24px;
         }
 
-        .esg-card {
-            padding: 30px;
-            border-radius: 16px;
-            background: var(--bg-light);
-            border-left: 5px solid var(--primary-green);
+        .esg-pillar {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 24px;
+            border-radius: 12px;
+            border-top: 4px solid var(--accent);
+            transition: all 0.3s ease;
         }
 
-        .esg-card h4 {
-            color: var(--primary-green);
+        .esg-pillar:hover {
+            background: linear-gradient(135deg, var(--accent) 0%, #f9a825 100%);
+            transform: translateY(-5px);
+        }
+
+        .esg-pillar:hover h4,
+        .esg-pillar:hover p {
+            color: var(--dark);
+        }
+
+        .esg-pillar h4 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--primary);
             margin-bottom: 12px;
+            transition: color 0.3s ease;
         }
 
-        .esg-card p {
-            font-size: 0.9rem;
-            color: var(--text-muted);
+        .esg-pillar p {
+            font-size: 14px;
+            color: var(--gray-medium);
+            line-height: 1.6;
+            transition: color 0.3s ease;
         }
 
-        /* Future Outlook */
+        /* Future Outlook Section */
         .outlook-section {
-            padding: 100px 0;
-            background: var(--primary-green);
-            color: var(--white);
+            padding: 100px 20px;
+            background: var(--white);
         }
 
-        .outlook-header {
+        .outlook-container {
+            max-width: 1200px;
+            margin: 0 auto;
             text-align: center;
-            margin-bottom: 60px;
-        }
-
-        .outlook-header h2 {
-            font-size: 2.5rem;
-            margin-bottom: 16px;
         }
 
         .outlook-stats {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 40px;
-            max-width: 800px;
-            margin: 0 auto 60px;
-            text-align: center;
+            margin: 60px 0;
         }
 
-        .outlook-stat h3 {
-            font-size: 3.5rem;
+        .outlook-stat-card {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: var(--white);
+            padding: 50px 40px;
+            border-radius: 20px;
+            box-shadow: 0 15px 50px rgba(27, 94, 32, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .outlook-stat-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(251, 192, 45, 0.2) 0%, transparent 70%);
+            animation: pulse 3s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(1.1); opacity: 0.8; }
+        }
+
+        .outlook-stat-number {
+            font-size: clamp(3rem, 6vw, 5rem);
             font-weight: 800;
-            color: var(--accent-yellow);
-        }
-
-        .outlook-stat p {
-            font-size: 1.1rem;
-            opacity: 0.9;
-        }
-
-        .strategy-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 30px;
-        }
-
-        .strategy-card {
-            background: rgba(255,255,255,0.1);
-            padding: 30px;
-            border-radius: 16px;
-            backdrop-filter: blur(10px);
-        }
-
-        .strategy-card h4 {
-            font-size: 1.2rem;
+            color: var(--accent);
             margin-bottom: 12px;
-            color: var(--accent-yellow);
+            position: relative;
+            z-index: 1;
         }
 
-        .strategy-card p {
-            font-size: 0.95rem;
-            opacity: 0.8;
+        .outlook-stat-label {
+            font-size: 18px;
+            font-weight: 600;
+            position: relative;
+            z-index: 1;
         }
 
-        /* Responsive */
-        @media (max-width: 1024px) {
-            .story-grid { gap: 40px; }
-            .values-grid { grid-template-columns: repeat(2, 1fr); }
-            .alignment-grid { grid-template-columns: 1fr; }
-            .esg-grid { grid-template-columns: 1fr; }
+        /* Initiatives Grid */
+        .initiatives-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 60px;
         }
 
-        @media (max-width: 768px) {
-            .about-hero h1 { font-size: 2.5rem; }
-            .story-grid { grid-template-columns: 1fr; }
-            .vm-grid { grid-template-columns: 1fr; }
-            .values-grid { grid-template-columns: 1fr; }
-            .strategy-grid { grid-template-columns: 1fr; }
-            .outlook-stats { grid-template-columns: 1fr; }
+        .initiative-card {
+            background: var(--white);
+            border: 2px solid var(--gray-border);
+            border-radius: 16px;
+            padding: 40px 30px;
+            text-align: left;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .initiative-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 6px;
+            height: 0;
+            background: var(--accent);
+            transition: height 0.3s ease;
+            border-radius: 16px 0 0 16px;
+        }
+
+        .initiative-card:hover::before {
+            height: 100%;
+        }
+
+        .initiative-card:hover {
+            border-color: var(--primary);
+            transform: translateX(8px);
+            box-shadow: 0 10px 40px rgba(27, 94, 32, 0.15);
+        }
+
+        .initiative-card h3 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 16px;
+        }
+
+        .initiative-card p {
+            font-size: 15px;
+            color: var(--gray-medium);
+            line-height: 1.7;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 100px 20px;
+            background: linear-gradient(135deg, rgba(27, 94, 32, 0.95) 0%, rgba(33, 104, 37, 0.95) 100%),
+                url('./assets/images/hero-bg.png');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            text-align: center;
+            position: relative;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 50% 50%, rgba(251, 192, 45, 0.1) 0%, transparent 70%);
+        }
+
+        .cta-container {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-container h2 {
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            font-weight: 800;
+            color: var(--white);
+            margin-bottom: 24px;
+            line-height: 1.2;
+        }
+
+        .cta-container p {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.95);
+            margin-bottom: 40px;
+            line-height: 1.7;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 18px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            border: none;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: var(--dark);
+            box-shadow: 0 10px 30px rgba(251, 192, 45, 0.4);
+        }
+
+        .btn-primary:hover {
+            background: #f9a825;
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(251, 192, 45, 0.5);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--white);
+            border: 2px solid var(--white);
+        }
+
+        .btn-secondary:hover {
+            background: var(--white);
+            color: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 968px) {
+            .intro-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .intro-image {
+                order: -1;
+            }
+
+            .alignment-pillars {
+                grid-template-columns: 1fr;
+            }
+
+            .esg-pillars {
+                grid-template-columns: 1fr;
+            }
+
+            .sdg-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .alignment-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .stats-container {
+                grid-template-columns: 1fr;
+            }
+
+            .vision-mission-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .values-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .outlook-stats {
+                grid-template-columns: 1fr;
+            }
+
+            .initiatives-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn {
+                width: 100%;
+                max-width: 300px;
+                justify-content: center;
+            }
         }
     </style>
 </head>
+
 <body>
-    <!-- Header -->
-    <header>
-        <div class="container">
-            <nav>
-                <a href="index.html" class="logo">
-                    <img src="assets/SUN AND SOIL LOGO.png" alt="Sun & Soil Foundation Logo" style="height: 60px;">
-                </a>
-                <ul class="nav-links" id="navLinks">
-                    <li><a href="index.html">Home</a></li>
-                    <li class="has-dropdown">
-                        <a href="about.html" class="active">About Us</a>
-                        <ul class="dropdown">
-                            <li><a href="about.html">Who We Are</a></li>
-                            <li><a href="about.html#vision">Our Mission & Vision</a></li>
-                            <li><a href="team.html">Our Team</a></li>
-                            <li><a href="partners.html">Partners</a></li>
-                        </ul>
-                    </li>
-                    <li class="has-dropdown">
-                        <a href="#">Our Work</a>
-                        <ul class="dropdown">
-                            <li><a href="programs.html">Our Programs</a></li>
-                            <li><a href="projects.html">Projects & Impact</a></li>
-                        </ul>
-                    </li>
-                    <li class="has-dropdown">
-                        <a href="#">Insights</a>
-                        <ul class="dropdown">
-                            <li><a href="news.html">News & Updates</a></li>
-                            <li><a href="blog.html">Blog / Stories</a></li>
-                        </ul>
-                    </li>
-                    <li class="has-dropdown">
-                        <a href="#">Get Involved</a>
-                        <ul class="dropdown">
-                            <li><a href="careers.html">Careers</a></li>
-                            <li><a href="volunteer.html">Volunteer</a></li>
-                            <li><a href="partners.html#partner">Partner With Us</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="contact.html">Contact</a></li>
-                    <li><a href="donate.html" class="donate-btn">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
-                        Donate
-                    </a></li>
-                </ul>
-                <button class="mobile-menu-btn" id="menuBtn">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
-                </button>
-            </nav>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <img src="./assets/images/SUN AND SOIL LOGO.png" alt="Sun & Soil Foundation Logo">
+            </a>
+            <div class="menu-toggle" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html" class="active">About</a></li>
+                <li><a href="our-work.html">Our Work</a></li>
+                <li><a href="impact.html">Impact</a></li>
+                <li><a href="news.html">News</a></li>
+                <li><a href="get-involved.html">Get Involved</a></li>
+                <li><a href="contact.html" class="cta-button">Donate</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="hero-content">
+            <h1>About Us</h1>
+            <p>Building a sustainable, food-secure future for Malawi through innovation and community partnership</p>
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <section class="about-hero">
-        <div class="container">
-            <h1>About Us</h1>
-            <p>We are dedicated to building a sustainable, food-secure future for Malawi through innovation and community partnership.</p>
-        </div>
-    </section>
-
-    <!-- Our Story Section -->
-    <section class="story">
-        <div class="container">
-            <div class="story-grid">
-                <div class="story-content">
-                    <h4>OUR STORY</h4>
-                    <h2>Born From a Vision of Self-Sufficiency</h2>
-                    <p>Our work combines renewable energy deployment, hands-on training, and inclusive enterprise development, aligned with Malawi Vision 2063, the Sustainable Development Goals (SDGs), and ESG principles.</p>
-                    <p>To date, Sun & Soil Foundation has implemented solar-powered irrigation installations and capacity-building programmes across Malawi, supporting 10 smallholder farmers and training 85 women, youth, and farmers, enabling year-round production, reduced fuel dependency, and improved household food security. Over the next five years, Sun & Soil Foundation aims to reach 50,000 farmers nationwide.</p>
-                </div>
-                <div class="story-image">
-                    <div class="story-img" style="background: url('./assets/about-farmer.jpg') center/cover;"></div>
-                    <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 10px; text-align: center;">Malawian farmer benefiting from solar irrigation</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Vision & Mission Section -->
-    <section class="vision-mission" id="vision">
-        <div class="container">
-            <div class="vm-grid">
-                <div class="vm-card vision">
-                    <div class="vm-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
+    <!-- Main Content -->
+    <main>
+        <!-- Our Story Section -->
+        <section class="intro-section">
+            <div class="intro-container">
+                <span class="section-badge">Our Story</span>
+                <h2 class="section-title">Born From a Vision of <span class="highlight">Self-Sufficiency</span></h2>
+                
+                <div class="intro-grid">
+                    <div class="intro-content">
+                        <p>Our work combines <strong>renewable energy deployment</strong>, hands-on training, and inclusive enterprise development, aligned with <strong>Malawi Vision 2063</strong>, the <strong>Sustainable Development Goals (SDGs)</strong>, and <strong>ESG principles</strong>.</p>
+                        
+                        <p>To date, Sun & Soil Foundation has implemented solar-powered irrigation installations and capacity-building programmes across Malawi, supporting <strong>10 smallholder farmers</strong> and training <strong>85 women, youth, and farmers</strong>, enabling year-round production, reduced fuel dependency, and improved household food security.</p>
+                        
+                        <p>Over the next five years, Sun & Soil Foundation aims to reach <strong>50,000 farmers nationwide</strong>.</p>
                     </div>
-                    <h3>Our Vision</h3>
-                    <p>A Malawi where every community is food secure, climate-resilient, economically empowered, and powered by clean energy.</p>
+
+                    <figure class="intro-image">
+                        <img src="./assets/images/farmer-solar.jpg" alt="Malawian farmer benefiting from solar irrigation" onerror="this.src='./assets/images/hero-bg.png'">
+                        <figcaption>Malawian farmer benefiting from solar irrigation</figcaption>
+                    </figure>
                 </div>
-                <div class="vm-card mission">
-                    <div class="vm-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
-                    </div>
-                    <h3>Our Mission</h3>
-                    <p>To empower vulnerable households through solar-powered agriculture, climate-smart farming, and inclusive livelihood programmes.</p>
+            </div>
+        </section>
+
+        <!-- Stats Banner -->
+        <div class="stats-banner">
+            <div class="stats-container">
+                <div class="stat-item">
+                    <span class="stat-number">10</span>
+                    <span class="stat-label">Smallholder Farmers Supported</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">85</span>
+                    <span class="stat-label">People Trained</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">50K</span>
+                    <span class="stat-label">Target Farmers by 2030</span>
                 </div>
             </div>
         </div>
-    </section>
 
-    <!-- Core Values Section -->
-    <section class="values">
-        <div class="container">
-            <div class="section-header">
-                <h4>WHAT GUIDES US</h4>
-                <h2>Our Core Values</h2>
-                <p>These principles shape every program we design and every partnership we build.</p>
+        <!-- Vision & Mission Section -->
+        <section class="vision-mission-section">
+            <div class="vision-mission-container">
+                <span class="section-badge">Our Direction</span>
+                <h2 class="section-title">Vision & <span class="highlight">Mission</span></h2>
+                
+                <div class="vision-mission-grid">
+                    <!-- Vision -->
+                    <div class="vision-mission-card">
+                        <div class="vision-mission-icon">
+                            <i class="fi fi-rr-eye"></i>
+                        </div>
+                        <h3>Our Vision</h3>
+                        <p>A Malawi where every community is food secure, climate-resilient, economically empowered, and powered by clean energy.</p>
+                    </div>
+
+                    <!-- Mission -->
+                    <div class="vision-mission-card">
+                        <div class="vision-mission-icon">
+                            <i class="fi fi-rr-target"></i>
+                        </div>
+                        <h3>Our Mission</h3>
+                        <p>To empower vulnerable households through solar-powered agriculture, climate-smart farming, and inclusive livelihood programmes.</p>
+                    </div>
+                </div>
             </div>
-            <div class="values-grid">
-                <div class="value-card">
-                    <div class="value-header">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        </section>
+
+        <!-- Core Values Section -->
+        <section class="values-section">
+            <div class="values-container">
+                <span class="section-badge">What Guides Us</span>
+                <h2 class="section-title">Our Core <span class="highlight">Values</span></h2>
+                <p style="font-size: 18px; color: var(--gray-medium); max-width: 700px; margin: 0 auto 0;">These principles shape every program we design and every partnership we build.</p>
+                
+                <div class="values-grid">
+                    <!-- Sustainability -->
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i class="fi fi-rr-leaf"></i>
+                        </div>
                         <h3>Sustainability</h3>
+                        <p>Ensuring long-term impact through environmentally sound and economically viable solutions.</p>
                     </div>
-                    <p>Ensuring long-term impact through environmentally sound and economically viable solutions.</p>
-                </div>
-                <div class="value-card">
-                    <div class="value-header">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-                        <h3>Inclusion</h3>
-                    </div>
-                    <p>Actively involving women, youth, and marginalized groups in all our initiatives.</p>
-                </div>
-                <div class="value-card">
-                    <div class="value-header">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-                        <h3>Innovation</h3>
-                    </div>
-                    <p>Embracing new technologies and creative approaches to agricultural challenges.</p>
-                </div>
-                <div class="value-card">
-                    <div class="value-header">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-                        <h3>Accountability</h3>
-                    </div>
-                    <p>Maintaining transparency and responsibility to our partners and the communities we serve.</p>
-                </div>
-                <div class="value-card">
-                    <div class="value-header">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-                        <h3>Empowerment</h3>
-                    </div>
-                    <p>Building local capacity and confidence for self-sufficient development.</p>
-                </div>
-                <div class="value-card">
-                    <div class="value-header">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-                        <h3>Environmental Stewardship</h3>
-                    </div>
-                    <p>Protecting and restoring natural resources through climate-smart practices.</p>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- Strategic Alignment Section -->
-    <section class="alignment-section">
-        <div class="container">
-            <div class="section-header">
-                <h4>STRATEGIC ALIGNMENT</h4>
-                <h2>Alignment With National & Global Frameworks</h2>
-                <p>Our work is deeply integrated with the development goals of Malawi and the international community.</p>
+                    <!-- Inclusion -->
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i class="fi fi-rr-users"></i>
+                        </div>
+                        <h3>Inclusion</h3>
+                        <p>Actively involving women, youth, and marginalized groups in all our initiatives.</p>
+                    </div>
+
+                    <!-- Innovation -->
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i class="fi fi-rr-bulb"></i>
+                        </div>
+                        <h3>Innovation</h3>
+                        <p>Embracing new technologies and creative approaches to agricultural challenges.</p>
+                    </div>
+
+                    <!-- Accountability -->
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i class="fi fi-rr-shield-check"></i>
+                        </div>
+                        <h3>Accountability</h3>
+                        <p>Maintaining transparency and responsibility to our partners and communities.</p>
+                    </div>
+
+                    <!-- Empowerment -->
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i class="fi fi-rr-hand-holding-heart"></i>
+                        </div>
+                        <h3>Empowerment</h3>
+                        <p>Building local capacity and confidence for self-sufficient development.</p>
+                    </div>
+
+                    <!-- Environmental Stewardship -->
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i class="fi fi-rr-world"></i>
+                        </div>
+                        <h3>Environmental Stewardship</h3>
+                        <p>Protecting and restoring natural resources through climate-smart practices.</p>
+                    </div>
+                </div>
             </div>
-            
-            <div class="alignment-grid">
-                <div class="framework-card">
-                    <h3>Malawi Vision 2063</h3>
-                    <div class="pillar-list">
-                        <div class="pillar-item">
-                            <div class="pillar-num">1</div>
-                            <div class="pillar-text">
-                                <h4>Agricultural Productivity</h4>
+        </section>
+
+        <!-- Strategic Alignment Section -->
+        <section class="alignment-section">
+            <div class="alignment-container">
+                <span class="section-badge">Strategic Alignment</span>
+                <h2 class="section-title">Aligned With National & <span class="highlight">Global Frameworks</span></h2>
+                
+                <div class="alignment-intro">
+                    <p>Our work is deeply integrated with the development goals of Malawi and the international community.</p>
+                </div>
+
+                <div class="alignment-grid">
+                    <!-- Malawi Vision 2063 -->
+                    <div class="alignment-card">
+                        <h3><i class="fi fi-rr-flag"></i> Malawi Vision 2063</h3>
+                        <div class="alignment-pillars">
+                            <div class="pillar-item">
+                                <h4>1. Agricultural Productivity</h4>
                                 <p>Focusing on commercialization and modern farming techniques.</p>
                             </div>
-                        </div>
-                        <div class="pillar-item">
-                            <div class="pillar-num">2</div>
-                            <div class="pillar-text">
-                                <h4>Industrialization</h4>
+                            <div class="pillar-item">
+                                <h4>2. Industrialization</h4>
                                 <p>Supporting value addition and local processing hubs.</p>
                             </div>
-                        </div>
-                        <div class="pillar-item">
-                            <div class="pillar-num">3</div>
-                            <div class="pillar-text">
-                                <h4>Urbanization</h4>
+                            <div class="pillar-item">
+                                <h4>3. Urbanization</h4>
                                 <p>Driving rural transformation through sustainable infrastructure.</p>
                             </div>
-                        </div>
-                        <div class="pillar-item">
-                            <div class="pillar-num">E</div>
-                            <div class="pillar-text">
-                                <h4>Enablers</h4>
+                            <div class="pillar-item">
+                                <h4>E. Enablers</h4>
                                 <p>Leveraging technology, governance, and human capital.</p>
                             </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="framework-card">
-                    <h3>Sustainable Development Goals</h3>
-                    <p>Sun & Soil advances 9 key SDGs:</p>
-                    <div class="sdg-grid">
-                        <div class="sdg-item"><span class="sdg-num">1</span><span class="sdg-label">No Poverty</span></div>
-                        <div class="sdg-item"><span class="sdg-num">2</span><span class="sdg-label">Zero Hunger</span></div>
-                        <div class="sdg-item"><span class="sdg-num">5</span><span class="sdg-label">Gender Equality</span></div>
-                        <div class="sdg-item"><span class="sdg-num">7</span><span class="sdg-label">Clean Energy</span></div>
-                        <div class="sdg-item"><span class="sdg-num">8</span><span class="sdg-label">Decent Work</span></div>
-                        <div class="sdg-item"><span class="sdg-num">10</span><span class="sdg-label">Reduced Inequalities</span></div>
-                        <div class="sdg-item"><span class="sdg-num">12</span><span class="sdg-label">Responsible Production</span></div>
-                        <div class="sdg-item"><span class="sdg-num">13</span><span class="sdg-label">Climate Action</span></div>
-                        <div class="sdg-item"><span class="sdg-num">15</span><span class="sdg-label">Life on Land</span></div>
+                    <!-- Sustainable Development Goals -->
+                    <div class="alignment-card">
+                        <h3><i class="fi fi-rr-globe"></i> Sustainable Development Goals</h3>
+                        <p style="margin-bottom: 16px; color: var(--gray-medium);">Sun & Soil advances 9 key SDGs:</p>
+                        <div class="sdg-grid">
+                            <div class="sdg-item">
+                                <div class="sdg-number">1</div>
+                                No Poverty
+                            </div>
+                            <div class="sdg-item">
+                                <div class="sdg-number">2</div>
+                                Zero Hunger
+                            </div>
+                            <div class="sdg-item">
+                                <div class="sdg-number">5</div>
+                                Gender Equality
+                            </div>
+                            <div class="sdg-item">
+                                <div class="sdg-number">7</div>
+                                Clean Energy
+                            </div>
+                            <div class="sdg-item">
+                                <div class="sdg-number">8</div>
+                                Decent Work
+                            </div>
+                            <div class="sdg-item">
+                                <div class="sdg-number">10</div>
+                                Reduced Inequalities
+                            </div>
+                            <div class="sdg-item">
+                                <div class="sdg-number">12</div>
+                                Responsible Production
+                            </div>
+                            <div class="sdg-item">
+                                <div class="sdg-number">13</div>
+                                Climate Action
+                            </div>
+                            <div class="sdg-item">
+                                <div class="sdg-number">15</div>
+                                Life on Land
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ESG Principles -->
+                    <div class="alignment-card">
+                        <h3><i class="fi fi-rr-chart-tree"></i> ESG Principles</h3>
+                        <div class="esg-pillars">
+                            <div class="esg-pillar">
+                                <h4>Environmental</h4>
+                                <p>Clean energy adoption, water efficiency, and soil health restoration.</p>
+                            </div>
+                            <div class="esg-pillar">
+                                <h4>Social</h4>
+                                <p>Inclusion of marginalized groups, skills development, and food security.</p>
+                            </div>
+                            <div class="esg-pillar">
+                                <h4>Governance</h4>
+                                <p>Transparency, accountability, and reinvestment in community programs.</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
+        </section>
 
-            <div class="esg-grid">
-                <div class="esg-card">
-                    <h4>Environmental</h4>
-                    <p>Clean energy adoption, water efficiency, and soil health restoration.</p>
+        <!-- Future Outlook Section -->
+        <section class="outlook-section">
+            <div class="outlook-container">
+                <span class="section-badge">Future Outlook</span>
+                <h2 class="section-title">Scaling Forward <span class="highlight">(2025–2030)</span></h2>
+                <p style="font-size: 18px; color: var(--gray-medium); max-width: 700px; margin: 0 auto;">Our commitment to reach 50,000 farmers nationwide</p>
+
+                <div class="outlook-stats">
+                    <div class="outlook-stat-card">
+                        <div class="outlook-stat-number">50,000</div>
+                        <div class="outlook-stat-label">Farmers in 5 years (2026-2030)</div>
+                    </div>
+                    <div class="outlook-stat-card">
+                        <div class="outlook-stat-number">10,000</div>
+                        <div class="outlook-stat-label">Farmers benefiting each year</div>
+                    </div>
                 </div>
-                <div class="esg-card">
-                    <h4>Social</h4>
-                    <p>Inclusion of marginalized groups, skills development, and food security.</p>
-                </div>
-                <div class="esg-card">
-                    <h4>Governance</h4>
-                    <p>Transparency, accountability, and reinvestment in community programs.</p>
+
+                <div class="initiatives-grid">
+                    <div class="initiative-card">
+                        <h3>Expand solar irrigation installations</h3>
+                        <p>Increasing our reach to new districts and communities across Malawi.</p>
+                    </div>
+                    <div class="initiative-card">
+                        <h3>Scale training programmes</h3>
+                        <p>Broadening our curriculum to cover advanced climate-smart techniques.</p>
+                    </div>
+                    <div class="initiative-card">
+                        <h3>Establish climate-smart agriculture hubs</h3>
+                        <p>Creating centers of excellence for demonstration and learning.</p>
+                    </div>
+                    <div class="initiative-card">
+                        <h3>Strengthen women and youth-led enterprises</h3>
+                        <p>A holistic approach combining skills, finance, and mentorship.</p>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
-    <!-- Future Outlook Section -->
-    <section class="outlook-section">
-        <div class="container">
-            <div class="outlook-header">
-                <h4>FUTURE OUTLOOK</h4>
-                <h2>Scaling Forward (2025–2030)</h2>
-                <p>Our commitment to reach 50,000 farmers nationwide.</p>
-            </div>
+    <!-- Call to Action Section -->
+    <section class="cta-section">
+        <div class="cta-container">
+            <h2>Join Us in Building a Sustainable Future</h2>
+            <p>Partner with us to empower Malawian communities through solar-powered agriculture and climate-smart farming. Together, we can create lasting change.</p>
 
-            <div class="outlook-stats">
-                <div class="outlook-stat">
-                    <h3>50,000</h3>
-                    <p>Farmers in 5 years (2026-2030)</p>
-                </div>
-                <div class="outlook-stat">
-                    <h3>10,000</h3>
-                    <p>Farmers benefiting each year</p>
-                </div>
-            </div>
-
-            <div class="strategy-grid">
-                <div class="strategy-card">
-                    <h4>Expand solar irrigation installations</h4>
-                    <p>Increasing our reach to new districts and communities across Malawi.</p>
-                </div>
-                <div class="strategy-card">
-                    <h4>Scale training programmes</h4>
-                    <p>Broadening our curriculum to cover advanced climate-smart techniques.</p>
-                </div>
-                <div class="strategy-card">
-                    <h4>Establish climate-smart agriculture hubs</h4>
-                    <p>Creating centers of excellence for demonstration and learning.</p>
-                </div>
-                <div class="strategy-card">
-                    <h4>Strengthen women and youth-led enterprises</h4>
-                    <p>A holistic approach combining skills, finance, and mentorship.</p>
-                </div>
+            <div class="cta-buttons">
+                <a href="get-involved.html" class="btn btn-primary">
+                    Get Involved
+                </a>
+                <a href="contact.html" class="btn btn-secondary">
+                    Contact Us
+                </a>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-about">
-                    <a href="index.html" class="logo">
-                        <img src="assets/SUN AND SOIL LOGO.png" alt="Sun & Soil Foundation Logo" style="height: 60px; background: white; padding: 5px; border-radius: 8px;">
-                    </a>
-                    <p>Empowering Malawian communities through solar-powered irrigation, climate-smart agriculture, and sustainable rural livelihoods.</p>
-                    <div class="social-links">
-                        <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
-                        <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/></svg></a>
-                        <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg></a>
-                        <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg></a>
-                    </div>
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-content">
+                <!-- Company Info -->
+                <div class="footer-section">
+                    <h3>Sun & Soil Foundation</h3>
+                    <p>Empowering vulnerable households through solar-powered agriculture, climate-smart farming, and inclusive livelihood programmes across Malawi.</p>
                 </div>
-                <div class="footer-col">
-                    <h4>Quick Links</h4>
-                    <ul>
+
+                <!-- Quick Links -->
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
                         <li><a href="about.html">About Us</a></li>
-                        <li><a href="programs.html">Our Programs</a></li>
-                        <li><a href="projects.html">Projects & Impact</a></li>
-                        <li><a href="team.html">Our Team</a></li>
-                        <li><a href="partners.html">Partners</a></li>
+                        <li><a href="our-work.html">Our Work</a></li>
+                        <li><a href="impact.html">Impact</a></li>
+                        <li><a href="news.html">News</a></li>
+                    </ul>
+                </div>
+
+                <!-- Get Involved -->
+                <div class="footer-section">
+                    <h3>Get Involved</h3>
+                    <ul class="footer-links">
+                        <li><a href="get-involved.html#donate">Donate</a></li>
+                        <li><a href="get-involved.html#partner">Partner With Us</a></li>
+                        <li><a href="get-involved.html#volunteer">Volunteer</a></li>
                         <li><a href="contact.html">Contact Us</a></li>
                     </ul>
                 </div>
-                <div class="footer-col">
-                    <h4>Our Focus</h4>
-                    <ul>
-                        <li><a href="#">Solar Irrigation</a></li>
-                        <li><a href="#">Climate-Smart Agriculture</a></li>
-                        <li><a href="#">Women Empowerment</a></li>
-                        <li><a href="#">Youth Capacity Building</a></li>
-                        <li><a href="#">Rural Livelihoods</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4>Contact Us</h4>
-                    <div class="contact-info">
-                        <div class="contact-item">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
-                            <span>Kaphiri, Area 36, Lilongwe, Malawi</span>
-                        </div>
-                        <div class="contact-item">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-                            <span>+265 995 856 237 / 888 655 069</span>
-                        </div>
-                        <div class="contact-item">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
-                            <span>sunandsoilfoundation@gmail.com</span>
-                        </div>
+
+                <!-- Contact Info -->
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <div class="footer-contact-item">
+                        <i class="fi fi-rr-marker"></i>
+                        <span>Area 47, Sector 5, Lilongwe, Malawi</span>
+                    </div>
+                    <div class="footer-contact-item">
+                        <i class="fi fi-rr-phone-call"></i>
+                        <span>+265 991 65 49 61</span>
+                    </div>
+                    <div class="footer-contact-item">
+                        <i class="fi fi-rr-envelope"></i>
+                        <span>info@sunandsoilfoundation.org</span>
                     </div>
                 </div>
             </div>
+
             <div class="footer-bottom">
                 <p>&copy; 2025 Sun & Soil Foundation. All rights reserved.</p>
-                <div class="footer-legal">
-                    <a href="#">Privacy Policy</a>
-                    <a href="#">Terms of Service</a>
-                    <a href="#">Cookie Policy</a>
-                </div>
             </div>
         </div>
     </footer>
 
-    <script src="js/main.js"></script>
+    <script>
+        // Mobile menu functionality
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
+
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            
+            // Animate hamburger menu
+            const spans = menuToggle.getElementsByTagName('span');
+            if (navLinks.classList.contains('active')) {
+                spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
+                spans[1].style.opacity = '0';
+                spans[2].style.transform = 'rotate(-45deg) translate(7px, -6px)';
+            } else {
+                spans[0].style.transform = 'rotate(0) translate(0, 0)';
+                spans[1].style.opacity = '1';
+                spans[2].style.transform = 'rotate(0) translate(0, 0)';
+            }
+        });
+
+        // Close mobile menu when clicking on a link
+        navLinks.addEventListener('click', (e) => {
+            if (e.target.tagName === 'A') {
+                navLinks.classList.remove('active');
+                const spans = menuToggle.getElementsByTagName('span');
+                spans[0].style.transform = 'rotate(0) translate(0, 0)';
+                spans[1].style.opacity = '1';
+                spans[2].style.transform = 'rotate(0) translate(0, 0)';
+            }
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add scroll animation
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all cards and sections
+        document.querySelectorAll('.value-card, .vision-mission-card, .alignment-card, .initiative-card, .outlook-stat-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+    </script>
 </body>
 </html>
